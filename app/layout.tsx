@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     siteName: "Shahzad Cloth House",
     title: "Shahzad Cloth House — Fabric Heritage Since 1992",
     description:
-      "A family fabric house in Kashmiri Mohalla, Sialkot, serving three generations since 1992. Lawn, suiting, silk, linen, wedding wear — handpicked from Pakistan's finest mills.",
+      "A family fabric house in Kashmiri Mohalla, Sialkot, serving customers since 1992. Lawn, suiting, silk, linen, wedding wear — handpicked from Pakistan's finest mills.",
     images: [
       {
         url: "/og.svg",

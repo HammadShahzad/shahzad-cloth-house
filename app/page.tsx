@@ -82,170 +82,75 @@ export default function Home() {
   return (
     <main className="relative overflow-clip">
       {/* NAV */}
-      <header className="sticky top-0 z-40 backdrop-blur-sm bg-[color:var(--color-bone)]/72 border-b border-[color:var(--color-oxblood)]/12">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-4 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3" aria-label="Shahzad Cloth House — home">
-            <Monogram className="h-9 w-9 text-[color:var(--color-oxblood)]" />
-            <div className="leading-none">
-              <div className="display text-[20px] md:text-[22px] text-[color:var(--color-ink)]">
-                Shahzad <span className="display-italic">Cloth House</span>
-              </div>
-              <div className="text-[10px] tracking-[0.32em] uppercase text-[color:var(--color-oxblood)]/80 mt-1">
-                Since 1992 · Sialkot
-              </div>
-            </div>
+      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-sm border-b border-[color:var(--color-ink)]/10">
+        <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-5 flex items-center justify-between">
+          <a href="#top" className="display text-[18px] md:text-[20px] text-[color:var(--color-ink)]" aria-label="Shahzad Cloth House — home">
+            Shahzad <span className="display-italic">Cloth House</span>
           </a>
-          <nav className="hidden md:flex items-center gap-9 text-[13px] tracking-wide text-[color:var(--color-ink)]/80">
-            <a href="#legacy" className="hover:text-[color:var(--color-oxblood)] transition-colors">Legacy</a>
-            <a href="#collections" className="hover:text-[color:var(--color-oxblood)] transition-colors">Collections</a>
-            <a href="#craft" className="hover:text-[color:var(--color-oxblood)] transition-colors">Craft</a>
-            <a href="#watch" className="hover:text-[color:var(--color-oxblood)] transition-colors inline-flex items-center gap-1.5">
-              <TikTokGlyph className="h-3.5 w-3.5" /> Watch
-            </a>
-            <a href="#visit" className="hover:text-[color:var(--color-oxblood)] transition-colors">Visit</a>
+          <nav className="hidden md:flex items-center gap-8 text-[13px] text-[color:var(--color-ink)]/75">
+            <a href="#collections" className="hover:text-[color:var(--color-oxblood)]">Collections</a>
+            <a href="#watch" className="hover:text-[color:var(--color-oxblood)]">Social</a>
+            <a href="#visit" className="hover:text-[color:var(--color-oxblood)]">Visit</a>
           </nav>
           <a
-            href={MAPS_URL}
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full border border-[color:var(--color-oxblood)] text-[color:var(--color-oxblood)] px-4 py-2 text-[12px] tracking-[0.18em] uppercase hover:bg-[color:var(--color-oxblood)] hover:text-[color:var(--color-cream)] transition-colors"
+            className="inline-flex items-center gap-2 bg-[color:var(--color-oxblood)] text-white px-4 py-2 rounded-full text-[12px] tracking-[0.16em] uppercase hover:bg-[color:var(--color-oxblood-deep)] transition-colors"
           >
-            Visit the Store
-            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">↗</span>
+            <WhatsAppGlyph className="h-3.5 w-3.5" />
+            WhatsApp
           </a>
         </div>
       </header>
 
       {/* HERO */}
       <section id="top" className="relative">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-10 md:pt-16 pb-16 md:pb-24 grid grid-cols-12 gap-x-6 gap-y-10">
-          {/* Main heading */}
-          <div className="col-span-12 md:col-span-9">
-            <div className="fade text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)] mb-7">
-              A Family Fabric House · Since 1992
-            </div>
-
-            <h1 className="display text-[color:var(--color-ink)] text-[18vw] md:text-[13.5vw] leading-[0.82]">
-              <span className="block rise">Shahzad</span>
-              <span className="block rise display-italic text-[color:var(--color-oxblood)]" style={{ animationDelay: "120ms" }}>
-                Cloth&nbsp;House
-              </span>
-            </h1>
-
-            <div className="mt-8 origin-left h-px bg-[color:var(--color-oxblood)]/50 draw" />
-
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
-              <p className="md:col-span-7 text-[17px] md:text-[19px] leading-[1.55] text-[color:var(--color-ink)]/85">
-                Three generations of a single Sialkot shop, a ledger of fabric
-                kept faithfully since <em className="display-italic">nineteen ninety-two</em>.
-                We stock the cloth we would wear ourselves — nothing we wouldn't.
-              </p>
-              <div className="md:col-span-5 urdu text-[28px] md:text-[34px] text-[color:var(--color-oxblood-deep)]" aria-hidden>
-                شہزاد کلاتھ ہاؤس
-                <div className="urdu text-[18px] md:text-[20px] text-[color:var(--color-gold-dark)] mt-1">
-                  ورائٹی کا اعلیٰ مرکز
-                </div>
-                <div className="text-[12px] tracking-[0.18em] uppercase mt-2 text-[color:var(--color-ink)]/60" dir="ltr">
-                  Ladies &amp; Gents · Premier Variety
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lift inline-flex items-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-full text-[13px] tracking-[0.22em] uppercase"
-              >
-                <WhatsAppGlyph className="h-4 w-4" />
-                WhatsApp
-              </a>
-              <a
-                href={`tel:${PHONE_TEL}`}
-                className="lift inline-flex items-center gap-3 bg-[color:var(--color-oxblood)] text-[color:var(--color-cream)] px-6 py-4 rounded-full text-[13px] tracking-[0.22em] uppercase"
-              >
-                Call {PHONE_DISPLAY}
-              </a>
-              <a
-                href={MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 border border-[color:var(--color-ink)]/35 text-[color:var(--color-ink)] px-6 py-4 rounded-full text-[13px] tracking-[0.22em] uppercase hover:border-[color:var(--color-ink)] transition-colors"
-              >
-                Directions
-                <Arrow />
-              </a>
-            </div>
+        <div className="mx-auto max-w-[900px] px-6 md:px-10 pt-20 md:pt-32 pb-20 md:pb-28 text-center">
+          <div className="text-[11px] tracking-[0.38em] uppercase text-[color:var(--color-oxblood)]">
+            Since 1992 · Kashmiri Mohalla, Sialkot
           </div>
 
-          {/* Right rail — 1992 dossier */}
-          <aside className="col-span-12 md:col-span-3 relative">
-            <div className="frame-corner relative p-6 md:p-7 bg-[color:var(--color-cream)]/65 h-full">
-              <div className="flex items-start justify-between">
-                <div className="text-[10px] tracking-[0.34em] uppercase text-[color:var(--color-oxblood)]">The Shop</div>
-                <div className="spinslow" aria-hidden>
-                  <StampMark className="h-16 w-16 text-[color:var(--color-oxblood)]/70" />
-                </div>
-              </div>
-              <div className="mt-4">
-                <div className="display text-[76px] leading-none text-[color:var(--color-ink)]">1992</div>
-                <div className="text-[11px] tracking-[0.3em] uppercase text-[color:var(--color-ink)]/60 mt-1">
-                  Founded · Sialkot
-                </div>
-              </div>
-              <Divider className="my-5 text-[color:var(--color-oxblood)]/40" />
-              <dl className="space-y-3 text-[13px]">
-                <Row k="Discipline" v="Unstitched Fabric" />
-                <Row k="Generations" v="Three" />
-                <Row k="Mills" v="Pakistan" />
-                <Row k="Ethos" v="Honesty of Hand" />
-              </dl>
-              <Divider className="my-5 text-[color:var(--color-oxblood)]/40" />
-              <a
-                href={`tel:${PHONE_TEL}`}
-                className="block text-[12px] tracking-[0.22em] uppercase text-[color:var(--color-oxblood)] hover:text-[color:var(--color-oxblood-deep)]"
-              >
-                Call {PHONE_DISPLAY} →
-              </a>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 text-[12px] tracking-[0.22em] uppercase text-[color:var(--color-moss)] hover:text-[color:var(--color-ink)]"
-              >
-                <WhatsAppGlyph className="h-3.5 w-3.5" /> WhatsApp →
-              </a>
-            </div>
-          </aside>
-        </div>
+          <h1 className="display mt-10 text-[color:var(--color-ink)] text-[60px] md:text-[104px] leading-[0.95]">
+            Shahzad <span className="display-italic text-[color:var(--color-oxblood)]">Cloth House</span>
+          </h1>
 
-        {/* Marquee */}
-        <div className="border-y border-[color:var(--color-oxblood)]/20 bg-[color:var(--color-cream)]/60 overflow-hidden">
-          <div className="marquee-track flex whitespace-nowrap py-4">
-            {Array.from({ length: 2 }).map((_, i) => (
-              <div key={i} className="flex shrink-0 items-center gap-10 pr-10 text-[color:var(--color-oxblood)]">
-                {[
-                  "Lawn",
-                  "Karandi",
-                  "Khaddar",
-                  "Wash & Wear",
-                  "Cotton",
-                  "Linen",
-                  "Raw Silk",
-                  "Banarsi",
-                  "Chikankari",
-                  "Wool-Blend",
-                  "Zari",
-                  "Organza",
-                ].map((w) => (
-                  <span key={w} className="display text-[44px] md:text-[56px] leading-none display-italic">
-                    {w}
-                    <span className="inline-block mx-6 align-middle text-[color:var(--color-gold)]">✶</span>
-                  </span>
-                ))}
-              </div>
-            ))}
+          <div className="urdu mt-8 text-[32px] md:text-[40px] text-[color:var(--color-oxblood-deep)]" aria-hidden>
+            شہزاد کلاتھ ہاؤس
+          </div>
+          <div className="urdu text-[18px] md:text-[22px] text-[color:var(--color-gold-dark)] mt-1" aria-hidden>
+            ورائٹی کا اعلیٰ مرکز
+          </div>
+
+          <p className="mt-8 max-w-xl mx-auto text-[16px] md:text-[18px] leading-[1.6] text-[color:var(--color-ink)]/75">
+            Ladies &amp; Gents · Premier variety of unstitched fabric,
+            family-run since 1992.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-6 py-3.5 rounded-full text-[13px] tracking-[0.2em] uppercase"
+            >
+              <WhatsAppGlyph className="h-4 w-4" />
+              WhatsApp
+            </a>
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="inline-flex items-center gap-2 bg-[color:var(--color-oxblood)] text-white px-6 py-3.5 rounded-full text-[13px] tracking-[0.2em] uppercase hover:bg-[color:var(--color-oxblood-deep)] transition-colors"
+            >
+              Call {PHONE_DISPLAY}
+            </a>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-[color:var(--color-ink)]/25 text-[color:var(--color-ink)] px-6 py-3.5 rounded-full text-[13px] tracking-[0.2em] uppercase hover:border-[color:var(--color-ink)] transition-colors"
+            >
+              Directions
+            </a>
           </div>
         </div>
       </section>
@@ -258,7 +163,7 @@ export default function Home() {
               The Legacy
             </div>
             <h2 className="display text-[56px] md:text-[76px] mt-4 text-[color:var(--color-ink)]">
-              Three decades<br />
+              Over 30 years<br />
               <span className="display-italic text-[color:var(--color-oxblood)]">of cloth</span>,<br />
               kept honestly.
             </h2>
@@ -308,7 +213,7 @@ export default function Home() {
 
             <div className="pt-8 grid grid-cols-3 gap-6 border-t border-[color:var(--color-oxblood)]/15">
               <Stat k="Since" v="1992" />
-              <Stat k="Generations" v="III" />
+              <Stat k="Proprietor" v="One" />
               <Stat k="Returning Customers" v="∞" />
             </div>
           </div>
@@ -390,8 +295,8 @@ export default function Home() {
             </h2>
             <p className="mt-6 text-[16px] leading-[1.7] text-[color:var(--color-ink)]/80 max-w-md">
               Three principles we refuse to bend on. They're why the shop is
-              still here after thirty-odd years — and why the sons and
-              grandsons of our first customers still walk through the door.
+              still here after thirty-odd years — and why our first
+              customers keep walking back through the door.
             </p>
           </div>
 
@@ -410,7 +315,7 @@ export default function Home() {
               {
                 n: "III",
                 t: "A Promise Behind Every Cut",
-                d: "If it doesn't hold its colour, its hand, or its word — bring it back. Thirty-three years of that promise.",
+                d: "If it doesn't hold its colour, its hand, or its word — bring it back. That's the promise since 1992.",
               },
             ].map((v) => (
               <article
@@ -434,16 +339,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
+      {/* GOOGLE REVIEWS */}
       <section className="relative py-20 md:py-28 bg-[color:var(--color-cream)] border-y border-[color:var(--color-oxblood)]/15">
-        <div className="mx-auto max-w-[1100px] px-6 md:px-10 text-center">
-          <div className="display display-italic text-[color:var(--color-gold)] text-[44px] leading-none">“</div>
-          <blockquote className="display text-[32px] md:text-[52px] leading-[1.1] text-[color:var(--color-ink)] mt-2">
-            My mother bought my wedding cloth here in <span className="display-italic text-[color:var(--color-oxblood)]">1998</span>.
-            Last month I brought my daughter. Same shop, same promise.
-          </blockquote>
-          <div className="mt-8 text-[11px] tracking-[0.4em] uppercase text-[color:var(--color-ink)]/60">
-            — A returning customer, Sialkot
+        <div className="mx-auto max-w-[900px] px-6 md:px-10 text-center">
+          <GoogleLogo className="h-8 mx-auto" />
+          <div className="mt-5 text-[11px] tracking-[0.36em] uppercase text-[color:var(--color-oxblood)]">
+            Reviews · Google Business Profile
+          </div>
+          <h2 className="display text-[38px] md:text-[52px] leading-[1.05] text-[color:var(--color-ink)] mt-5">
+            What our <span className="display-italic text-[color:var(--color-oxblood)]">customers</span> say
+          </h2>
+          <div className="mt-6 inline-flex items-center gap-2 text-[color:var(--color-gold-dark)]" aria-hidden>
+            {[0, 1, 2, 3, 4].map((i) => (
+              <svg key={i} viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor">
+                <path d="M12 2l2.9 6.9 7.4.6-5.6 4.9 1.7 7.3L12 17.8l-6.4 3.9 1.7-7.3-5.6-4.9 7.4-.6L12 2z" />
+              </svg>
+            ))}
+          </div>
+          <p className="mt-6 text-[15px] md:text-[16px] leading-[1.7] text-[color:var(--color-ink)]/75 max-w-lg mx-auto">
+            Read honest reviews from Sialkot customers on our Google listing —
+            or leave one of your own after your visit.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[color:var(--color-ink)] text-white px-6 py-3.5 rounded-full text-[13px] tracking-[0.2em] uppercase hover:bg-[color:var(--color-oxblood-deep)] transition-colors"
+            >
+              Read Reviews on Google
+            </a>
+            <a
+              href={MAPS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-[color:var(--color-ink)]/25 text-[color:var(--color-ink)] px-6 py-3.5 rounded-full text-[13px] tracking-[0.2em] uppercase hover:border-[color:var(--color-ink)] transition-colors"
+            >
+              Leave a Review
+            </a>
           </div>
         </div>
       </section>
@@ -811,6 +744,19 @@ function TikTokGlyph({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
       <path d="M19.6 6.4a4.6 4.6 0 0 1-3.5-1.6V14a4.5 4.5 0 1 1-4.5-4.5c.2 0 .4 0 .6.04v2.36a2.13 2.13 0 1 0 1.5 2.04V2h2.4a4.6 4.6 0 0 0 3.5 4.4v2z" />
+    </svg>
+  );
+}
+
+function GoogleLogo({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 272 92" className={className} xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+      <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+      <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/>
+      <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/>
+      <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
+      <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
+      <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91S16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"/>
     </svg>
   );
 }
