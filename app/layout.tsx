@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope, Noto_Nastaliq_Urdu } from "next/font/google";
 import Script from "next/script";
-import ThaanCurtain from "./components/ThaanCurtain";
 import RevealController from "./components/RevealController";
 import "./globals.css";
 
@@ -205,10 +204,9 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable} ${nastaliq.variable}`}
       suppressHydrationWarning
     >
-      <body className="grain" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         {children}
         <RevealController />
-        <ThaanCurtain />
         <Script
           id="ld-store"
           type="application/ld+json"

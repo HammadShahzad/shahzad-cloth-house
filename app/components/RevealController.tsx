@@ -3,9 +3,8 @@
 import { useEffect } from "react";
 
 /**
- * Scroll-driven "unroll" reveals for any element with [data-reveal].
- * Adds data-revealed="true" when the element crosses ~10% into view.
- * No state, no re-renders.
+ * Scroll-triggered fade-up reveals for any element with [data-in].
+ * Sets data-in-view="true" when the element enters the viewport.
  */
 export default function RevealController() {
   useEffect(() => {
@@ -14,55 +13,46 @@ export default function RevealController() {
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-
-    const targets = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const targets = document.querySelectorAll<HTMLElement>("[data-in]");
     if (!targets.length) return;
 
     if (reduced) {
-      targets.forEach((el) => el.setAttribute("data-revealed", "true"));
+      targets.forEach((el) => el.setAttribute("data-in-view", "true"));
       return;
     }
 
+    // Immediate pass: reveal anything already in the viewport.
+    const vh = window.innerHeight;
+    targets.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.9) el.setAttribute("data-in-view", "true");
+    });
+
     const io = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute("data-revealed", "true");
-            io.unobserve(entry.target);
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.setAttribute("data-in-view", "true");
+            io.unobserve(e.target);
           }
         }
       },
-      { rootMargin: "-10% 0px -10% 0px", threshold: 0 },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
     );
-
-    targets.forEach((el) => io.observe(el));
-
-    // Safety net: anything already in the viewport on mount reveals immediately.
-    // Guards against IO-initialization edge cases on older iOS / restricted runtimes.
-    requestAnimationFrame(() => {
-      const vh = window.innerHeight;
-      targets.forEach((el) => {
-        const r = el.getBoundingClientRect();
-        if (r.top < vh * 0.9 && r.bottom > vh * 0.1) {
-          el.setAttribute("data-revealed", "true");
-          io.unobserve(el);
-        }
-      });
+    targets.forEach((el) => {
+      if (!el.getAttribute("data-in-view")) io.observe(el);
     });
 
-    // Ultimate failsafe: after 4s reveal anything still hidden so content is
-    // never permanently invisible.
-    const failsafe = window.setTimeout(() => {
-      targets.forEach((el) => {
-        if (!el.getAttribute("data-revealed")) {
-          el.setAttribute("data-revealed", "true");
-        }
-      });
-    }, 4000);
+    // Failsafe: reveal anything still hidden after 3s.
+    const t = window.setTimeout(() => {
+      document
+        .querySelectorAll<HTMLElement>('[data-in]:not([data-in-view="true"])')
+        .forEach((el) => el.setAttribute("data-in-view", "true"));
+    }, 3000);
 
     return () => {
       io.disconnect();
-      window.clearTimeout(failsafe);
+      window.clearTimeout(t);
     };
   }, []);
 
