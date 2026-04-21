@@ -111,6 +111,128 @@
 .lift { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
 .lift:hover { transform: translateY(-4px); }
 
+/* ─────────────────── Thaan — opening curtain ─────────────────── */
+@keyframes thaan-unroll {
+  0%   { transform: translateY(0); }
+  18%  { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+@keyframes thaan-spindle {
+  to { transform: translateX(-50%) rotate(720deg); }
+}
+@keyframes thaan-mark-rise {
+  0%   { opacity: 0; transform: translateY(16px); }
+  24%  { opacity: 1; transform: translateY(0); }
+  74%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-12px); }
+}
+
+.thaan-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: thaan-unroll 1600ms cubic-bezier(.77, 0, .18, 1) 120ms forwards;
+  will-change: transform;
+}
+
+.thaan-weave {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(21, 35, 92, 0.05) 0 1px,
+      transparent 1px 8px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(212, 166, 87, 0.05) 0 1px,
+      transparent 1px 9px
+    );
+  opacity: 0.8;
+}
+
+.thaan-mark {
+  position: relative;
+  text-align: center;
+  animation: thaan-mark-rise 1720ms ease both;
+}
+
+.thaan-curtain::after {
+  /* Gold "raw edge" at the bottom — follows the curtain as it unrolls */
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold) 18%,
+    var(--color-gold) 82%,
+    transparent
+  );
+  box-shadow: 0 -14px 30px rgba(212, 166, 87, 0.28);
+}
+
+.thaan-spindle {
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  width: 64px;
+  height: 64px;
+  transform: translateX(-50%);
+  animation: thaan-spindle 1600ms linear 120ms forwards;
+}
+
+/* ─────────────────── Scroll unrolls ─────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 35%, transparent 92%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 35%, transparent 92%);
+  -webkit-mask-size: 100% 220%;
+          mask-size: 100% 220%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: 0% 0%;
+          mask-position: 0% 0%;
+  transition:
+    opacity 800ms cubic-bezier(.16, 1, .3, 1),
+    transform 1000ms cubic-bezier(.16, 1, .3, 1),
+    -webkit-mask-position 1200ms cubic-bezier(.16, 1, .3, 1),
+    mask-position 1200ms cubic-bezier(.16, 1, .3, 1);
+  will-change: opacity, transform, mask-position;
+}
+[data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: none;
+  -webkit-mask-position: 0% 100%;
+          mask-position: 0% 100%;
+}
+
+/* Reduced motion — disable all unrolls */
+@media (prefers-reduced-motion: reduce) {
+  .thaan-curtain,
+  .thaan-spindle,
+  .thaan-weave,
+  .thaan-mark { display: none !important; }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    -webkit-mask-image: none !important;
+            mask-image: none !important;
+    transition: none !important;
+  }
+}
+
 /* Decorative corner frame */
 .frame-corner::before, .frame-corner::after {
   content: "";

@@ -108,13 +108,17 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section id="top" className="relative">
+      <section id="top" className="relative" data-reveal>
         <div className="mx-auto max-w-[900px] px-6 md:px-10 pt-20 md:pt-32 pb-20 md:pb-28 text-center">
           <div className="text-[11px] tracking-[0.38em] uppercase text-[color:var(--color-oxblood)]">
             Since 1991 · Kashmiri Mohalla, Sialkot
           </div>
 
-          <h1 className="display mt-10 text-[color:var(--color-ink)] text-[60px] md:text-[104px] leading-[0.95]">
+          <h1
+            className="display mt-10 text-[color:var(--color-ink)] text-[60px] md:text-[104px] leading-[0.95]"
+            data-reveal
+            style={{ transitionDelay: "120ms" }}
+          >
             Shahzad <span className="display-italic text-[color:var(--color-oxblood)]">Cloth House</span>
           </h1>
 
@@ -159,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* LEGACY */}
-      <section id="legacy" className="relative py-24 md:py-36">
+      <section id="legacy" className="relative py-24 md:py-36" data-reveal>
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-4 md:sticky md:top-28 self-start">
             <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)]">
@@ -170,7 +174,7 @@ export default function Home() {
               <span className="display-italic text-[color:var(--color-oxblood)]">of cloth</span>,<br />
               kept honestly.
             </h2>
-            <figure className="mt-8 relative">
+            <figure className="mt-8 relative" data-reveal style={{ transitionDelay: "180ms" }}>
               <div className="relative aspect-[4/5] w-full overflow-hidden border border-[color:var(--color-oxblood)]/30 bg-[color:var(--color-cream)]">
                 <Image
                   src="/father.jpg"
@@ -224,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* COLLECTIONS */}
-      <section id="collections" className="relative bg-[color:var(--color-oxblood)] text-[color:var(--color-cream)] py-24 md:py-36 overflow-hidden">
+      <section id="collections" className="relative bg-[color:var(--color-oxblood)] text-[color:var(--color-cream)] py-24 md:py-36 overflow-hidden" data-reveal>
         <div className="absolute inset-0 opacity-[0.09]" aria-hidden>
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -287,7 +291,7 @@ export default function Home() {
       </section>
 
       {/* CRAFT / VALUES */}
-      <section id="craft" className="relative py-24 md:py-36">
+      <section id="craft" className="relative py-24 md:py-36" data-reveal>
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
             <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)]">
@@ -343,7 +347,7 @@ export default function Home() {
       </section>
 
       {/* GOOGLE REVIEWS */}
-      <section className="relative py-20 md:py-28 bg-[color:var(--color-cream)] border-y border-[color:var(--color-oxblood)]/15">
+      <section className="relative py-20 md:py-28 bg-[color:var(--color-cream)] border-y border-[color:var(--color-oxblood)]/15" data-reveal>
         <div className="mx-auto max-w-[900px] px-6 md:px-10 text-center">
           <GoogleLogo className="h-8 mx-auto" />
           <div className="mt-5 text-[11px] tracking-[0.36em] uppercase text-[color:var(--color-oxblood)]">
@@ -385,7 +389,7 @@ export default function Home() {
       </section>
 
       {/* SOCIAL FEEDS */}
-      <section id="watch" className="relative py-24 md:py-36 bg-[color:var(--color-bone-2)]/60 border-y border-[color:var(--color-oxblood)]/15">
+      <section id="watch" className="relative py-24 md:py-36 bg-[color:var(--color-bone-2)]/60 border-y border-[color:var(--color-oxblood)]/15" data-reveal>
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
             <div>
@@ -504,7 +508,7 @@ export default function Home() {
       </section>
 
       {/* VISIT */}
-      <section id="visit" className="relative py-24 md:py-36">
+      <section id="visit" className="relative py-24 md:py-36" data-reveal>
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
             <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)]">

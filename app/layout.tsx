@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope, Noto_Nastaliq_Urdu } from "next/font/google";
 import Script from "next/script";
+import ThaanCurtain from "./components/ThaanCurtain";
+import RevealController from "./components/RevealController";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -205,6 +207,8 @@ export default function RootLayout({
     >
       <body className="grain" suppressHydrationWarning>
         {children}
+        <RevealController />
+        <ThaanCurtain />
         <Script
           id="ld-store"
           type="application/ld+json"
