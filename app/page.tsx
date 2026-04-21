@@ -1,4 +1,20 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Script from "next/script";
+
+const TIKTOK_HANDLE = "shahzadclothhouseskt";
+const TIKTOK_URL = `https://www.tiktok.com/@${TIKTOK_HANDLE}`;
+const INSTAGRAM_HANDLE = "shahzadclothhouse";
+const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+const FACEBOOK_HANDLE = "shahzadclothhouseskt";
+const FACEBOOK_URL = `https://www.facebook.com/${FACEBOOK_HANDLE}/`;
+
+const PHONE_DISPLAY = "0300 6143230";
+const PHONE_TEL = "+923006143230";
+const WHATSAPP_INTL = "923006143230";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_INTL}?text=${encodeURIComponent(
+  "Assalamu alaikum — I saw your website (shahzadclothhouse.com) and wanted to ask about ",
+)}`;
 
 export const metadata: Metadata = {
   title: "Shahzad Cloth House — Fabric Heritage Since 1992 | Sialkot",
@@ -75,7 +91,7 @@ export default function Home() {
                 Shahzad <span className="display-italic">Cloth House</span>
               </div>
               <div className="text-[10px] tracking-[0.32em] uppercase text-[color:var(--color-oxblood)]/80 mt-1">
-                Est. MCMXCII · Sialkot
+                Since 1992 · Sialkot
               </div>
             </div>
           </a>
@@ -83,6 +99,9 @@ export default function Home() {
             <a href="#legacy" className="hover:text-[color:var(--color-oxblood)] transition-colors">Legacy</a>
             <a href="#collections" className="hover:text-[color:var(--color-oxblood)] transition-colors">Collections</a>
             <a href="#craft" className="hover:text-[color:var(--color-oxblood)] transition-colors">Craft</a>
+            <a href="#watch" className="hover:text-[color:var(--color-oxblood)] transition-colors inline-flex items-center gap-1.5">
+              <TikTokGlyph className="h-3.5 w-3.5" /> Watch
+            </a>
             <a href="#visit" className="hover:text-[color:var(--color-oxblood)] transition-colors">Visit</a>
           </nav>
           <a
@@ -100,23 +119,10 @@ export default function Home() {
       {/* HERO */}
       <section id="top" className="relative">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-10 md:pt-16 pb-16 md:pb-24 grid grid-cols-12 gap-x-6 gap-y-10">
-          {/* Left rail — vertical label */}
-          <div className="col-span-12 md:col-span-1 flex md:flex-col items-start md:items-center justify-between md:justify-start gap-6">
-            <div className="md:rotate-180 md:[writing-mode:vertical-rl] text-[11px] tracking-[0.4em] uppercase text-[color:var(--color-oxblood)]/80">
-              Vol. XXXIII — A Catalogue of Cloth
-            </div>
-            <div className="hidden md:block h-40 w-px bg-[color:var(--color-oxblood)]/25" />
-            <div className="md:rotate-180 md:[writing-mode:vertical-rl] text-[11px] tracking-[0.35em] uppercase text-[color:var(--color-ink)]/60">
-              Sialkot · Punjab · Pakistan
-            </div>
-          </div>
-
           {/* Main heading */}
-          <div className="col-span-12 md:col-span-8">
+          <div className="col-span-12 md:col-span-9">
             <div className="fade text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)] mb-7">
-              <span className="inline-block align-middle mr-3">◆</span>
               A Family Fabric House · Since 1992
-              <span className="inline-block align-middle ml-3">◆</span>
             </div>
 
             <h1 className="display text-[color:var(--color-ink)] text-[18vw] md:text-[13.5vw] leading-[0.82]">
@@ -136,27 +142,39 @@ export default function Home() {
               </p>
               <div className="md:col-span-5 urdu text-[28px] md:text-[34px] text-[color:var(--color-oxblood-deep)]" aria-hidden>
                 شہزاد کلاتھ ہاؤس
-                <div className="text-[13px] tracking-normal mt-1 text-[color:var(--color-ink)]/60" dir="ltr">
-                  Shahzad Cloth House — Kashmiri Mohalla, Sialkot
+                <div className="urdu text-[18px] md:text-[20px] text-[color:var(--color-gold-dark)] mt-1">
+                  ورائٹی کا اعلیٰ مرکز
+                </div>
+                <div className="text-[12px] tracking-[0.18em] uppercase mt-2 text-[color:var(--color-ink)]/60" dir="ltr">
+                  Ladies &amp; Gents · Premier Variety
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lift inline-flex items-center gap-3 bg-[#25D366] text-white px-6 py-4 rounded-full text-[13px] tracking-[0.22em] uppercase"
+              >
+                <WhatsAppGlyph className="h-4 w-4" />
+                WhatsApp
+              </a>
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="lift inline-flex items-center gap-3 bg-[color:var(--color-oxblood)] text-[color:var(--color-cream)] px-6 py-4 rounded-full text-[13px] tracking-[0.22em] uppercase"
+              >
+                Call {PHONE_DISPLAY}
+              </a>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="lift inline-flex items-center gap-3 bg-[color:var(--color-oxblood)] text-[color:var(--color-cream)] px-6 py-4 rounded-full text-[13px] tracking-[0.22em] uppercase"
-              >
-                Find the Shop
-                <Arrow />
-              </a>
-              <a
-                href="#collections"
                 className="inline-flex items-center gap-3 border border-[color:var(--color-ink)]/35 text-[color:var(--color-ink)] px-6 py-4 rounded-full text-[13px] tracking-[0.22em] uppercase hover:border-[color:var(--color-ink)] transition-colors"
               >
-                Browse the Cloth
+                Directions
+                <Arrow />
               </a>
             </div>
           </div>
@@ -165,7 +183,7 @@ export default function Home() {
           <aside className="col-span-12 md:col-span-3 relative">
             <div className="frame-corner relative p-6 md:p-7 bg-[color:var(--color-cream)]/65 h-full">
               <div className="flex items-start justify-between">
-                <div className="text-[10px] tracking-[0.34em] uppercase text-[color:var(--color-oxblood)]">Dossier №1</div>
+                <div className="text-[10px] tracking-[0.34em] uppercase text-[color:var(--color-oxblood)]">The Shop</div>
                 <div className="spinslow" aria-hidden>
                   <StampMark className="h-16 w-16 text-[color:var(--color-oxblood)]/70" />
                 </div>
@@ -184,8 +202,19 @@ export default function Home() {
                 <Row k="Ethos" v="Honesty of Hand" />
               </dl>
               <Divider className="my-5 text-[color:var(--color-oxblood)]/40" />
-              <a href={`tel:+92000000000`} className="block text-[12px] tracking-[0.22em] uppercase text-[color:var(--color-oxblood)]">
-                Call the Shop →
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="block text-[12px] tracking-[0.22em] uppercase text-[color:var(--color-oxblood)] hover:text-[color:var(--color-oxblood-deep)]"
+              >
+                Call {PHONE_DISPLAY} →
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 text-[12px] tracking-[0.22em] uppercase text-[color:var(--color-moss)] hover:text-[color:var(--color-ink)]"
+              >
+                <WhatsAppGlyph className="h-3.5 w-3.5" /> WhatsApp →
               </a>
             </div>
           </aside>
@@ -226,14 +255,34 @@ export default function Home() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-4 md:sticky md:top-28 self-start">
             <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)]">
-              Ch. I — The Legacy
+              The Legacy
             </div>
             <h2 className="display text-[56px] md:text-[76px] mt-4 text-[color:var(--color-ink)]">
               Three decades<br />
               <span className="display-italic text-[color:var(--color-oxblood)]">of cloth</span>,<br />
               kept honestly.
             </h2>
-            <LedgerSVG className="mt-8 w-[280px] text-[color:var(--color-oxblood)]/60" />
+            <figure className="mt-8 relative">
+              <div className="relative aspect-[4/5] w-full overflow-hidden border border-[color:var(--color-oxblood)]/30 bg-[color:var(--color-cream)]">
+                <Image
+                  src="/father.jpg"
+                  alt="The proprietor of Shahzad Cloth House at the shop counter, Kashmiri Mohalla, Sialkot"
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover"
+                  priority={false}
+                />
+                <div className="absolute top-3 left-3 bg-[color:var(--color-bone)]/90 backdrop-blur px-2.5 py-1 text-[9px] tracking-[0.32em] uppercase text-[color:var(--color-oxblood)]">
+                  At the Shop · Sialkot
+                </div>
+              </div>
+              <figcaption className="mt-3 flex items-baseline justify-between text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-ink)]/60">
+                <span>The Proprietor</span>
+                <span className="display display-italic text-[14px] tracking-normal text-[color:var(--color-gold-dark)] normal-case">
+                  Since 1992
+                </span>
+              </figcaption>
+            </figure>
           </div>
 
           <div className="col-span-12 md:col-span-7 md:col-start-6 text-[17px] leading-[1.75] text-[color:var(--color-ink)]/90 space-y-6">
@@ -283,7 +332,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14">
             <div>
               <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-gold)]">
-                Ch. II — The Catalogue
+                The Catalogue
               </div>
               <h2 className="display text-[56px] md:text-[90px] leading-[0.92] mt-4">
                 The <span className="display-italic foil">Collections</span>
@@ -303,7 +352,7 @@ export default function Home() {
               >
                 <div className="flex items-start justify-between">
                   <span className="display display-italic text-[28px] text-[color:var(--color-gold)]">
-                    № {c.n}
+                    {c.n}
                   </span>
                   <span className="urdu text-[22px] text-[color:var(--color-cream)]/80" aria-hidden>
                     {c.urdu}
@@ -334,7 +383,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
             <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)]">
-              Ch. III — The Standard
+              The Standard
             </div>
             <h2 className="display text-[56px] md:text-[84px] leading-[0.92] mt-4 text-[color:var(--color-ink)]">
               What a <span className="display-italic text-[color:var(--color-oxblood)]">good thaan</span> feels like
@@ -399,12 +448,131 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SOCIAL FEEDS */}
+      <section id="watch" className="relative py-24 md:py-36 bg-[color:var(--color-bone-2)]/60 border-y border-[color:var(--color-oxblood)]/15">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
+            <div>
+              <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)]">
+                Watch the Shop
+              </div>
+              <h2 className="display text-[56px] md:text-[84px] leading-[0.92] mt-4 text-[color:var(--color-ink)]">
+                Live on <span className="display-italic text-[color:var(--color-oxblood)]">social</span>
+              </h2>
+              <p className="mt-6 text-[16px] leading-[1.7] text-[color:var(--color-ink)]/80 max-w-md">
+                New arrivals, fabric in motion, and life on the shop floor — posted across TikTok, Instagram, and Facebook.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2 self-start">
+              <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="lift inline-flex items-center gap-2 bg-[color:var(--color-ink)] text-[color:var(--color-bone)] px-4 py-3 rounded-full text-[12px] tracking-[0.18em] uppercase">
+                <TikTokGlyph className="h-3.5 w-3.5" /> TikTok
+              </a>
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="lift inline-flex items-center gap-2 bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white px-4 py-3 rounded-full text-[12px] tracking-[0.18em] uppercase">
+                <InstagramGlyph className="h-3.5 w-3.5" /> Instagram
+              </a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="lift inline-flex items-center gap-2 bg-[#1877F2] text-white px-4 py-3 rounded-full text-[12px] tracking-[0.18em] uppercase">
+                <FacebookGlyph className="h-3.5 w-3.5" /> Facebook
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            {/* TikTok embed */}
+            <div className="bg-[color:var(--color-cream)] border border-[color:var(--color-oxblood)]/20 p-4 flex flex-col">
+              <div className="flex items-center gap-2 mb-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)]">
+                <TikTokGlyph className="h-3.5 w-3.5" /> TikTok · @{TIKTOK_HANDLE}
+              </div>
+              <div className="flex-1 min-h-[520px]">
+                <blockquote
+                  className="tiktok-embed mx-auto"
+                  cite={TIKTOK_URL}
+                  data-unique-id={TIKTOK_HANDLE}
+                  data-embed-from="oembed"
+                  data-embed-type="creator"
+                  style={{ maxWidth: "100%", minWidth: 240 }}
+                >
+                  <section>
+                    <a target="_blank" rel="noopener noreferrer" href={TIKTOK_URL}>
+                      @{TIKTOK_HANDLE}
+                    </a>
+                  </section>
+                </blockquote>
+              </div>
+            </div>
+
+            {/* Instagram CTA (no official embed) */}
+            <div className="bg-[color:var(--color-cream)] border border-[color:var(--color-oxblood)]/20 p-4 flex flex-col">
+              <div className="flex items-center gap-2 mb-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)]">
+                <InstagramGlyph className="h-3.5 w-3.5" /> Instagram · @{INSTAGRAM_HANDLE}
+              </div>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 min-h-[520px] relative overflow-hidden bg-gradient-to-br from-[#FFE5D5] via-[#FCD6E6] to-[#E2D2F2] flex items-center justify-center group"
+              >
+                <div className="absolute inset-0 opacity-50" aria-hidden>
+                  <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="igdots" width="22" height="22" patternUnits="userSpaceOnUse">
+                        <circle cx="11" cy="11" r="1" fill="#5B1A1A" opacity="0.18" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#igdots)" />
+                  </svg>
+                </div>
+                <div className="relative text-center px-6">
+                  <div className="inline-flex p-4 rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white shadow-lg group-hover:scale-110 transition-transform">
+                    <InstagramGlyph className="h-8 w-8" />
+                  </div>
+                  <div className="display text-[28px] mt-6 text-[color:var(--color-ink)]">
+                    @{INSTAGRAM_HANDLE}
+                  </div>
+                  <div className="text-[13px] mt-2 text-[color:var(--color-ink)]/75">
+                    See the latest fabrics on Instagram
+                  </div>
+                  <div className="mt-6 inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase text-[color:var(--color-oxblood)] border-b border-[color:var(--color-oxblood)] pb-1">
+                    Open Instagram <Arrow />
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            {/* Facebook Page Plugin */}
+            <div className="bg-[color:var(--color-cream)] border border-[color:var(--color-oxblood)]/20 p-4 flex flex-col">
+              <div className="flex items-center gap-2 mb-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)]">
+                <FacebookGlyph className="h-3.5 w-3.5" /> Facebook · @{FACEBOOK_HANDLE}
+              </div>
+              <div className="flex-1 min-h-[520px] bg-white">
+                <iframe
+                  title="Shahzad Cloth House on Facebook"
+                  src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(
+                    FACEBOOK_URL,
+                  )}&tabs=timeline&width=380&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true`}
+                  width="100%"
+                  height="520"
+                  style={{ border: "none", overflow: "hidden" }}
+                  scrolling="no"
+                  loading="lazy"
+                  allow="encrypted-media"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <Script
+          src="https://www.tiktok.com/embed.js"
+          strategy="lazyOnload"
+          async
+        />
+      </section>
+
       {/* VISIT */}
       <section id="visit" className="relative py-24 md:py-36">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
             <div className="text-[11px] tracking-[0.42em] uppercase text-[color:var(--color-oxblood)]">
-              Ch. IV — The Address
+              The Address
             </div>
             <h2 className="display text-[56px] md:text-[84px] leading-[0.92] mt-4 text-[color:var(--color-ink)]">
               Come <span className="display-italic text-[color:var(--color-oxblood)]">see</span><br />
@@ -426,6 +594,25 @@ export default function Home() {
                 Mon · Tue · Wed · Thu — 10:00 – 22:00<br />
                 Saturday · Sunday — 10:00 – 22:00<br />
                 Friday — Closed for prayers, open after Jumuah
+              </VisitRow>
+              <VisitRow label="Phone">
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="hover:text-[color:var(--color-oxblood)]"
+                >
+                  {PHONE_DISPLAY}
+                </a>
+              </VisitRow>
+              <VisitRow label="WhatsApp">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-[color:var(--color-oxblood)]"
+                >
+                  <WhatsAppGlyph className="h-4 w-4 text-[#25D366]" />
+                  Message us on WhatsApp
+                </a>
               </VisitRow>
               <VisitRow label="Directions">
                 <a
@@ -461,6 +648,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FLOATING WHATSAPP */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="WhatsApp Shahzad Cloth House"
+        className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-50 inline-flex items-center gap-2 bg-[#25D366] text-white pl-4 pr-5 py-3.5 rounded-full shadow-[0_10px_28px_rgba(37,211,102,0.45)] hover:scale-[1.04] transition-transform"
+      >
+        <WhatsAppGlyph className="h-5 w-5" />
+        <span className="text-[13px] tracking-[0.16em] uppercase font-medium">WhatsApp</span>
+      </a>
+
       {/* FOOTER */}
       <footer className="relative bg-[color:var(--color-ink)] text-[color:var(--color-bone)]/85 pt-20 pb-8">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
@@ -492,20 +691,50 @@ export default function Home() {
               </p>
             </div>
             <div className="col-span-12 md:col-span-2 text-[13px] leading-[2]">
-              <div className="text-[10px] tracking-[0.35em] uppercase text-[color:var(--color-gold)] mb-3">Contact</div>
-              <p>
-                <a href={MAPS_URL} className="underline underline-offset-4 decoration-[color:var(--color-gold)]/60 hover:text-[color:var(--color-gold)]">
-                  Google Maps
-                </a>
-                <br />
-                shahzadclothhouse.com
-              </p>
+              <div className="text-[10px] tracking-[0.35em] uppercase text-[color:var(--color-gold)] mb-3">Follow</div>
+              <ul className="space-y-1">
+                <li>
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[color:var(--color-gold)]">
+                    <InstagramGlyph className="h-3.5 w-3.5" /> Instagram
+                  </a>
+                </li>
+                <li>
+                  <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[color:var(--color-gold)]">
+                    <FacebookGlyph className="h-3.5 w-3.5" /> Facebook
+                  </a>
+                </li>
+                <li>
+                  <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[color:var(--color-gold)]">
+                    <TikTokGlyph className="h-3.5 w-3.5" /> TikTok
+                  </a>
+                </li>
+                <li>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[color:var(--color-gold)]">
+                    <WhatsAppGlyph className="h-3.5 w-3.5" /> WhatsApp
+                  </a>
+                </li>
+                <li>
+                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-[color:var(--color-gold)]">
+                    Google Maps
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
           <div className="mt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 pt-8 border-t border-[color:var(--color-bone)]/20 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-bone)]/60">
-            <div>© MCMXCII – {new Date().getFullYear()} · Shahzad Cloth House · A family business, Sialkot</div>
-            <div>Designed with care · Cloth kept honestly</div>
+            <div>© 1992 – {new Date().getFullYear()} · Shahzad Cloth House · Sialkot</div>
+            <div className="flex items-center gap-2">
+              <span>Crafted by</span>
+              <a
+                href="https://hammadshahzad.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="display display-italic normal-case tracking-normal text-[14px] text-[color:var(--color-gold)] hover:text-[color:var(--color-bone)] transition-colors"
+              >
+                hammadshahzad.com
+              </a>
+            </div>
           </div>
         </div>
       </footer>
@@ -549,6 +778,40 @@ function Divider({ className = "" }: { className?: string }) {
       <span className="display display-italic text-[14px]">✶</span>
       <span className="flex-1 h-px bg-current" />
     </div>
+  );
+}
+
+function InstagramGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function FacebookGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+      <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.25-1.5 1.55-1.5H17V4.4a22 22 0 0 0-2.4-.13c-2.4 0-4 1.46-4 4.13v2.5H8v3h2.6V21h2.9z" />
+    </svg>
+  );
+}
+
+function WhatsAppGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+      <path d="M20.5 3.5A11.7 11.7 0 0 0 12 0C5.4 0 0 5.4 0 12a12 12 0 0 0 1.6 6L0 24l6.2-1.6A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12a11.7 11.7 0 0 0-3.5-8.5zM12 21.8a9.7 9.7 0 0 1-5-1.4l-.36-.21-3.7.97.99-3.6-.24-.37A9.7 9.7 0 1 1 12 21.8zm5.6-7.3c-.3-.16-1.8-.9-2.1-1s-.5-.16-.7.15-.8 1-1 1.2-.4.2-.7 0a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.18-.3 0-.46.13-.6.13-.13.3-.34.45-.5.15-.17.2-.3.3-.5s.05-.37 0-.52c-.07-.14-.7-1.7-1-2.3-.25-.6-.5-.5-.7-.5h-.6c-.2 0-.55.07-.84.37-.3.3-1.1 1.1-1.1 2.7s1.13 3.13 1.3 3.35a12 12 0 0 0 4.7 4.1c.66.28 1.18.45 1.58.58.66.2 1.27.18 1.75.1.53-.07 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.27-.2-.57-.34z" />
+    </svg>
+  );
+}
+
+function TikTokGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden>
+      <path d="M19.6 6.4a4.6 4.6 0 0 1-3.5-1.6V14a4.5 4.5 0 1 1-4.5-4.5c.2 0 .4 0 .6.04v2.36a2.13 2.13 0 1 0 1.5 2.04V2h2.4a4.6 4.6 0 0 0 3.5 4.4v2z" />
+    </svg>
   );
 }
 

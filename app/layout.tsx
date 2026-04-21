@@ -108,7 +108,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#5B1A1A",
+  themeColor: "#15235C",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -130,6 +130,16 @@ const storeJsonLd = {
   priceRange: "₨₨",
   currenciesAccepted: "PKR",
   paymentAccepted: "Cash, Bank Transfer",
+  telephone: "+923006143230",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+923006143230",
+      contactType: "customer service",
+      areaServed: "PK",
+      availableLanguage: ["English", "Urdu", "Punjabi"],
+    },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Kashmiri Mohalla",
@@ -167,7 +177,12 @@ const storeJsonLd = {
     { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wedding Wear" } },
     { "@type": "Offer", itemOffered: { "@type": "Product", name: "Men's Shirting" } },
   ],
-  sameAs: ["https://maps.app.goo.gl/LvhtWzgEjP6j29mm8"],
+  sameAs: [
+    "https://maps.app.goo.gl/LvhtWzgEjP6j29mm8",
+    "https://www.tiktok.com/@shahzadclothhouseskt",
+    "https://www.instagram.com/shahzadclothhouse/",
+    "https://www.facebook.com/shahzadclothhouseskt/",
+  ],
 };
 
 const siteJsonLd = {
