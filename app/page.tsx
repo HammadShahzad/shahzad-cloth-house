@@ -9,6 +9,9 @@ const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
 const FACEBOOK_HANDLE = "shahzadclothhouseskt";
 const FACEBOOK_URL = `https://www.facebook.com/${FACEBOOK_HANDLE}/`;
 
+const FOUNDED = 1991;
+const YEARS = new Date().getFullYear() - FOUNDED;
+
 const PHONE_DISPLAY = "0300 6143230";
 const PHONE_TEL = "+923006143230";
 const WHATSAPP_INTL = "923006143230";
@@ -17,9 +20,9 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_INTL}?text=${encodeURIComponent(
 )}`;
 
 export const metadata: Metadata = {
-  title: "Shahzad Cloth House — Fabric Heritage Since 1992 | Sialkot",
+  title: "Shahzad Cloth House — Fabric Heritage Since 1991 | Sialkot",
   description:
-    "Family-run fabric house in Kashmiri Mohalla, Sialkot. Premium unstitched cloth — lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear — curated since 1992.",
+    "Family-run fabric house in Kashmiri Mohalla, Sialkot. Premium unstitched cloth — lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear — curated since 1991.",
   alternates: { canonical: "/" },
 };
 
@@ -108,7 +111,7 @@ export default function Home() {
       <section id="top" className="relative">
         <div className="mx-auto max-w-[900px] px-6 md:px-10 pt-20 md:pt-32 pb-20 md:pb-28 text-center">
           <div className="text-[11px] tracking-[0.38em] uppercase text-[color:var(--color-oxblood)]">
-            Since 1992 · Kashmiri Mohalla, Sialkot
+            Since 1991 · Kashmiri Mohalla, Sialkot
           </div>
 
           <h1 className="display mt-10 text-[color:var(--color-ink)] text-[60px] md:text-[104px] leading-[0.95]">
@@ -124,7 +127,7 @@ export default function Home() {
 
           <p className="mt-8 max-w-xl mx-auto text-[16px] md:text-[18px] leading-[1.6] text-[color:var(--color-ink)]/75">
             Ladies &amp; Gents · Premier variety of unstitched fabric,
-            family-run since 1992.
+            family-run since 1991.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -163,7 +166,7 @@ export default function Home() {
               The Legacy
             </div>
             <h2 className="display text-[56px] md:text-[76px] mt-4 text-[color:var(--color-ink)]">
-              Over 30 years<br />
+              {YEARS} years<br />
               <span className="display-italic text-[color:var(--color-oxblood)]">of cloth</span>,<br />
               kept honestly.
             </h2>
@@ -184,7 +187,7 @@ export default function Home() {
               <figcaption className="mt-3 flex items-baseline justify-between text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-ink)]/60">
                 <span>The Proprietor</span>
                 <span className="display display-italic text-[14px] tracking-normal text-[color:var(--color-gold-dark)] normal-case">
-                  Since 1992
+                  Since 1991
                 </span>
               </figcaption>
             </figure>
@@ -193,9 +196,9 @@ export default function Home() {
           <div className="col-span-12 md:col-span-7 md:col-start-6 text-[17px] leading-[1.75] text-[color:var(--color-ink)]/90 space-y-6">
             <p className="text-[20px] leading-[1.6]">
               <span className="display float-left text-[92px] leading-[0.8] pr-3 pt-2 text-[color:var(--color-oxblood)]">S</span>
-              halzad Cloth House opened its shutters in <strong className="display-italic">1992</strong>,
+              halzad Cloth House opened its shutters in <strong className="display-italic">1991</strong>,
               a narrow door on a narrow lane in Kashmiri Mohalla. My father
-              measured his first thaan that summer; thirty-odd years on, the
+              measured his first thaan that summer; {YEARS} years on, the
               measuring tape is the same, the eye is sharper, and the faces at
               the counter — aunts, nieces, grandsons — keep returning.
             </p>
@@ -212,7 +215,7 @@ export default function Home() {
             </p>
 
             <div className="pt-8 grid grid-cols-3 gap-6 border-t border-[color:var(--color-oxblood)]/15">
-              <Stat k="Since" v="1992" />
+              <Stat k="Since" v="1991" />
               <Stat k="Proprietor" v="One" />
               <Stat k="Returning Customers" v="∞" />
             </div>
@@ -295,7 +298,7 @@ export default function Home() {
             </h2>
             <p className="mt-6 text-[16px] leading-[1.7] text-[color:var(--color-ink)]/80 max-w-md">
               Three principles we refuse to bend on. They're why the shop is
-              still here after thirty-odd years — and why our first
+              still here {YEARS} years later — and why our first
               customers keep walking back through the door.
             </p>
           </div>
@@ -315,7 +318,7 @@ export default function Home() {
               {
                 n: "III",
                 t: "A Promise Behind Every Cut",
-                d: "If it doesn't hold its colour, its hand, or its word — bring it back. That's the promise since 1992.",
+                d: "If it doesn't hold its colour, its hand, or its word — bring it back. That's the promise since 1991.",
               },
             ].map((v) => (
               <article
@@ -656,7 +659,7 @@ export default function Home() {
           </div>
 
           <div className="mt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 pt-8 border-t border-[color:var(--color-bone)]/20 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-bone)]/60">
-            <div>© 1992 – {new Date().getFullYear()} · Shahzad Cloth House · Sialkot</div>
+            <div>© 1991 – {new Date().getFullYear()} · Shahzad Cloth House · Sialkot</div>
             <div className="flex items-center gap-2">
               <span>Crafted by</span>
               <a
@@ -801,7 +804,7 @@ function StampMark({ className = "" }: { className?: string }) {
       <circle cx="50" cy="50" r="36" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 3" />
       <text fontSize="8.2" fill="currentColor" letterSpacing="3">
         <textPath href="#circle" startOffset="0">
-          SHAHZAD · CLOTH · HOUSE · SIALKOT · EST. 1992 ·
+          SHAHZAD · CLOTH · HOUSE · SIALKOT · EST. 1991 ·
         </textPath>
       </text>
       <text x="50" y="55" textAnchor="middle" fontFamily="Fraunces, serif" fontStyle="italic" fontSize="16" fill="currentColor">S</text>
@@ -820,7 +823,7 @@ function LedgerSVG({ className = "" }: { className?: string }) {
         );
       })}
       <line x1="5" y1="110" x2="275" y2="110" stroke="currentColor" strokeWidth="0.8" />
-      <text x="5" y="10" fontSize="8" fill="currentColor" letterSpacing="2">1992</text>
+      <text x="5" y="10" fontSize="8" fill="currentColor" letterSpacing="2">1991</text>
       <text x="230" y="10" fontSize="8" fill="currentColor" letterSpacing="2">TODAY</text>
     </svg>
   );

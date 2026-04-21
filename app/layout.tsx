@@ -28,11 +28,11 @@ const SITE_URL = "https://shahzadclothhouse.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Shahzad Cloth House — Fabric Heritage Since 1992 | Sialkot, Pakistan",
+    default: "Shahzad Cloth House — Fabric Heritage Since 1991 | Sialkot, Pakistan",
     template: "%s · Shahzad Cloth House",
   },
   description:
-    "Shahzad Cloth House — family-run fabric house since 1992 in Kashmiri Mohalla, Sialkot, Pakistan. Premium unstitched cloth: lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear from the country's finest mills.",
+    "Shahzad Cloth House — family-run fabric house since 1991 in Kashmiri Mohalla, Sialkot, Pakistan. Premium unstitched cloth: lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear from the country's finest mills.",
   applicationName: "Shahzad Cloth House",
   keywords: [
     "Shahzad Cloth House",
@@ -65,22 +65,22 @@ export const metadata: Metadata = {
     locale: "en_PK",
     url: SITE_URL,
     siteName: "Shahzad Cloth House",
-    title: "Shahzad Cloth House — Fabric Heritage Since 1992",
+    title: "Shahzad Cloth House — Fabric Heritage Since 1991",
     description:
-      "A family fabric house in Kashmiri Mohalla, Sialkot, serving customers since 1992. Lawn, suiting, silk, linen, wedding wear — handpicked from Pakistan's finest mills.",
+      "A family fabric house in Kashmiri Mohalla, Sialkot, serving customers since 1991. Lawn, suiting, silk, linen, wedding wear — handpicked from Pakistan's finest mills.",
     images: [
       {
         url: "/og.svg",
         width: 1200,
         height: 630,
-        alt: "Shahzad Cloth House — Since 1992",
+        alt: "Shahzad Cloth House — Since 1991",
         type: "image/svg+xml",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shahzad Cloth House — Since 1992",
+    title: "Shahzad Cloth House — Since 1991",
     description:
       "Family fabric house in Kashmiri Mohalla, Sialkot. Premium unstitched cloth from Pakistan's finest mills.",
     images: ["/og.svg"],
@@ -124,9 +124,9 @@ const storeJsonLd = {
   image: `${SITE_URL}/og.svg`,
   logo: `${SITE_URL}/favicon.svg`,
   description:
-    "Family-owned fabric house in Kashmiri Mohalla, Sialkot, Pakistan — offering premium unstitched cloth (lawn, cotton, linen, silk, suiting, and wedding wear) since 1992.",
-  slogan: "Fabric Heritage Since 1992",
-  foundingDate: "1992",
+    "Family-owned fabric house in Kashmiri Mohalla, Sialkot, Pakistan — offering premium unstitched cloth (lawn, cotton, linen, silk, suiting, and wedding wear) since 1991.",
+  slogan: "Fabric Heritage Since 1991",
+  foundingDate: "1991",
   priceRange: "₨₨",
   currenciesAccepted: "PKR",
   paymentAccepted: "Cash, Bank Transfer",
