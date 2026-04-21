@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2E9D8"/>
+      <stop offset="1" stop-color="#EADFC8"/>
+    </linearGradient>
+    <pattern id="weave" width="14" height="14" patternUnits="userSpaceOnUse">
+      <path d="M0 7H14M7 0V14" stroke="#5B1A1A" stroke-width="0.5" opacity="0.18"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#weave)"/>
+
+  <g stroke="#5B1A1A" stroke-width="1" fill="none" opacity="0.55">
+    <line x1="60" y1="60" x2="120" y2="60"/>
+    <line x1="60" y1="60" x2="60" y2="120"/>
+    <line x1="1140" y1="60" x2="1080" y2="60"/>
+    <line x1="1140" y1="60" x2="1140" y2="120"/>
+    <line x1="60" y1="570" x2="120" y2="570"/>
+    <line x1="60" y1="570" x2="60" y2="510"/>
+    <line x1="1140" y1="570" x2="1080" y2="570"/>
+    <line x1="1140" y1="570" x2="1140" y2="510"/>
+  </g>
+
+  <text x="600" y="120" text-anchor="middle" font-family="Georgia, 'Fraunces', serif" font-size="22" letter-spacing="10" fill="#5B1A1A">◆ SINCE 1992 · KASHMIRI MOHALLA · SIALKOT ◆</text>
+
+  <text x="600" y="320" text-anchor="middle" font-family="Georgia, 'Fraunces', serif" font-size="170" font-weight="500" fill="#1A1512">Shahzad</text>
+  <text x="600" y="470" text-anchor="middle" font-family="Georgia, 'Fraunces', serif" font-style="italic" font-size="170" fill="#5B1A1A">Cloth House</text>
+
+  <line x1="350" y1="510" x2="850" y2="510" stroke="#B8935A" stroke-width="1.5"/>
+  <text x="600" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="22" letter-spacing="6" fill="#1A1512">A FAMILY FABRIC HOUSE · THREE GENERATIONS · SHAHZADCLOTHHOUSE.COM</text>
+</svg>
