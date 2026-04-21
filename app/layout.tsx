@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope, Noto_Nastaliq_Urdu } from "next/font/google";
 import Script from "next/script";
-import RevealController from "./components/RevealController";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -204,9 +203,8 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable} ${nastaliq.variable}`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning>
+      <body className="grain" suppressHydrationWarning>
         {children}
-        <RevealController />
         <Script
           id="ld-store"
           type="application/ld+json"

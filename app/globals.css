@@ -1,87 +1,122 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #FFFFFF;
-  --color-paper-2: #F7F5EF;
-  --color-line: #E8E3D6;
-  --color-ink: #0A1024;
-  --color-navy: #15235C;
-  --color-navy-deep: #0A1740;
-  --color-gold: #D4A657;
+  --color-bone: #FFFFFF;
+  --color-bone-2: #F5F5F2;
+  --color-cream: #FAFAF7;
+  --color-oxblood: #15235C;          /* navy — primary brand */
+  --color-oxblood-deep: #0A1740;     /* deep navy */
+  --color-ink: #0A1024;              /* near-black navy */
+  --color-gold: #D4A657;             /* signature gold */
   --color-gold-dark: #A37828;
-  --color-muted: #5A5F73;
+  --color-moss: #2F4A29;
 
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: "Fraunces", "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-urdu: "Noto Nastaliq Urdu", serif;
+  --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
 }
 
 @layer base {
   html, body {
-    background: var(--color-paper);
+    background: var(--color-bone);
     color: var(--color-ink);
     font-family: var(--font-body);
+    font-feature-settings: "ss01", "ss02", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
-  ::selection { background: var(--color-navy); color: #fff; }
-  body { background: #fff; }
+  ::selection {
+    background: var(--color-oxblood);
+    color: var(--color-cream);
+  }
+  body {
+    background: #FFFFFF;
+  }
 }
 
+/* Paper grain — disabled on white for cleanliness */
+.grain::before { content: none; }
+
+/* Weave divider */
+.weave {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-oxblood) 0 1px,
+    transparent 1px 6px
+  );
+}
+
+/* Gold foil underline */
+.foil {
+  background: linear-gradient(110deg, #8F6A36 0%, #E9C77D 25%, #B8935A 50%, #E9C77D 75%, #8F6A36 100%);
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: foil 9s linear infinite;
+}
+@keyframes foil {
+  to { background-position: -200% 0; }
+}
+
+/* Reveal on load */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes drawline {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes spinslow {
+  to { transform: rotate(360deg); }
+}
+
+.rise { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+.fade { animation: fade 1200ms ease both; }
+.draw { transform-origin: left; animation: drawline 1400ms cubic-bezier(.65,0,.35,1) 200ms both; }
+.spinslow { animation: spinslow 40s linear infinite; }
+
+/* Display tweaks */
 .display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-variation-settings: "SOFT" 50, "WONK" 1;
+  font-variation-settings: "SOFT" 60, "WONK" 1;
   letter-spacing: -0.02em;
-  line-height: 0.96;
+  line-height: 0.92;
 }
 .display-italic {
   font-family: var(--font-display);
   font-style: italic;
   font-variation-settings: "SOFT" 100, "WONK" 1;
-  letter-spacing: -0.02em;
 }
 .urdu {
   font-family: var(--font-urdu);
   direction: rtl;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
-/* Simple fade-up. Runs once on page load for above-fold,
-   triggered by [data-in] attribute for below-fold (scroll) */
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
-.fade-up {
-  opacity: 0;
-  animation: fade-up 900ms cubic-bezier(.2,.7,.2,1) forwards;
-  animation-delay: var(--d, 0ms);
-}
+.marquee-track { animation: marquee 42s linear infinite; }
 
-/* Scroll-triggered (toggled by RevealController) */
-[data-in] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms cubic-bezier(.2,.7,.2,1),
-              transform 800ms cubic-bezier(.2,.7,.2,1);
-  transition-delay: var(--d, 0ms);
-}
-[data-in][data-in-view="true"] {
-  opacity: 1;
-  transform: none;
-}
+/* Subtle hover lift */
+.lift { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
+.lift:hover { transform: translateY(-4px); }
 
-/* Reduced motion — kill all animation */
-@media (prefers-reduced-motion: reduce) {
-  .fade-up, [data-in] {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-  }
+/* Decorative corner frame */
+.frame-corner::before, .frame-corner::after {
+  content: "";
+  position: absolute;
+  width: 22px; height: 22px;
+  border: 1px solid var(--color-oxblood);
 }
-
-/* Hover lift */
-.lift { transition: transform .4s cubic-bezier(.2,.7,.2,1); }
-.lift:hover { transform: translateY(-3px); }
+.frame-corner::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.frame-corner::after  { bottom: 0; right: 0; border-left: 0; border-top: 0; }
