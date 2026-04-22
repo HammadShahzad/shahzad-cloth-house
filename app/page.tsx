@@ -478,65 +478,49 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Facebook Page Plugin (SDK + iframe fallback) */}
+            {/* Facebook Page Plugin (official FB SDK XFBML) */}
             <div className="bg-[color:var(--color-cream)] border border-[color:var(--color-oxblood)]/20 p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)]">
                 <FacebookGlyph className="h-3.5 w-3.5" /> Facebook · @{FACEBOOK_HANDLE}
               </div>
 
-              <div className="flex-1 min-h-[520px] bg-white relative overflow-hidden">
-                {/* Layer 1 — pretty fallback CTA. The FB iframe sits on top
-                    of this. If FB blocks (cookies/region), the user still
-                    sees this rich Facebook-blue card and can click through. */}
-                <a
-                  href={FACEBOOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-0 z-0 flex items-center justify-center text-center bg-gradient-to-br from-[#1877F2] to-[#0B4CB5] text-white px-6"
-                  aria-label="Open Shahzad Cloth House on Facebook"
+              <div className="flex-1 min-h-[520px] bg-white flex items-center justify-center overflow-hidden">
+                <div id="fb-root" />
+                <div
+                  className="fb-page"
+                  data-href={FACEBOOK_URL}
+                  data-tabs="timeline"
+                  data-width="340"
+                  data-height="500"
+                  data-small-header="false"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="true"
                 >
-                  <div>
-                    <div className="inline-flex p-4 rounded-full bg-white/15 backdrop-blur">
-                      <FacebookGlyph className="h-10 w-10" />
-                    </div>
-                    <div className="display text-[26px] mt-5">
-                      @{FACEBOOK_HANDLE}
-                    </div>
-                    <div className="text-[12px] tracking-[0.18em] uppercase mt-2 opacity-80">
-                      Latest posts on Facebook
-                    </div>
-                    <div className="mt-6 inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase border-b border-white pb-1">
-                      Open Facebook →
-                    </div>
-                  </div>
-                </a>
-
-                {/* Layer 2 — Official FB Page Plugin (XFBML). Renders above
-                    the CTA when allowed; stays invisible if blocked. */}
-                <div className="relative z-10">
-                  <div id="fb-root" />
-                  <div
-                    className="fb-page"
-                    data-href={FACEBOOK_URL}
-                    data-tabs="timeline"
-                    data-width="500"
-                    data-height="520"
-                    data-small-header="false"
-                    data-adapt-container-width="true"
-                    data-hide-cover="false"
-                    data-show-facepile="true"
+                  <blockquote
+                    cite={FACEBOOK_URL}
+                    className="fb-xfbml-parse-ignore text-center p-6"
                   >
-                    <blockquote
-                      cite={FACEBOOK_URL}
-                      className="fb-xfbml-parse-ignore"
+                    <a
+                      href={FACEBOOK_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[#1877F2]"
                     >
-                      <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
-                        Shahzad Cloth House
-                      </a>
-                    </blockquote>
-                  </div>
+                      <FacebookGlyph className="h-5 w-5" /> Shahzad Cloth House
+                    </a>
+                  </blockquote>
                 </div>
               </div>
+
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 text-center text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)] hover:text-[color:var(--color-oxblood-deep)]"
+              >
+                Open on Facebook ↗
+              </a>
             </div>
           </div>
         </div>
@@ -632,18 +616,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* FLOATING WHATSAPP */}
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp Shahzad Cloth House"
-        className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-50 inline-flex items-center gap-2 bg-[#25D366] text-white pl-4 pr-5 py-3.5 rounded-full shadow-[0_10px_28px_rgba(37,211,102,0.45)] hover:scale-[1.04] transition-transform"
-      >
-        <WhatsAppGlyph className="h-5 w-5" />
-        <span className="text-[13px] tracking-[0.16em] uppercase font-medium">WhatsApp</span>
-      </a>
 
       {/* FOOTER */}
       <footer className="relative bg-[color:var(--color-ink)] text-[color:var(--color-bone)]/85 pt-20 pb-8">
