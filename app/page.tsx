@@ -478,48 +478,43 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Facebook Page Plugin (official FB SDK XFBML) */}
+            {/* Facebook CTA card */}
             <div className="bg-[color:var(--color-cream)] border border-[color:var(--color-oxblood)]/20 p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)]">
                 <FacebookGlyph className="h-3.5 w-3.5" /> Facebook · @{FACEBOOK_HANDLE}
               </div>
-
-              <div className="flex-1 min-h-[520px] bg-white flex items-center justify-center overflow-hidden">
-                <div id="fb-root" />
-                <div
-                  className="fb-page"
-                  data-href={FACEBOOK_URL}
-                  data-tabs="timeline"
-                  data-width="340"
-                  data-height="500"
-                  data-small-header="false"
-                  data-adapt-container-width="true"
-                  data-hide-cover="false"
-                  data-show-facepile="true"
-                >
-                  <blockquote
-                    cite={FACEBOOK_URL}
-                    className="fb-xfbml-parse-ignore text-center p-6"
-                  >
-                    <a
-                      href={FACEBOOK_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[#1877F2]"
-                    >
-                      <FacebookGlyph className="h-5 w-5" /> Shahzad Cloth House
-                    </a>
-                  </blockquote>
-                </div>
-              </div>
-
               <a
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 text-center text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)] hover:text-[color:var(--color-oxblood-deep)]"
+                className="flex-1 min-h-[520px] relative overflow-hidden bg-gradient-to-br from-[#1877F2] to-[#0B4CB5] text-white flex items-center justify-center group"
+                aria-label="Open Shahzad Cloth House on Facebook"
               >
-                Open on Facebook ↗
+                {/* dotted texture */}
+                <div className="absolute inset-0 opacity-25" aria-hidden>
+                  <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <pattern id="fbdots" width="22" height="22" patternUnits="userSpaceOnUse">
+                        <circle cx="11" cy="11" r="1" fill="#FFFFFF" opacity="0.5" />
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#fbdots)" />
+                  </svg>
+                </div>
+                <div className="relative text-center px-6">
+                  <div className="inline-flex p-4 rounded-full bg-white/15 backdrop-blur shadow-lg group-hover:scale-110 transition-transform">
+                    <FacebookGlyph className="h-8 w-8" />
+                  </div>
+                  <div className="display text-[28px] mt-6">
+                    @{FACEBOOK_HANDLE}
+                  </div>
+                  <div className="text-[13px] mt-2 opacity-85">
+                    Latest posts on Facebook
+                  </div>
+                  <div className="mt-6 inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase border-b border-white pb-1">
+                    Open Facebook <Arrow />
+                  </div>
+                </div>
               </a>
             </div>
           </div>
@@ -528,11 +523,6 @@ export default function Home() {
           src="https://www.tiktok.com/embed.js"
           strategy="lazyOnload"
           async
-        />
-        <Script
-          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"
-          strategy="lazyOnload"
-          crossOrigin="anonymous"
         />
       </section>
 
