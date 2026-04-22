@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     template: "%s · Shahzad Cloth House",
   },
   description:
-    "Shahzad Cloth House — family-run fabric house since 1991 in Kashmiri Mohalla, Sialkot, Pakistan. Premium unstitched cloth: lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear from the country's finest mills.",
+    "Shahzad Cloth House — family-run fabric house since 1991 in Chowk Adda Pasrooriyan, Sialkot, Pakistan. Premium unstitched cloth: lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear from the country's finest mills.",
   applicationName: "Shahzad Cloth House",
   keywords: [
     "Shahzad Cloth House",
     "cloth house Sialkot",
     "fabric shop Sialkot",
-    "Kashmiri Mohalla Sialkot",
+    "Chowk Adda Pasrooriyan Sialkot",
     "unstitched fabric Pakistan",
     "lawn suits Sialkot",
     "wash and wear fabric",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     siteName: "Shahzad Cloth House",
     title: "Shahzad Cloth House — Fabric Heritage Since 1991",
     description:
-      "A family fabric house in Kashmiri Mohalla, Sialkot, serving customers since 1991. Lawn, suiting, silk, linen, wedding wear — handpicked from Pakistan's finest mills.",
+      "A family fabric house in Chowk Adda Pasrooriyan, Sialkot, serving customers since 1991. Lawn, suiting, silk, linen, wedding wear — handpicked from Pakistan's finest mills.",
     images: [
       {
         url: "/og.svg",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shahzad Cloth House — Since 1991",
     description:
-      "Family fabric house in Kashmiri Mohalla, Sialkot. Premium unstitched cloth from Pakistan's finest mills.",
+      "Family fabric house in Chowk Adda Pasrooriyan, Sialkot. Premium unstitched cloth from Pakistan's finest mills.",
     images: ["/og.svg"],
   },
   robots: {
@@ -124,7 +124,7 @@ const storeJsonLd = {
   image: `${SITE_URL}/og.svg`,
   logo: `${SITE_URL}/favicon.svg`,
   description:
-    "Family-owned fabric house in Kashmiri Mohalla, Sialkot, Pakistan — offering premium unstitched cloth (lawn, cotton, linen, silk, suiting, and wedding wear) since 1991.",
+    "Family-owned fabric house in Chowk Adda Pasrooriyan, Sialkot, Pakistan — offering premium unstitched cloth (lawn, cotton, linen, silk, suiting, and wedding wear) since 1991.",
   slogan: "Fabric Heritage Since 1991",
   foundingDate: "1991",
   priceRange: "₨₨",
@@ -142,11 +142,14 @@ const storeJsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Kashmiri Mohalla",
+    streetAddress: "Chowk Adda Pasrooriyan",
     addressLocality: "Sialkot",
     addressRegion: "Punjab",
-    postalCode: "51310",
     addressCountry: "PK",
+  },
+  founder: {
+    "@type": "Person",
+    name: "Shahzad Ahmad",
   },
   geo: {
     "@type": "GeoCoordinates",

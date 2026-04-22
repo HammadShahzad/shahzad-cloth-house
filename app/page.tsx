@@ -22,13 +22,16 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_INTL}?text=${encodeURIComponent(
 export const metadata: Metadata = {
   title: "Shahzad Cloth House — Fabric Heritage Since 1991 | Sialkot",
   description:
-    "Family-run fabric house in Kashmiri Mohalla, Sialkot. Premium unstitched cloth — lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear — curated since 1991.",
+    "Family-run fabric house in Chowk Adda Pasrooriyan, Sialkot. Premium unstitched cloth — lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear — curated since 1991.",
   alternates: { canonical: "/" },
 };
 
 const MAPS_URL = "https://maps.app.goo.gl/LvhtWzgEjP6j29mm8";
 const MAPS_EMBED =
-  "https://www.google.com/maps?q=Shahzad+Cloth+House+Kashmiri+Mohalla+Sialkot&output=embed";
+  "https://www.google.com/maps?q=Shahzad+Cloth+House+Chowk+Adda+Pasrooriyan+Sialkot&output=embed";
+
+const PROPRIETOR = "Shahzad Ahmad";
+const ADDRESS_LINE = "Chowk Adda Pasrooriyan";
 
 const collections = [
   {
@@ -111,7 +114,7 @@ export default function Home() {
       <section id="top" className="relative">
         <div className="mx-auto max-w-[900px] px-6 md:px-10 pt-20 md:pt-32 pb-20 md:pb-28 text-center">
           <div className="text-[11px] tracking-[0.38em] uppercase text-[color:var(--color-oxblood)]">
-            Since 1991 · Kashmiri Mohalla, Sialkot
+            Since 1991 · Chowk Adda Pasrooriyan · Sialkot
           </div>
 
           <h1 className="display mt-10 text-[color:var(--color-ink)] text-[60px] md:text-[104px] leading-[0.95]">
@@ -174,7 +177,7 @@ export default function Home() {
               <div className="relative aspect-[4/5] w-full overflow-hidden border border-[color:var(--color-oxblood)]/30 bg-[color:var(--color-cream)]">
                 <Image
                   src="/father.jpg"
-                  alt="The proprietor of Shahzad Cloth House at the shop counter, Kashmiri Mohalla, Sialkot"
+                  alt="The proprietor of Shahzad Cloth House at the shop counter, Chowk Adda Pasrooriyan, Sialkot"
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
                   className="object-cover"
@@ -184,8 +187,8 @@ export default function Home() {
                   At the Shop · Sialkot
                 </div>
               </div>
-              <figcaption className="mt-3 flex items-baseline justify-between text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-ink)]/60">
-                <span>The Proprietor</span>
+              <figcaption className="mt-3 flex items-baseline justify-between gap-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-ink)]/60">
+                <span>{PROPRIETOR} · Proprietor</span>
                 <span className="display display-italic text-[14px] tracking-normal text-[color:var(--color-gold-dark)] normal-case">
                   Since 1991
                 </span>
@@ -197,8 +200,9 @@ export default function Home() {
             <p className="text-[20px] leading-[1.6]">
               <span className="display float-left text-[92px] leading-[0.8] pr-3 pt-2 text-[color:var(--color-oxblood)]">S</span>
               halzad Cloth House opened its shutters in <strong className="display-italic">1991</strong>,
-              a narrow door on a narrow lane in Kashmiri Mohalla. My father
-              measured his first thaan that summer; {YEARS} years on, the
+              a narrow door on a narrow lane at Chowk Adda Pasrooriyan, Sialkot.
+              My father, <strong>{PROPRIETOR}</strong>, measured his first thaan
+              that summer; {YEARS} years on, the
               measuring tape is the same, the eye is sharper, and the faces at
               the counter — aunts, nieces, grandsons — keep returning.
             </p>
@@ -252,11 +256,11 @@ export default function Home() {
             </p>
           </div>
 
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[color:var(--color-cream)]/15">
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-[color:var(--color-gold)]/30">
             {collections.map((c) => (
               <li
                 key={c.name}
-                className="group bg-[color:var(--color-oxblood)] p-8 md:p-10 relative lift"
+                className="group bg-[color:var(--color-oxblood)] border-b border-r border-[color:var(--color-gold)]/30 p-8 md:p-10 relative transition-colors duration-300 hover:bg-[color:var(--color-oxblood-deep)]"
               >
                 <div className="flex items-start justify-between">
                   <span className="display display-italic text-[28px] text-[color:var(--color-gold)]">
@@ -474,24 +478,64 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Facebook Page Plugin */}
+            {/* Facebook Page Plugin (SDK + iframe fallback) */}
             <div className="bg-[color:var(--color-cream)] border border-[color:var(--color-oxblood)]/20 p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)]">
                 <FacebookGlyph className="h-3.5 w-3.5" /> Facebook · @{FACEBOOK_HANDLE}
               </div>
-              <div className="flex-1 min-h-[520px] bg-white">
-                <iframe
-                  title="Shahzad Cloth House on Facebook"
-                  src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(
-                    FACEBOOK_URL,
-                  )}&tabs=timeline&width=380&height=520&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true`}
-                  width="100%"
-                  height="520"
-                  style={{ border: "none", overflow: "hidden" }}
-                  scrolling="no"
-                  loading="lazy"
-                  allow="encrypted-media"
-                />
+
+              <div className="flex-1 min-h-[520px] bg-white relative overflow-hidden">
+                {/* Layer 1 — pretty fallback CTA. The FB iframe sits on top
+                    of this. If FB blocks (cookies/region), the user still
+                    sees this rich Facebook-blue card and can click through. */}
+                <a
+                  href={FACEBOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-0 flex items-center justify-center text-center bg-gradient-to-br from-[#1877F2] to-[#0B4CB5] text-white px-6"
+                  aria-label="Open Shahzad Cloth House on Facebook"
+                >
+                  <div>
+                    <div className="inline-flex p-4 rounded-full bg-white/15 backdrop-blur">
+                      <FacebookGlyph className="h-10 w-10" />
+                    </div>
+                    <div className="display text-[26px] mt-5">
+                      @{FACEBOOK_HANDLE}
+                    </div>
+                    <div className="text-[12px] tracking-[0.18em] uppercase mt-2 opacity-80">
+                      Latest posts on Facebook
+                    </div>
+                    <div className="mt-6 inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase border-b border-white pb-1">
+                      Open Facebook →
+                    </div>
+                  </div>
+                </a>
+
+                {/* Layer 2 — Official FB Page Plugin (XFBML). Renders above
+                    the CTA when allowed; stays invisible if blocked. */}
+                <div className="relative z-10">
+                  <div id="fb-root" />
+                  <div
+                    className="fb-page"
+                    data-href={FACEBOOK_URL}
+                    data-tabs="timeline"
+                    data-width="500"
+                    data-height="520"
+                    data-small-header="false"
+                    data-adapt-container-width="true"
+                    data-hide-cover="false"
+                    data-show-facepile="true"
+                  >
+                    <blockquote
+                      cite={FACEBOOK_URL}
+                      className="fb-xfbml-parse-ignore"
+                    >
+                      <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer">
+                        Shahzad Cloth House
+                      </a>
+                    </blockquote>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -500,6 +544,11 @@ export default function Home() {
           src="https://www.tiktok.com/embed.js"
           strategy="lazyOnload"
           async
+        />
+        <Script
+          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"
+          strategy="lazyOnload"
+          crossOrigin="anonymous"
         />
       </section>
 
@@ -522,8 +571,8 @@ export default function Home() {
             <dl className="mt-10 space-y-6 text-[15px]">
               <VisitRow label="Address">
                 Shahzad Cloth House<br />
-                Kashmiri Mohalla<br />
-                Sialkot, Punjab — 51310<br />
+                Chowk Adda Pasrooriyan<br />
+                Sialkot, Punjab<br />
                 Pakistan
               </VisitRow>
               <VisitRow label="Hours">
@@ -566,7 +615,7 @@ export default function Home() {
           <div className="col-span-12 md:col-span-7">
             <div className="relative aspect-[4/5] md:aspect-[5/6] w-full overflow-hidden border border-[color:var(--color-oxblood)]/25 bg-[color:var(--color-cream)]">
               <iframe
-                title="Shahzad Cloth House — Kashmiri Mohalla, Sialkot"
+                title="Shahzad Cloth House — Chowk Adda Pasrooriyan, Sialkot"
                 src={MAPS_EMBED}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -574,7 +623,7 @@ export default function Home() {
                 allowFullScreen
               />
               <div className="absolute top-4 left-4 bg-[color:var(--color-bone)]/90 backdrop-blur px-3 py-2 text-[10px] tracking-[0.35em] uppercase text-[color:var(--color-oxblood)]">
-                Kashmiri Mohalla · Sialkot
+                Adda Pasrooriyan · Sialkot
               </div>
               <div className="absolute bottom-4 right-4 bg-[color:var(--color-oxblood)] text-[color:var(--color-cream)] px-3 py-2 text-[10px] tracking-[0.35em] uppercase">
                 32.494° N · 74.523° E
@@ -613,8 +662,8 @@ export default function Home() {
             <div className="col-span-6 md:col-span-2 text-[13px] leading-[2]">
               <div className="text-[10px] tracking-[0.35em] uppercase text-[color:var(--color-gold)] mb-3">Visit</div>
               <p>
-                Kashmiri Mohalla<br />
-                Sialkot 51310<br />
+                Chowk Adda Pasrooriyan<br />
+                Sialkot · Punjab<br />
                 Pakistan
               </p>
             </div>
