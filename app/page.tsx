@@ -478,43 +478,32 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Facebook CTA card */}
+            {/* Facebook Page Plugin (iframe) — feed visible */}
             <div className="bg-[color:var(--color-cream)] border border-[color:var(--color-oxblood)]/20 p-4 flex flex-col">
               <div className="flex items-center gap-2 mb-3 text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)]">
                 <FacebookGlyph className="h-3.5 w-3.5" /> Facebook · @{FACEBOOK_HANDLE}
+              </div>
+              <div className="flex-1 min-h-[520px] bg-white flex items-center justify-center overflow-hidden">
+                <iframe
+                  title="Shahzad Cloth House on Facebook"
+                  src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(
+                    FACEBOOK_URL,
+                  )}&tabs=timeline&width=340&height=520&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
+                  width="340"
+                  height="520"
+                  style={{ border: "none", overflow: "hidden", maxWidth: "100%" }}
+                  scrolling="no"
+                  loading="lazy"
+                  allow="encrypted-media; fullscreen"
+                />
               </div>
               <a
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 min-h-[520px] relative overflow-hidden bg-gradient-to-br from-[#1877F2] to-[#0B4CB5] text-white flex items-center justify-center group"
-                aria-label="Open Shahzad Cloth House on Facebook"
+                className="mt-3 text-center text-[11px] tracking-[0.28em] uppercase text-[color:var(--color-oxblood)] hover:text-[color:var(--color-oxblood-deep)]"
               >
-                {/* dotted texture */}
-                <div className="absolute inset-0 opacity-25" aria-hidden>
-                  <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <pattern id="fbdots" width="22" height="22" patternUnits="userSpaceOnUse">
-                        <circle cx="11" cy="11" r="1" fill="#FFFFFF" opacity="0.5" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#fbdots)" />
-                  </svg>
-                </div>
-                <div className="relative text-center px-6">
-                  <div className="inline-flex p-4 rounded-full bg-white/15 backdrop-blur shadow-lg group-hover:scale-110 transition-transform">
-                    <FacebookGlyph className="h-8 w-8" />
-                  </div>
-                  <div className="display text-[28px] mt-6">
-                    @{FACEBOOK_HANDLE}
-                  </div>
-                  <div className="text-[13px] mt-2 opacity-85">
-                    Latest posts on Facebook
-                  </div>
-                  <div className="mt-6 inline-flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase border-b border-white pb-1">
-                    Open Facebook <Arrow />
-                  </div>
-                </div>
+                Open on Facebook ↗
               </a>
             </div>
           </div>
