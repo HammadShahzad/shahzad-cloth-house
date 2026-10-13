@@ -1,54 +1,77 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #FFFFFF;
-  --color-bone-2: #F5F5F2;
-  --color-cream: #FAFAF7;
-  --color-oxblood: #15235C;          /* navy — primary brand */
-  --color-oxblood-deep: #0A1740;     /* deep navy */
-  --color-ink: #0A1024;              /* near-black navy */
+  --color-navy: #15235C;             /* primary brand, from the shop signage */
+  --color-navy-deep: #0A1740;
+  --color-navy-night: #070F2B;
+  --color-ink: #0A1024;
   --color-gold: #D4A657;             /* signature gold */
+  --color-gold-light: #E9C77D;
   --color-gold-dark: #A37828;
-  --color-moss: #2F4A29;
+  --color-cream: #FBF8F1;
+  --color-sand: #F3EDE0;
+  --color-bone: #FFFFFF;
 
-  --font-display: "Fraunces", "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  /* legacy names, still used by /v3 */
+  --color-oxblood: #15235C;
+  --color-oxblood-deep: #0A1740;
+
+  --font-display: var(--font-fraunces), "Fraunces", "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-body: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-urdu: var(--font-nastaliq), "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
   html, body {
-    background: var(--color-bone);
+    background: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-body);
-    font-feature-settings: "ss01", "ss02", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
   ::selection {
-    background: var(--color-oxblood);
-    color: var(--color-cream);
+    background: var(--color-gold);
+    color: var(--color-navy-night);
   }
-  body {
-    background: #FFFFFF;
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
-/* Paper grain — disabled on white for cleanliness */
-.grain::before { content: none; }
-
-/* Weave divider */
-.weave {
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--color-oxblood) 0 1px,
-    transparent 1px 6px
-  );
+/* ───────── type ───────── */
+.display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 60, "WONK" 1;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+.display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.urdu {
+  font-family: var(--font-urdu);
+  direction: rtl;
+  line-height: 1.9;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-/* Gold foil underline */
+/* Gold foil text */
 .foil {
-  background: linear-gradient(110deg, #8F6A36 0%, #E9C77D 25%, #B8935A 50%, #E9C77D 75%, #8F6A36 100%);
+  background: linear-gradient(110deg, #A37828 0%, #E9C77D 25%, #C9A15E 50%, #F3DA9F 75%, #A37828 100%);
   background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -59,64 +82,142 @@
   to { background-position: -200% 0; }
 }
 
-/* Reveal on load */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ───────── surfaces ───────── */
+
+/* Fine woven texture for navy sections */
+.weave {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 4px);
 }
-@keyframes fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes drawline {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-@keyframes spinslow {
-  to { transform: rotate(360deg); }
+.hero-glow {
+  background:
+    radial-gradient(60% 70% at 78% 40%, rgba(212,166,87,0.18), transparent 70%),
+    radial-gradient(50% 60% at 10% 100%, rgba(40,72,180,0.35), transparent 70%),
+    linear-gradient(180deg, var(--color-navy) 0%, var(--color-navy-deep) 100%);
 }
 
-.rise { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
-.fade { animation: fade 1200ms ease both; }
-.draw { transform-origin: left; animation: drawline 1400ms cubic-bezier(.65,0,.35,1) 200ms both; }
-.spinslow { animation: spinslow 40s linear infinite; }
-
-/* Display tweaks */
-.display {
-  font-family: var(--font-display);
-  font-optical-sizing: auto;
-  font-variation-settings: "SOFT" 60, "WONK" 1;
-  letter-spacing: -0.02em;
-  line-height: 0.92;
-}
-.display-italic {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-variation-settings: "SOFT" 100, "WONK" 1;
-}
-.urdu {
-  font-family: var(--font-urdu);
-  direction: rtl;
-  line-height: 1.8;
+/* Mughal arch frame */
+.arch {
+  border-radius: 999px 999px 18px 18px;
 }
 
-/* Marquee */
+/* Thin gold rule with a centred star */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-gold);
+}
+.ornament::before, .ornament::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* ───────── fabric swatches (pure CSS, no image weight) ───────── */
+.swatch {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.swatch::after {
+  /* soft drape: light and shadow folds across the cloth */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,
+    rgba(0,0,0,0.22) 0%, transparent 22%,
+    rgba(255,255,255,0.16) 42%, transparent 58%,
+    rgba(0,0,0,0.12) 78%, rgba(255,255,255,0.06) 100%);
+  mix-blend-mode: soft-light;
+  z-index: 1;
+  transition: transform 0.8s cubic-bezier(.2,.7,.2,1);
+}
+.group:hover .swatch::after { transform: translateX(6%); }
+
+.swatch-lawn {
+  /* small block-print florals on a blush ground */
+  background-color: #F5E2DC;
+  background-image:
+    radial-gradient(circle at 50% 50%, #F2C14E 0 2.5px, transparent 3px),
+    radial-gradient(circle at 50% 38%, #DD7F95 0 4.5px, transparent 5px),
+    radial-gradient(circle at 50% 62%, #DD7F95 0 4.5px, transparent 5px),
+    radial-gradient(circle at 38% 50%, #DD7F95 0 4.5px, transparent 5px),
+    radial-gradient(circle at 62% 50%, #DD7F95 0 4.5px, transparent 5px),
+    radial-gradient(ellipse 7px 3.5px at 50% 50%, #7FAE88 0 100%, transparent 100%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.6) 0 1.5px, transparent 2px);
+  background-size: 64px 64px, 64px 64px, 64px 64px, 64px 64px, 64px 64px, 64px 64px, 16px 16px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 32px 32px, 8px 8px;
+}
+.swatch-washwear {
+  background-color: #6D7686;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, #7C8596, #596273);
+}
+.swatch-linen {
+  background-color: #E6D8BC;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(110,85,50,0.13) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(110,85,50,0.10) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.25) 0 2px, transparent 2px 37px);
+}
+.swatch-silk {
+  background-color: #7A2448;
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 0 14px, rgba(233,199,125,0.55) 15px 16px, transparent 17px),
+    radial-gradient(circle at 0 0, rgba(233,199,125,0.45) 0 5px, transparent 6px),
+    linear-gradient(115deg, #4B1430 0%, #9C3D63 32%, #E2AE84 46%, #8C2C55 60%, #3F1028 100%);
+  background-size: 44px 44px, 44px 44px, 100% 100%;
+}
+.swatch-wedding {
+  background-color: #74122A;
+  background-image:
+    radial-gradient(circle, #E9C77D 0 1.6px, transparent 2.2px),
+    repeating-linear-gradient(45deg, rgba(212,166,87,0.45) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(-45deg, rgba(212,166,87,0.45) 0 1px, transparent 1px 22px),
+    linear-gradient(160deg, #8E1A35, #5A0C20);
+  background-size: 15.5px 15.5px, auto, auto, 100% 100%;
+}
+.swatch-winter {
+  background-color: #3B404B;
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,0.07) 25%, transparent 25% 50%, rgba(255,255,255,0.07) 50% 75%, transparent 75%),
+    linear-gradient(-45deg, rgba(0,0,0,0.12) 25%, transparent 25% 50%, rgba(0,0,0,0.12) 50% 75%, transparent 75%),
+    radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1.5px);
+  background-size: 14px 28px, 14px 28px, 5px 5px;
+  background-position: 0 0, 7px 0, 0 0;
+}
+
+/* ───────── motion ───────── */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-.marquee-track { animation: marquee 42s linear infinite; }
+.marquee-track { animation: marquee 48s linear infinite; }
 
-/* Subtle hover lift */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+.rise-2 { animation-delay: 120ms; }
+.rise-3 { animation-delay: 240ms; }
+.rise-4 { animation-delay: 360ms; }
+
 .lift { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
 .lift:hover { transform: translateY(-4px); }
 
-/* Decorative corner frame */
-.frame-corner::before, .frame-corner::after {
-  content: "";
-  position: absolute;
-  width: 22px; height: 22px;
-  border: 1px solid var(--color-oxblood);
+/* FAQ disclosure */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-plus { transform: rotate(45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .marquee-track, .foil, .rise { animation: none; }
+  .lift:hover { transform: none; }
 }
-.frame-corner::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-.frame-corner::after  { bottom: 0; right: 0; border-left: 0; border-top: 0; }

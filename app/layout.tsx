@@ -1,7 +1,21 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope, Noto_Nastaliq_Urdu } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
+import {
+  ADDRESS,
+  BUSINESS_NAME,
+  BUSINESS_NAME_URDU,
+  COLLECTIONS,
+  FACEBOOK_URL,
+  FOUNDED,
+  GEO,
+  INSTAGRAM_URL,
+  MAPS_URL,
+  PHONE_TEL,
+  PROPRIETOR,
+  SITE_URL,
+  TIKTOK_URL,
+} from "./site";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -21,69 +35,64 @@ const nastaliq = Noto_Nastaliq_Urdu({
   variable: "--font-nastaliq",
   display: "swap",
   weight: ["400", "700"],
+  preload: false,
 });
 
-const SITE_URL = "https://shahzadclothhouse.com";
+const TITLE = "Shahzad Cloth House Sialkot | Unstitched Fabric Since 1991";
+const DESCRIPTION =
+  "Family-run cloth house in Chowk Adda Pasrooriyan, Sialkot since 1991. Unstitched lawn, wash & wear, linen, silk, wedding & winter suiting for ladies & gents.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Shahzad Cloth House — Fabric Heritage Since 1991 | Sialkot, Pakistan",
-    template: "%s · Shahzad Cloth House",
+    default: TITLE,
+    template: `%s · ${BUSINESS_NAME}`,
   },
-  description:
-    "Shahzad Cloth House — family-run fabric house since 1991 in Chowk Adda Pasrooriyan, Sialkot, Pakistan. Premium unstitched cloth: lawn, cotton, linen, silk, wash & wear, suiting, and wedding wear from the country's finest mills.",
-  applicationName: "Shahzad Cloth House",
+  description: DESCRIPTION,
+  applicationName: BUSINESS_NAME,
   keywords: [
     "Shahzad Cloth House",
     "cloth house Sialkot",
+    "cloth shop Sialkot",
     "fabric shop Sialkot",
     "Chowk Adda Pasrooriyan Sialkot",
-    "unstitched fabric Pakistan",
+    "unstitched fabric Sialkot",
     "lawn suits Sialkot",
-    "wash and wear fabric",
-    "men's suiting Sialkot",
-    "wedding fabric Pakistan",
-    "dress material Sialkot",
-    "Pakistani fabric store",
-    "cotton linen silk Pakistan",
-    "shahzadclothhouse.com",
+    "wash and wear Sialkot",
+    "gents suiting Sialkot",
+    "bridal fabric Sialkot",
+    "karandi Sialkot",
+    "شہزاد کلاتھ ہاؤس",
   ],
-  authors: [{ name: "Shahzad Cloth House" }],
-  creator: "Shahzad Cloth House",
-  publisher: "Shahzad Cloth House",
+  authors: [{ name: BUSINESS_NAME, url: SITE_URL }],
+  creator: BUSINESS_NAME,
+  publisher: BUSINESS_NAME,
   category: "shopping",
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en-PK": "/",
-      "ur-PK": "/",
-    },
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_PK",
     url: SITE_URL,
-    siteName: "Shahzad Cloth House",
-    title: "Shahzad Cloth House — Fabric Heritage Since 1991",
+    siteName: BUSINESS_NAME,
+    title: "Shahzad Cloth House · Unstitched Fabric in Sialkot Since 1991",
     description:
-      "A family fabric house in Chowk Adda Pasrooriyan, Sialkot, serving customers since 1991. Lawn, suiting, silk, linen, wedding wear — handpicked from Pakistan's finest mills.",
+      "Lawn, wash & wear, cotton, linen, silk, wedding and winter suiting for ladies & gents, cut to any length at Chowk Adda Pasrooriyan, Sialkot.",
     images: [
       {
-        url: "/og.svg",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: "Shahzad Cloth House — Since 1991",
-        type: "image/svg+xml",
+        alt: "Shahzad Cloth House, Sialkot: unstitched fabric for ladies and gents since 1991",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shahzad Cloth House — Since 1991",
+    title: "Shahzad Cloth House · Sialkot · Since 1991",
     description:
-      "Family fabric house in Chowk Adda Pasrooriyan, Sialkot. Premium unstitched cloth from Pakistan's finest mills.",
-    images: ["/og.svg"],
+      "Unstitched fabric for ladies & gents at Chowk Adda Pasrooriyan, Sialkot. Lawn, wash & wear, silk, wedding and winter suiting.",
+    images: ["/og.jpg"],
   },
   robots: {
     index: true,
@@ -98,17 +107,17 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: "/apple-touch-icon.svg",
+    apple: "/apple-touch-icon.png",
   },
   formatDetection: {
-    email: true,
+    email: false,
     telephone: true,
     address: true,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#15235C",
+  themeColor: "#0A1740",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -116,25 +125,25 @@ export const viewport: Viewport = {
 
 const storeJsonLd = {
   "@context": "https://schema.org",
-  "@type": ["ClothingStore", "LocalBusiness"],
-  "@id": `${SITE_URL}#store`,
-  name: "Shahzad Cloth House",
-  alternateName: "شہزاد کلاتھ ہاؤس",
+  "@type": "ClothingStore",
+  "@id": `${SITE_URL}/#store`,
+  name: BUSINESS_NAME,
+  alternateName: BUSINESS_NAME_URDU,
   url: SITE_URL,
-  image: `${SITE_URL}/og.svg`,
-  logo: `${SITE_URL}/favicon.svg`,
+  image: [`${SITE_URL}/og.jpg`, `${SITE_URL}/fabrics-ladies-gents.jpg`, `${SITE_URL}/father.jpg`],
+  logo: `${SITE_URL}/apple-touch-icon.png`,
   description:
-    "Family-owned fabric house in Chowk Adda Pasrooriyan, Sialkot, Pakistan — offering premium unstitched cloth (lawn, cotton, linen, silk, suiting, and wedding wear) since 1991.",
+    "Family-owned cloth house in Chowk Adda Pasrooriyan, Sialkot, Pakistan, selling unstitched fabric for ladies and gents since 1991: lawn, wash & wear, cotton, linen, silk, wedding wear and winter suiting.",
   slogan: "Fabric Heritage Since 1991",
-  foundingDate: "1991",
+  foundingDate: String(FOUNDED),
   priceRange: "₨₨",
   currenciesAccepted: "PKR",
   paymentAccepted: "Cash, Bank Transfer",
-  telephone: "+923006143230",
+  telephone: PHONE_TEL,
   contactPoint: [
     {
       "@type": "ContactPoint",
-      telephone: "+923006143230",
+      telephone: PHONE_TEL,
       contactType: "customer service",
       areaServed: "PK",
       availableLanguage: ["English", "Urdu", "Punjabi"],
@@ -142,59 +151,48 @@ const storeJsonLd = {
   ],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Chowk Adda Pasrooriyan",
-    addressLocality: "Sialkot",
-    addressRegion: "Punjab",
-    addressCountry: "PK",
-  },
-  founder: {
-    "@type": "Person",
-    name: "Shahzad Ahmad",
+    streetAddress: ADDRESS.street,
+    addressLocality: ADDRESS.city,
+    addressRegion: ADDRESS.region,
+    addressCountry: ADDRESS.countryCode,
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 32.4945,
-    longitude: 74.5229,
+    latitude: GEO.lat,
+    longitude: GEO.lng,
   },
-  hasMap: "https://maps.app.goo.gl/LvhtWzgEjP6j29mm8",
+  areaServed: { "@type": "City", name: "Sialkot" },
+  hasMap: MAPS_URL,
+  founder: { "@type": "Person", name: PROPRIETOR },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Saturday",
-        "Sunday",
-      ],
+      dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
       opens: "10:00",
       closes: "22:00",
     },
   ],
-  makesOffer: [
-    { "@type": "Offer", itemOffered: { "@type": "Product", name: "Unstitched Lawn" } },
-    { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wash & Wear Suiting" } },
-    { "@type": "Offer", itemOffered: { "@type": "Product", name: "Premium Cotton & Linen" } },
-    { "@type": "Offer", itemOffered: { "@type": "Product", name: "Silk & Embroidered Fabric" } },
-    { "@type": "Offer", itemOffered: { "@type": "Product", name: "Wedding Wear" } },
-    { "@type": "Offer", itemOffered: { "@type": "Product", name: "Men's Shirting" } },
-  ],
-  sameAs: [
-    "https://maps.app.goo.gl/LvhtWzgEjP6j29mm8",
-    "https://www.tiktok.com/@shahzadclothhouseskt",
-    "https://www.instagram.com/shahzadclothhouse/",
-    "https://www.facebook.com/shahzadclothhouseskt/",
-  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Unstitched fabric",
+    itemListElement: COLLECTIONS.map((c) => ({
+      "@type": "OfferCatalog",
+      name: c.name,
+      description: c.blurb,
+    })),
+  },
+  sameAs: [MAPS_URL, TIKTOK_URL, INSTAGRAM_URL, FACEBOOK_URL],
 };
 
 const siteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
   url: SITE_URL,
-  name: "Shahzad Cloth House",
-  inLanguage: ["en-PK", "ur-PK"],
-  publisher: { "@id": `${SITE_URL}#store` },
+  name: BUSINESS_NAME,
+  alternateName: BUSINESS_NAME_URDU,
+  inLanguage: "en-PK",
+  publisher: { "@id": `${SITE_URL}/#store` },
 };
 
 export default function RootLayout({
@@ -206,22 +204,16 @@ export default function RootLayout({
       className={`${fraunces.variable} ${manrope.variable} ${nastaliq.variable}`}
       suppressHydrationWarning
     >
-      <body className="grain" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         {children}
-        <Script
-          id="ld-store"
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
-        >
-          {JSON.stringify(storeJsonLd)}
-        </Script>
-        <Script
-          id="ld-site"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(storeJsonLd) }}
+        />
+        <script
           type="application/ld+json"
-          strategy="beforeInteractive"
-        >
-          {JSON.stringify(siteJsonLd)}
-        </Script>
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+        />
       </body>
     </html>
   );

@@ -1,20 +1,14 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "./site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://shahzadclothhouse.com";
-  const lastModified = new Date();
   return [
     {
-      url: `${base}/`,
-      lastModified,
+      url: `${SITE_URL}/`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
-      alternates: {
-        languages: {
-          "en-PK": `${base}/`,
-          "ur-PK": `${base}/`,
-        },
-      },
+      images: [`${SITE_URL}/fabrics-ladies-gents.jpg`, `${SITE_URL}/father.jpg`],
     },
   ];
 }
