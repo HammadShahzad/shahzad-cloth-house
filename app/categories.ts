@@ -25,9 +25,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "ladies-fabric",
     navLabel: "Ladies",
-    metaTitle: "Ladies Unstitched Suits Fabric in Sialkot",
+    metaTitle: "Ladies Unstitched Suits in Sialkot, Delivered Across Pakistan",
     metaDescription:
-      "Ladies unstitched fabric in Sialkot: lawn, cotton, linen, raw silk, katan, jacquard and embroidered panels, cut to any length at Shahzad Cloth House since 1991.",
+      "Ladies unstitched suits from Sialkot: lawn, cotton, linen, raw silk, katan, jacquard and embroidered panels, cut to any length. Order on WhatsApp, delivered across Pakistan.",
     eyebrow: "Ladies Collection",
     h1: "Ladies unstitched fabric",
     h1Accent: "in Sialkot",
@@ -78,9 +78,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "gents-fabric",
     navLabel: "Gents",
-    metaTitle: "Gents Suiting & Wash and Wear Fabric in Sialkot",
+    metaTitle: "Gents Wash and Wear & Suiting Fabric, Sialkot and Online",
     metaDescription:
-      "Gents wash & wear, cotton, linen, shirting and winter suiting in Sialkot. Shalwar kameez fabric cut to any length at Shahzad Cloth House, Chowk Adda Pasrooriyan.",
+      "Gents wash & wear, cotton, linen, shirting and winter suiting from Sialkot. Shalwar kameez fabric cut to any length, ordered on WhatsApp and delivered across Pakistan.",
     eyebrow: "Gents Collection",
     h1: "Gents suiting & wash and wear",
     h1Accent: "in Sialkot",
@@ -131,9 +131,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "lawn",
     navLabel: "Lawn",
-    metaTitle: "Unstitched Lawn Suits in Sialkot",
+    metaTitle: "Unstitched Lawn Suits Online in Pakistan, From Sialkot",
     metaDescription:
-      "Unstitched lawn in Sialkot: printed lawn, embroidered panels and chikankari from Pakistan's finest mills, cut to any length at Shahzad Cloth House since 1991.",
+      "Unstitched lawn suits from Sialkot: printed lawn, embroidered panels and chikankari, cut to any length. Order on WhatsApp with delivery across Pakistan.",
     eyebrow: "Spring · Summer",
     h1: "Unstitched lawn suits",
     h1Accent: "in Sialkot",
@@ -181,9 +181,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "winter-collection",
     navLabel: "Winter",
-    metaTitle: "Winter Suiting & Karandi Fabric in Sialkot",
+    metaTitle: "Karandi & Winter Suiting Fabric, Sialkot and Online",
     metaDescription:
-      "Winter suiting in Sialkot: karandi and wool blends with real weight and drape, cut to any length at Shahzad Cloth House, Chowk Adda Pasrooriyan. Since 1991.",
+      "Karandi and wool-blend winter suiting from Sialkot, for men and ladies, cut to any length. Order on WhatsApp and we deliver across Pakistan.",
     eyebrow: "Autumn · Winter",
     h1: "Winter suiting & karandi",
     h1Accent: "in Sialkot",
@@ -230,9 +230,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "wedding-fabric",
     navLabel: "Wedding",
-    metaTitle: "Bridal & Groom Wedding Fabric in Sialkot",
+    metaTitle: "Bridal & Groom Wedding Fabric, Sialkot and Online",
     metaDescription:
-      "Bridal and groom fabric in Sialkot: hand-embroidered panels, zari work, raw silk, jacquard, brocade and coordinated dupattas. By appointment at Shahzad Cloth House.",
+      "Bridal and groom fabric from Sialkot: hand-embroidered panels, zari work, raw silk, jacquard, brocade and dupattas. Visit by appointment or order on WhatsApp.",
     eyebrow: "By Appointment",
     h1: "Bridal & groom fabric",
     h1Accent: "in Sialkot",
@@ -280,9 +280,69 @@ export const CATEGORIES: Category[] = [
     ],
     related: ["ladies-fabric", "gents-fabric", "winter-collection"],
   },
+  {
+    slug: "uniform-fabric",
+    navLabel: "Uniforms",
+    metaTitle: "Uniform Fabric for Schools, Offices & Hospitals in Sialkot",
+    metaDescription:
+      "School, office, hospital and staff uniform fabric from Sialkot, by the suit or in bulk. Tell us the colour and quantity on WhatsApp; we deliver across Pakistan.",
+    eyebrow: "Bulk & Custom Orders",
+    h1: "Uniform fabric",
+    h1Accent: "in Sialkot",
+    lead:
+      "Fabric for school, office, hospital and staff uniforms, for one person or a whole team. Send us the colour, the garment and how many you need, and we will match it and quote on WhatsApp.",
+    urdu: "یونیفارم کا کپڑا",
+    photo: "uniform",
+    season: "Bulk Orders",
+    fabrics: [
+      { name: "School Uniforms", note: "Shirting, trouser and shalwar kameez fabric in your school's colours, for one child or a whole class." },
+      { name: "Office & Staff Uniforms", note: "Wash & wear and suiting that keep their press through a working day." },
+      { name: "Hospital & Clinic Wear", note: "Easy-wash fabric in the plain colours used for scrubs, coats and staff uniforms." },
+      { name: "Security & Driver Uniforms", note: "Khaki, grey and navy fabric for guards, drivers and support staff." },
+      { name: "Match an Existing Uniform", note: "Send a photo or bring a sample, and we will match the colour and weight as closely as we can." },
+    ],
+    guideTitle: "Ordering uniform fabric",
+    guide: [
+      {
+        title: "Start with a sample",
+        body: "A photo of the current uniform, or a swatch from an old one, is the quickest way to match colour and weight.",
+      },
+      {
+        title: "Tell us the count",
+        body: "Let us know how many uniforms and roughly which sizes. We work out the metres so you buy enough without waste.",
+      },
+      {
+        title: "Order before the rush",
+        body: "Schools and tailors get busy before a new term. Place bulk orders early so the fabric and the stitching are both ready on time.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do you take bulk uniform fabric orders?",
+        a: `Yes. We cut uniform fabric for single orders and for schools, offices and hospitals in bulk. Message us on WhatsApp at ${PHONE_DISPLAY} with the colour, the garment and the quantity, and we will confirm stock and price.`,
+      },
+      {
+        q: "Can you match our existing uniform colour?",
+        a: "Send us a photo or bring a sample to the shop and we will match the colour and weight as closely as we can.",
+      },
+      {
+        q: "Is there a minimum quantity?",
+        a: "No. We can cut fabric for one uniform or for a whole school.",
+      },
+    ],
+    related: ["gents-fabric", "ladies-fabric", "winter-collection"],
+  },
 ];
 
 export const CATEGORY_BY_SLUG = Object.fromEntries(CATEGORIES.map((c) => [c.slug, c]));
+
+/** Every category page also answers the delivery question, for people searching outside Sialkot. */
+export function deliveryFaq(c: Category) {
+  return {
+    q: `Do you deliver ${c.h1.toLowerCase()} outside Sialkot?`,
+    a: `Yes, we deliver across Pakistan. Message us on WhatsApp at ${PHONE_DISPLAY} with the fabric, colour and length you need, and we will confirm stock, price and delivery before we send it.`,
+  };
+}
 
 /** Which category page each home-page collection card links to. */
 export const COLLECTION_TO_CATEGORY: Record<string, string> = {

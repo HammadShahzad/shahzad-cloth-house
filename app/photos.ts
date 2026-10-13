@@ -30,6 +30,14 @@ export const PHOTOS = {
     src: "/photos/winter.jpg",
     alt: "Folded karandi and wool-blend winter fabric in charcoal, brown, olive and navy",
   },
+  uniform: {
+    src: "/photos/uniform.jpg",
+    alt: "Folded white, sky-blue, grey, navy and khaki uniform fabric with a measuring tape and scissors",
+  },
+  "order-online": {
+    src: "/photos/order-online.jpg",
+    alt: "Unstitched fabric wrapped in kraft paper and tied with string, ready to send",
+  },
 } as const;
 
 export type PhotoKey = keyof typeof PHOTOS;

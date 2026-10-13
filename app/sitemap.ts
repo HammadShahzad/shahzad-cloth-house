@@ -10,7 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
-      images: [`${SITE_URL}/fabrics-ladies-gents.jpg`, `${SITE_URL}/father.jpg`],
+      images: [`${SITE_URL}/photos/hero-shop.jpg`, `${SITE_URL}/father.jpg`],
+    },
+    {
+      url: `${SITE_URL}/order-online`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     ...CATEGORIES.map((c) => ({
       url: `${SITE_URL}/${c.slug}`,

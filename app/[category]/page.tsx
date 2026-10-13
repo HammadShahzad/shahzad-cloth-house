@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CATEGORIES, CATEGORY_BY_SLUG } from "../categories";
+import { CATEGORIES, CATEGORY_BY_SLUG, deliveryFaq } from "../categories";
 import { SiteFooter, SiteHeader } from "../components/chrome";
+import { OrderSteps } from "../components/order";
 import { PHOTOS } from "../photos";
 import { Arrow, PhoneGlyph, PinGlyph, SectionHead, WhatsAppGlyph } from "../components/ui";
 import {
@@ -59,6 +60,7 @@ export default async function CategoryPage({ params }: Props) {
   if (!c) notFound();
 
   const pageUrl = `${SITE_URL}/${c.slug}`;
+  const faqs = [...c.faqs, deliveryFaq(c)];
   const pageName = `${c.h1.charAt(0).toUpperCase()}${c.h1.slice(1)} ${c.h1Accent}`;
   const jsonLd = [
     {
@@ -83,7 +85,7 @@ export default async function CategoryPage({ params }: Props) {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: c.faqs.map((f) => ({
+      mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -139,6 +141,9 @@ export default async function CategoryPage({ params }: Props) {
                     Call {PHONE_DISPLAY}
                   </a>
                 </div>
+                <p className="rise rise-4 mt-5 text-[14px] text-cream/70">
+                  <span className="text-gold">Delivery across Pakistan.</span> Order on WhatsApp, or visit the shop in {ADDRESS.city}.
+                </p>
               </div>
 
               <div className="lg:col-span-5 order-first lg:order-none">
@@ -164,8 +169,16 @@ export default async function CategoryPage({ params }: Props) {
               <SectionHead
                 eyebrow="On Our Shelves"
                 id="fabrics-title"
-                title={<>What we <span className="display-italic text-navy">keep in stock</span></>}
-                intro="Every bolt is sourced direct from the mills and cut to the length you need, with no minimums. Stock changes with the season, so ask us on WhatsApp before you visit."
+                title={
+                  c.slug === "uniform-fabric"
+                    ? <>What we <span className="display-italic text-navy">supply</span></>
+                    : <>What we <span className="display-italic text-navy">keep in stock</span></>
+                }
+                intro={
+                  c.slug === "uniform-fabric"
+                    ? "Tell us the colour, the garment and the quantity, and we will match it from the mills and cut it to the metres you need."
+                    : "Every bolt is sourced direct from the mills and cut to the length you need, with no minimums. Stock changes with the season, so ask us on WhatsApp before you visit."
+                }
               />
             </div>
             <ol className="lg:col-span-8 border-t border-navy/15">
@@ -191,6 +204,8 @@ export default async function CategoryPage({ params }: Props) {
             </ol>
           </div>
         </section>
+
+        <OrderSteps topic={c.h1.toLowerCase()} />
 
         {/* GUIDE */}
         <section aria-labelledby="guide-title" className="relative bg-navy-deep text-cream py-20 md:py-24 overflow-hidden">
@@ -225,7 +240,7 @@ export default async function CategoryPage({ params }: Props) {
               />
             </div>
             <div className="lg:col-span-8 divide-y divide-navy/10 border-y border-navy/10">
-              {c.faqs.map((f, i) => (
+              {faqs.map((f, i) => (
                 <details key={f.q} className="group py-1" open={i === 0}>
                   <summary className="flex items-center justify-between gap-6 py-5">
                     <h3 className="text-[17px] md:text-[19px] font-semibold text-ink">{f.q}</h3>

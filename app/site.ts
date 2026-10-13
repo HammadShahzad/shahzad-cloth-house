@@ -128,11 +128,19 @@ export const FAQS = [
   },
   {
     q: "What kind of fabric do you sell?",
-    a: "Unstitched fabric for ladies and gents: lawn, wash & wear, cotton and linen, silk and jacquard, bridal and groom fabric, and winter suiting such as karandi and wool blends.",
+    a: "Unstitched fabric for ladies and gents: lawn, wash & wear, cotton and linen, silk and jacquard, bridal and groom fabric, winter suiting such as karandi and wool blends, and uniform fabric.",
   },
   {
     q: "Is there a minimum length I have to buy?",
     a: "No. Every bolt is cut to the length you need, with no minimums.",
+  },
+  {
+    q: "Do you deliver outside Sialkot?",
+    a: `Yes, we deliver across Pakistan. Message us on WhatsApp at ${PHONE_DISPLAY} with the fabric, colour and length you need, and we will confirm stock, price and delivery before we send it.`,
+  },
+  {
+    q: "Do you take bulk or uniform orders?",
+    a: "Yes. We cut fabric for schools, offices, hospitals and family weddings in bulk. Tell us the colour and quantity on WhatsApp and we will quote.",
   },
   {
     q: "Can I ask about a fabric on WhatsApp before visiting?",

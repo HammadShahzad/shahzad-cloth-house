@@ -15,9 +15,14 @@ import {
 import { Monogram, PhoneGlyph, PinGlyph, WhatsAppGlyph } from "./ui";
 
 const NAV = [
-  ...CATEGORIES.filter((c) => c.slug !== "lawn").map((c) => ({ href: `/${c.slug}`, label: c.navLabel })),
+  { href: "/ladies-fabric", label: "Ladies" },
+  { href: "/gents-fabric", label: "Gents" },
+  { href: "/winter-collection", label: "Winter" },
+  { href: "/wedding-fabric", label: "Wedding" },
   { href: "/lawn", label: "Lawn" },
-  { href: "/#visit", label: "Visit" },
+  { href: "/uniform-fabric", label: "Uniforms" },
+  { href: "/order-online", label: "Order Online" },
+  { href: "/#visit", label: "Visit", wide: true },
 ];
 
 export function SiteHeader() {
@@ -36,6 +41,7 @@ export function SiteHeader() {
           <p className="truncate">
             <span className="text-gold">Open</span> Sat – Thu, 10 am – 10 pm
             <span className="hidden sm:inline"> · Friday after Jumu&apos;ah</span>
+            <span className="hidden md:inline"> · <span className="text-gold">Delivery across Pakistan</span></span>
           </p>
           <a href={`tel:${PHONE_TEL}`} className="shrink-0 hover:text-gold transition-colors">
             <PhoneGlyph className="inline h-3 w-3 mr-1.5 -mt-0.5" />
@@ -49,13 +55,13 @@ export function SiteHeader() {
         <div className="mx-auto max-w-[1240px] px-5 md:px-10 h-16 md:h-[72px] flex items-center justify-between gap-6">
           <Link href="/" className="flex items-center gap-3 text-cream" aria-label="Shahzad Cloth House home">
             <Monogram className="h-9 w-9 text-gold shrink-0" />
-            <span className="display text-[19px] md:text-[21px] leading-none">
+            <span className="display text-[19px] md:text-[21px] leading-none whitespace-nowrap">
               Shahzad <span className="display-italic text-gold-light">Cloth House</span>
             </span>
           </Link>
-          <nav aria-label="Main" className="hidden lg:flex items-center gap-7 text-[14px] text-cream/75">
+          <nav aria-label="Main" className="hidden lg:flex items-center gap-5 xl:gap-7 text-[14px] text-cream/75 whitespace-nowrap">
             {NAV.map((n) => (
-              <Link key={n.href} href={n.href} className="hover:text-gold transition-colors">
+              <Link key={n.href} href={n.href} className={`hover:text-gold transition-colors ${"wide" in n ? "hidden xl:inline" : ""}`}>
                 {n.label}
               </Link>
             ))}
@@ -64,10 +70,10 @@ export function SiteHeader() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 bg-gold text-navy-night px-4 py-2.5 rounded-md text-[13px] font-semibold hover:bg-gold-light transition-colors"
+            className="hidden sm:inline-flex shrink-0 items-center gap-2 whitespace-nowrap bg-gold text-navy-night px-4 py-2.5 rounded-md text-[13px] font-semibold hover:bg-gold-light transition-colors"
           >
             <WhatsAppGlyph className="h-4 w-4" />
-            Ask on WhatsApp
+            <span><span className="lg:hidden xl:inline">Order on </span>WhatsApp</span>
           </a>
         </div>
         {/* Category links on small screens */}
@@ -102,7 +108,7 @@ export function SiteFooter() {
                 {BUSINESS_NAME_URDU}
               </p>
               <p className="mt-3 text-[14px] leading-[1.7] max-w-[360px]">
-                Unstitched fabric for ladies and gents in {ADDRESS.city}, family-run since {FOUNDED}.
+                Unstitched fabric for ladies and gents in {ADDRESS.city}, family-run since {FOUNDED}. Delivered across Pakistan.
               </p>
             </div>
             <FooterCol title="Shop">
@@ -113,6 +119,9 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/order-online" className="hover:text-gold transition-colors">Order online</Link>
+              </li>
             </FooterCol>
             <FooterCol title="Visit">
               <li>{ADDRESS.street}</li>
@@ -142,6 +151,17 @@ export function SiteFooter() {
           </div>
         </div>
       </footer>
+
+      {/* DESKTOP WHATSAPP BUTTON */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:inline-flex fixed bottom-6 right-6 z-50 items-center gap-2.5 bg-[#25D366] text-[#05290F] pl-4 pr-5 py-3 rounded-full text-[14px] font-semibold shadow-[0_12px_30px_-10px_rgba(5,41,15,0.55)] hover:brightness-105 transition"
+      >
+        <WhatsAppGlyph className="h-5 w-5" />
+        Order on WhatsApp
+      </a>
 
       {/* MOBILE ACTION BAR */}
       <nav

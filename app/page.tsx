@@ -3,6 +3,7 @@ import Link from "next/link";
 import { COLLECTION_TO_CATEGORY } from "./categories";
 import { PHOTOS, type PhotoKey } from "./photos";
 import { SiteFooter, SiteHeader } from "./components/chrome";
+import { OrderSteps } from "./components/order";
 import {
   Arrow,
   ClockGlyph,
@@ -82,7 +83,7 @@ export default function Home() {
                   Shahzad <span className="display-italic text-gold-light">Cloth House</span>
                 </span>
                 <span className="block mt-5 text-[18px] md:text-[21px] leading-[1.5] font-medium text-cream/90 max-w-[540px]">
-                  Unstitched fabric for ladies &amp; gents in Sialkot, chosen bolt by bolt since {FOUNDED}.
+                  Unstitched fabric for ladies &amp; gents, chosen bolt by bolt in Sialkot since {FOUNDED} and delivered across Pakistan.
                 </span>
               </h1>
 
@@ -98,7 +99,7 @@ export default function Home() {
                   className="inline-flex items-center gap-2.5 bg-[#25D366] text-[#05290F] px-5 py-3 md:px-6 md:py-3.5 rounded-md text-[14px] md:text-[15px] font-semibold hover:brightness-105 transition"
                 >
                   <WhatsAppGlyph className="h-5 w-5" />
-                  WhatsApp us
+                  Order on WhatsApp
                 </a>
                 <a
                   href={`tel:${PHONE_TEL}`}
@@ -133,7 +134,7 @@ export default function Home() {
             <li>Family-run since {FOUNDED}</li>
             <li>Cut to any length</li>
             <li>Ladies &amp; gents</li>
-            <li>{ADDRESS.street}</li>
+            <li className="text-gold-light">Delivery across Pakistan</li>
           </ul>
         </div>
 
@@ -204,7 +205,11 @@ export default function Home() {
             </ul>
 
             <p className="mt-12 text-center text-[16px] text-ink/70">
-              Looking for something specific?{" "}
+              Buying for a school or office?{" "}
+              <Link href="/uniform-fabric" className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-dark">
+                See uniform fabric
+              </Link>
+              . Looking for something else?{" "}
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-navy underline decoration-gold decoration-2 underline-offset-4 hover:text-gold-dark">
                 Tell us on WhatsApp
               </a>
@@ -212,6 +217,8 @@ export default function Home() {
             </p>
           </div>
         </section>
+
+        <OrderSteps />
 
         {/* STORY */}
         <section id="story" aria-labelledby="story-title" className="relative bg-sand py-20 md:py-28 overflow-hidden">

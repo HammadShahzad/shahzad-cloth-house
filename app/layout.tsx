@@ -38,9 +38,9 @@ const nastaliq = Noto_Nastaliq_Urdu({
   preload: false,
 });
 
-const TITLE = "Shahzad Cloth House Sialkot | Unstitched Fabric Since 1991";
+const TITLE = "Shahzad Cloth House Sialkot | Unstitched Fabric, Delivered Across Pakistan";
 const DESCRIPTION =
-  "Family-run cloth house in Chowk Adda Pasrooriyan, Sialkot since 1991. Unstitched lawn, wash & wear, linen, silk, wedding & winter suiting for ladies & gents.";
+  "Unstitched lawn, wash & wear, silk, wedding, winter and uniform fabric from a Sialkot cloth house run since 1991. Order on WhatsApp, delivered across Pakistan.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -62,6 +62,8 @@ export const metadata: Metadata = {
     "gents suiting Sialkot",
     "bridal fabric Sialkot",
     "karandi Sialkot",
+    "unstitched fabric online Pakistan",
+    "uniform fabric Sialkot",
     "شہزاد کلاتھ ہاؤس",
   ],
   authors: [{ name: BUSINESS_NAME, url: SITE_URL }],
@@ -161,7 +163,10 @@ const storeJsonLd = {
     latitude: GEO.lat,
     longitude: GEO.lng,
   },
-  areaServed: { "@type": "City", name: "Sialkot" },
+  areaServed: [
+    { "@type": "City", name: "Sialkot" },
+    { "@type": "Country", name: "Pakistan" },
+  ],
   hasMap: MAPS_URL,
   founder: { "@type": "Person", name: PROPRIETOR },
   openingHoursSpecification: [
