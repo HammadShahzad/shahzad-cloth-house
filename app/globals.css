@@ -1,122 +1,137 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #FFFFFF;
-  --color-bone-2: #F5F5F2;
-  --color-cream: #FAFAF7;
-  --color-oxblood: #15235C;          /* navy — primary brand */
-  --color-oxblood-deep: #0A1740;     /* deep navy */
-  --color-ink: #0A1024;              /* near-black navy */
+  --color-navy: #15235C;             /* primary brand, from the shop signage */
+  --color-navy-deep: #0A1740;
+  --color-navy-night: #070F2B;
+  --color-ink: #0A1024;
   --color-gold: #D4A657;             /* signature gold */
+  --color-gold-light: #E9C77D;
   --color-gold-dark: #A37828;
-  --color-moss: #2F4A29;
+  --color-cream: #FBF8F1;
+  --color-sand: #F3EDE0;
+  --color-bone: #FFFFFF;
 
-  --font-display: "Fraunces", "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-urdu: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+  /* legacy names, still used by /v3 */
+  --color-oxblood: #15235C;
+  --color-oxblood-deep: #0A1740;
+
+  --font-display: var(--font-fraunces), "Fraunces", "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-body: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-urdu: var(--font-nastaliq), "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+  }
   html, body {
-    background: var(--color-bone);
+    background: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-body);
-    font-feature-settings: "ss01", "ss02", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
   ::selection {
-    background: var(--color-oxblood);
-    color: var(--color-cream);
+    background: var(--color-gold);
+    color: var(--color-navy-night);
   }
-  body {
-    background: #FFFFFF;
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
-/* Paper grain — disabled on white for cleanliness */
-.grain::before { content: none; }
-
-/* Weave divider */
-.weave {
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--color-oxblood) 0 1px,
-    transparent 1px 6px
-  );
-}
-
-/* Gold foil underline */
-.foil {
-  background: linear-gradient(110deg, #8F6A36 0%, #E9C77D 25%, #B8935A 50%, #E9C77D 75%, #8F6A36 100%);
-  background-size: 200% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: foil 9s linear infinite;
-}
-@keyframes foil {
-  to { background-position: -200% 0; }
-}
-
-/* Reveal on load */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes drawline {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-@keyframes spinslow {
-  to { transform: rotate(360deg); }
-}
-
-.rise { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
-.fade { animation: fade 1200ms ease both; }
-.draw { transform-origin: left; animation: drawline 1400ms cubic-bezier(.65,0,.35,1) 200ms both; }
-.spinslow { animation: spinslow 40s linear infinite; }
-
-/* Display tweaks */
+/* ───────── type ───────── */
 .display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-variation-settings: "SOFT" 60, "WONK" 1;
-  letter-spacing: -0.02em;
-  line-height: 0.92;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
 }
 .display-italic {
   font-family: var(--font-display);
   font-style: italic;
-  font-variation-settings: "SOFT" 100, "WONK" 1;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
 }
 .urdu {
   font-family: var(--font-urdu);
   direction: rtl;
-  line-height: 1.8;
+  line-height: 1.9;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
-/* Marquee */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* Gold accent text */
+.foil {
+  color: var(--color-gold-light);
 }
-.marquee-track { animation: marquee 42s linear infinite; }
 
-/* Subtle hover lift */
-.lift { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
-.lift:hover { transform: translateY(-4px); }
+/* ───────── surfaces ───────── */
 
-/* Decorative corner frame */
-.frame-corner::before, .frame-corner::after {
+/* Fine woven texture for navy sections */
+.weave {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 4px);
+}
+/* Shades a photo so cream text on top stays readable */
+.photo-shade {
+  background: linear-gradient(90deg, rgba(7,15,43,0.94) 0%, rgba(7,15,43,0.82) 40%, rgba(7,15,43,0.35) 75%, rgba(7,15,43,0.15) 100%);
+}
+@media (max-width: 1023px) {
+  .photo-shade {
+    background: linear-gradient(180deg, rgba(7,15,43,0.30) 0%, rgba(7,15,43,0.78) 42%, rgba(7,15,43,0.96) 100%);
+  }
+}
+
+/* Thin gold rule with a centred star */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-gold);
+}
+.ornament::before, .ornament::after {
   content: "";
-  position: absolute;
-  width: 22px; height: 22px;
-  border: 1px solid var(--color-oxblood);
+  height: 1px;
+  flex: 1;
+  background: currentColor;
+  opacity: 0.5;
 }
-.frame-corner::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-.frame-corner::after  { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+/* ───────── motion ───────── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+.rise-2 { animation-delay: 120ms; }
+.rise-3 { animation-delay: 240ms; }
+.rise-4 { animation-delay: 360ms; }
+
+.lift { transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s; }
+.lift:hover { transform: translateY(-2px); }
+
+/* Slow zoom on photo cards */
+.zoom img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.group:hover .zoom img { transform: scale(1.04); }
+
+/* FAQ disclosure */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .faq-plus { transform: rotate(45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+  .lift:hover, .group:hover .zoom img { transform: none; }
+}
