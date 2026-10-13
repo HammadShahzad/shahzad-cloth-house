@@ -107,7 +107,7 @@ export const COLLECTIONS: Collection[] = [
     slug: "winter-suiting",
     name: "Winter Suiting",
     urdu: "سردی کا سوٹنگ",
-    for: "Gents",
+    for: "Ladies & Gents",
     season: "Autumn · Winter",
     blurb:
       "Wool blends and karandi for the cold months, with the weight and drape we trust for a winter suit.",
