@@ -108,9 +108,9 @@ export default async function CategoryPage({ params }: Props) {
               </ol>
             </nav>
 
-            <div className="mt-10 md:mt-12 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <div className="mt-6 md:mt-10 lg:mt-12 grid lg:grid-cols-12 gap-8 lg:gap-14 items-center">
               <div className="lg:col-span-7">
-                <p className="rise eyebrow text-gold">{c.eyebrow} · {c.season}</p>
+                <p className="rise eyebrow text-gold">{c.eyebrow}</p>
                 <h1 id="page-title" className="rise rise-2 display mt-5 text-[44px] sm:text-[58px] md:text-[70px] leading-[1]">
                   {c.h1.charAt(0).toUpperCase() + c.h1.slice(1)}{" "}
                   <span className="display-italic text-gold-light">{c.h1Accent}</span>
@@ -141,8 +141,8 @@ export default async function CategoryPage({ params }: Props) {
                 </div>
               </div>
 
-              <div className="lg:col-span-5">
-                <div className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-md bg-navy">
+              <div className="lg:col-span-5 order-first lg:order-none">
+                <div className="relative aspect-[3/2] lg:aspect-[4/5] lg:max-h-[560px] w-full overflow-hidden rounded-md bg-navy">
                   <Image
                     src={PHOTOS[c.photo].src}
                     alt={PHOTOS[c.photo].alt}
