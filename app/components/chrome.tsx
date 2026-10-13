@@ -64,7 +64,7 @@ export function SiteHeader() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 bg-gold text-navy-night px-4 py-2.5 rounded-full text-[13px] font-semibold hover:bg-gold-light transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 bg-gold text-navy-night px-4 py-2.5 rounded-md text-[13px] font-semibold hover:bg-gold-light transition-colors"
           >
             <WhatsAppGlyph className="h-4 w-4" />
             Ask on WhatsApp

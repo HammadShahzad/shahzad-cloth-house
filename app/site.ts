@@ -1,3 +1,5 @@
+import type { PhotoKey } from "./photos";
+
 export const SITE_URL = "https://shahzadclothhouse.com";
 export const BUSINESS_NAME = "Shahzad Cloth House";
 export const BUSINESS_NAME_URDU = "شہزاد کلاتھ ہاؤس";
@@ -49,7 +51,7 @@ export type Collection = {
   for: string;
   season: string;
   blurb: string;
-  swatch: string;
+  photo: PhotoKey;
 };
 
 export const COLLECTIONS: Collection[] = [
@@ -61,7 +63,7 @@ export const COLLECTIONS: Collection[] = [
     season: "Spring · Summer",
     blurb:
       "Breathable summer lawn from the country's finest mills: prints, embroidered panels and chikankari, cut to your length.",
-    swatch: "swatch-lawn",
+    photo: "lawn",
   },
   {
     slug: "wash-and-wear",
@@ -71,7 +73,7 @@ export const COLLECTIONS: Collection[] = [
     season: "All Seasons",
     blurb:
       "Our signature men's and women's wash & wear for shalwar kameez, in quiet, wearable tones that hold up year-round.",
-    swatch: "swatch-washwear",
+    photo: "wash-and-wear",
   },
   {
     slug: "cotton-linen",
@@ -81,7 +83,7 @@ export const COLLECTIONS: Collection[] = [
     season: "Warm Weather",
     blurb:
       "Long-staple cotton and pure linen with a softened hand, cut in lengths for suits, kurtas and shirting.",
-    swatch: "swatch-linen",
+    photo: "cotton-linen",
   },
   {
     slug: "silk-jacquard",
@@ -91,7 +93,7 @@ export const COLLECTIONS: Collection[] = [
     season: "Formal · Festive",
     blurb:
       "Raw silk, katan, banarsi jacquard and brocade, kept for Eid, mehndi and every occasion that deserves it.",
-    swatch: "swatch-silk",
+    photo: "silk-jacquard",
   },
   {
     slug: "wedding",
@@ -101,7 +103,7 @@ export const COLLECTIONS: Collection[] = [
     season: "By Appointment",
     blurb:
       "Bridal and groom fabric: hand-embroidered panels, zari work and coordinated dupattas, chosen with you at the counter.",
-    swatch: "swatch-wedding",
+    photo: "wedding",
   },
   {
     slug: "winter-suiting",
@@ -111,7 +113,7 @@ export const COLLECTIONS: Collection[] = [
     season: "Autumn · Winter",
     blurb:
       "Wool blends and karandi for the cold months, with the weight and drape we trust for a winter suit.",
-    swatch: "swatch-winter",
+    photo: "winter",
   },
 ];
 

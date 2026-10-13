@@ -44,7 +44,7 @@ export function SocialPill({ href, className, children }: { href: string; classN
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`lift inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-[14px] font-semibold ${className}`}
+      className={`lift inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-[14px] font-semibold ${className}`}
     >
       {children}
     </a>

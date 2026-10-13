@@ -1,6 +1,7 @@
+import type { PhotoKey } from "./photos";
 import { FOUNDED, PHONE_DISPLAY } from "./site";
 
-export type Fabric = { name: string; note: string; swatch: string };
+export type Fabric = { name: string; note: string };
 export type Category = {
   slug: string;
   navLabel: string;
@@ -11,7 +12,7 @@ export type Category = {
   h1Accent: string;
   lead: string;
   urdu: string;
-  swatch: string;
+  photo: PhotoKey;
   season: string;
   fabrics: Fabric[];
   guideTitle: string;
@@ -33,15 +34,15 @@ export const CATEGORIES: Category[] = [
     lead:
       "Everyday lawn and cotton, festive silk and jacquard, and embroidered panels for the occasions that matter. Every bolt is hand-picked at the mill and cut to the length your tailor asks for.",
     urdu: "لیڈیز ان سلا کپڑا",
-    swatch: "swatch-lawn",
+    photo: "silk-jacquard",
     season: "All Seasons",
     fabrics: [
-      { name: "Unstitched Lawn", note: "Prints, embroidered panels and chikankari for spring and summer.", swatch: "swatch-lawn" },
-      { name: "Cotton & Linen", note: "Long-staple cotton and pure linen with a softened hand for kurtas and suits.", swatch: "swatch-linen" },
-      { name: "Wash & Wear", note: "Easy-care women's wash & wear in quiet, wearable tones, year-round.", swatch: "swatch-washwear" },
-      { name: "Raw Silk & Katan", note: "Rich, structured silks for Eid, dawats and festive suits.", swatch: "swatch-silk" },
-      { name: "Banarsi Jacquard & Brocade", note: "Woven patterns with real depth, kept for formal wear.", swatch: "swatch-silk" },
-      { name: "Embroidered Panels", note: "Hand-embroidered and zari panels with coordinated dupattas.", swatch: "swatch-wedding" },
+      { name: "Unstitched Lawn", note: "Prints, embroidered panels and chikankari for spring and summer." },
+      { name: "Cotton & Linen", note: "Long-staple cotton and pure linen with a softened hand for kurtas and suits." },
+      { name: "Wash & Wear", note: "Easy-care women's wash & wear in quiet, wearable tones, year-round." },
+      { name: "Raw Silk & Katan", note: "Rich, structured silks for Eid, dawats and festive suits." },
+      { name: "Banarsi Jacquard & Brocade", note: "Woven patterns with real depth, kept for formal wear." },
+      { name: "Embroidered Panels", note: "Hand-embroidered and zari panels with coordinated dupattas." },
     ],
     guideTitle: "Choosing the right fabric",
     guide: [
@@ -86,15 +87,15 @@ export const CATEGORIES: Category[] = [
     lead:
       "The fabric behind a shalwar kameez that still looks right at the end of a long day. Our signature wash & wear, crisp cotton and linen, shirting, and wool blends for winter.",
     urdu: "جینٹس سوٹنگ",
-    swatch: "swatch-washwear",
+    photo: "wash-and-wear",
     season: "All Seasons",
     fabrics: [
-      { name: "Wash & Wear", note: "Our signature: easy-care, wrinkle-resistant, in a spectrum of quiet tones.", swatch: "swatch-washwear" },
-      { name: "Cotton", note: "Long-staple cotton for summer shalwar kameez and kurtas.", swatch: "swatch-linen" },
-      { name: "Linen", note: "Pure linen with a softened hand for warm weather.", swatch: "swatch-linen" },
-      { name: "Men's Shirting", note: "Shirting lengths for office and everyday wear.", swatch: "swatch-washwear" },
-      { name: "Winter Suiting & Karandi", note: "Wool blends and karandi with the weight a winter suit needs.", swatch: "swatch-winter" },
-      { name: "Groom Fabric", note: "Fabric for the groom's wedding-day outfit, chosen at the counter.", swatch: "swatch-wedding" },
+      { name: "Wash & Wear", note: "Our signature: easy-care, wrinkle-resistant, in a spectrum of quiet tones." },
+      { name: "Cotton", note: "Long-staple cotton for summer shalwar kameez and kurtas." },
+      { name: "Linen", note: "Pure linen with a softened hand for warm weather." },
+      { name: "Men's Shirting", note: "Shirting lengths for office and everyday wear." },
+      { name: "Winter Suiting & Karandi", note: "Wool blends and karandi with the weight a winter suit needs." },
+      { name: "Groom Fabric", note: "Fabric for the groom's wedding-day outfit, chosen at the counter." },
     ],
     guideTitle: "Choosing the right fabric",
     guide: [
@@ -139,12 +140,12 @@ export const CATEGORIES: Category[] = [
     lead:
       "Breathable summer lawn from the country's finest mills. Prints, embroidered panels and chikankari, chosen bolt by bolt so the colour holds and the hand stays soft after every wash.",
     urdu: "لان سوٹ",
-    swatch: "swatch-lawn",
+    photo: "lawn",
     season: "Spring · Summer",
     fabrics: [
-      { name: "Printed Lawn", note: "Fresh summer prints for everyday suits.", swatch: "swatch-lawn" },
-      { name: "Embroidered Lawn", note: "Lawn with embroidered panels for something special.", swatch: "swatch-lawn" },
-      { name: "Chikankari", note: "Delicate thread work on light lawn, cool enough for June.", swatch: "swatch-linen" },
+      { name: "Printed Lawn", note: "Fresh summer prints for everyday suits." },
+      { name: "Embroidered Lawn", note: "Lawn with embroidered panels for something special." },
+      { name: "Chikankari", note: "Delicate thread work on light lawn, cool enough for June." },
     ],
     guideTitle: "What makes good lawn",
     guide: [
@@ -189,11 +190,11 @@ export const CATEGORIES: Category[] = [
     lead:
       "When the cold sets in, the fabric has to do the work. Karandi and wool blends with the weight and drape we trust for a winter suit, chosen by hand like everything else on our shelves.",
     urdu: "سردی کا سوٹنگ",
-    swatch: "swatch-winter",
+    photo: "winter",
     season: "Autumn · Winter",
     fabrics: [
-      { name: "Karandi", note: "A textured, warm weave that drapes well, for winter shalwar kameez.", swatch: "swatch-winter" },
-      { name: "Wool Blends", note: "Warmth without bulk, for suits that look sharp all day.", swatch: "swatch-winter" },
+      { name: "Karandi", note: "A textured, warm weave that drapes well, for winter shalwar kameez." },
+      { name: "Wool Blends", note: "Warmth without bulk, for suits that look sharp all day." },
     ],
     guideTitle: "Choosing winter fabric",
     guide: [
@@ -238,15 +239,15 @@ export const CATEGORIES: Category[] = [
     lead:
       "Wedding fabric deserves time at the counter. Hand-embroidered panels, zari work, raw silk and brocade, with coordinated dupattas, chosen with you and your family one bolt at a time.",
     urdu: "شادی کا لباس",
-    swatch: "swatch-wedding",
+    photo: "wedding",
     season: "By Appointment",
     fabrics: [
-      { name: "Hand-Embroidered Panels", note: "Bridal panels with hand embroidery for the barat and walima.", swatch: "swatch-wedding" },
-      { name: "Zari Work", note: "Metallic thread work that catches the light at evening functions.", swatch: "swatch-wedding" },
-      { name: "Raw Silk & Katan", note: "Rich silks for mehndi, nikah and the family's festive suits.", swatch: "swatch-silk" },
-      { name: "Banarsi Jacquard & Brocade", note: "Woven brocades for formal wear and wedding functions.", swatch: "swatch-silk" },
-      { name: "Coordinated Dupattas", note: "Dupattas chosen to match your shirt and panels.", swatch: "swatch-wedding" },
-      { name: "Groom Fabric", note: "Fabric for the groom's wedding-day outfit, matched to the bride's colours.", swatch: "swatch-winter" },
+      { name: "Hand-Embroidered Panels", note: "Bridal panels with hand embroidery for the barat and walima." },
+      { name: "Zari Work", note: "Metallic thread work that catches the light at evening functions." },
+      { name: "Raw Silk & Katan", note: "Rich silks for mehndi, nikah and the family's festive suits." },
+      { name: "Banarsi Jacquard & Brocade", note: "Woven brocades for formal wear and wedding functions." },
+      { name: "Coordinated Dupattas", note: "Dupattas chosen to match your shirt and panels." },
+      { name: "Groom Fabric", note: "Fabric for the groom's wedding-day outfit, matched to the bride's colours." },
     ],
     guideTitle: "Planning wedding fabric",
     guide: [

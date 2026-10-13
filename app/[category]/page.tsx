@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORIES, CATEGORY_BY_SLUG } from "../categories";
 import { SiteFooter, SiteHeader } from "../components/chrome";
+import { PHOTOS } from "../photos";
 import { Arrow, PhoneGlyph, PinGlyph, SectionHead, WhatsAppGlyph } from "../components/ui";
 import {
   ADDRESS,
@@ -96,9 +98,8 @@ export default async function CategoryPage({ params }: Props) {
 
       <main id="main">
         {/* HERO */}
-        <section aria-labelledby="page-title" className="relative hero-glow text-cream overflow-hidden">
-          <div className="absolute inset-0 weave" aria-hidden />
-          <div className="relative mx-auto max-w-[1240px] px-5 md:px-10 pt-8 pb-16 md:pt-10 md:pb-24">
+        <section aria-labelledby="page-title" className="relative bg-navy-night text-cream overflow-hidden">
+          <div className="relative mx-auto max-w-[1240px] px-5 md:px-10 pt-8 pb-16 md:pt-10 md:pb-20">
             <nav aria-label="Breadcrumb" className="text-[13px] text-cream/60">
               <ol className="flex items-center gap-2">
                 <li><Link href="/" className="hover:text-gold transition-colors">Home</Link></li>
@@ -107,14 +108,17 @@ export default async function CategoryPage({ params }: Props) {
               </ol>
             </nav>
 
-            <div className="mt-10 md:mt-14 grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            <div className="mt-10 md:mt-12 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               <div className="lg:col-span-7">
-                <p className="rise eyebrow text-gold">{c.eyebrow}</p>
-                <h1 id="page-title" className="rise rise-2 display mt-5 text-[46px] sm:text-[60px] md:text-[76px] leading-[0.95]">
+                <p className="rise eyebrow text-gold">{c.eyebrow} · {c.season}</p>
+                <h1 id="page-title" className="rise rise-2 display mt-5 text-[44px] sm:text-[58px] md:text-[70px] leading-[1]">
                   {c.h1.charAt(0).toUpperCase() + c.h1.slice(1)}{" "}
-                  <span className="display-italic foil">{c.h1Accent}</span>
+                  <span className="display-italic text-gold-light">{c.h1Accent}</span>
                 </h1>
-                <p className="rise rise-3 mt-6 text-[17px] md:text-[19px] leading-[1.65] text-cream/80 max-w-[580px]">
+                <p lang="ur" dir="rtl" className="rise rise-3 urdu mt-3 text-[24px] text-gold-light/90 text-right sm:text-left">
+                  {c.urdu}
+                </p>
+                <p className="rise rise-3 mt-4 text-[17px] md:text-[18px] leading-[1.7] text-cream/80 max-w-[580px]">
                   {c.lead}
                 </p>
                 <div className="rise rise-4 mt-8 flex flex-wrap items-center gap-3">
@@ -122,14 +126,14 @@ export default async function CategoryPage({ params }: Props) {
                     href={whatsappUrl(`${c.navLabel.toLowerCase()} fabric.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2.5 bg-[#25D366] text-[#05290F] px-5 py-3 md:px-6 md:py-3.5 rounded-full text-[14px] md:text-[15px] font-semibold shadow-[0_10px_30px_-10px_rgba(37,211,102,0.6)] hover:brightness-105 transition"
+                    className="inline-flex items-center gap-2.5 bg-[#25D366] text-[#05290F] px-5 py-3 md:px-6 md:py-3.5 rounded-md text-[14px] md:text-[15px] font-semibold hover:brightness-105 transition"
                   >
                     <WhatsAppGlyph className="h-5 w-5" />
                     Ask what&apos;s in stock
                   </a>
                   <a
                     href={`tel:${PHONE_TEL}`}
-                    className="inline-flex items-center gap-2.5 bg-cream text-navy-deep px-5 py-3 md:px-6 md:py-3.5 rounded-full text-[14px] md:text-[15px] font-semibold hover:bg-white transition-colors"
+                    className="inline-flex items-center gap-2.5 bg-cream text-navy-deep px-5 py-3 md:px-6 md:py-3.5 rounded-md text-[14px] md:text-[15px] font-semibold hover:bg-white transition-colors"
                   >
                     <PhoneGlyph className="h-4 w-4" />
                     Call {PHONE_DISPLAY}
@@ -137,17 +141,16 @@ export default async function CategoryPage({ params }: Props) {
                 </div>
               </div>
 
-              <div className="lg:col-span-5 relative mx-auto w-full max-w-[300px] sm:max-w-[380px]">
-                <div className="absolute -inset-3 arch border border-gold/40" aria-hidden />
-                <div className={`group swatch ${c.swatch} relative arch aspect-[4/5] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.7)]`}>
-                  <div className="absolute inset-0 z-[2] bg-gradient-to-t from-navy-night/60 via-transparent to-transparent" aria-hidden />
-                  <span lang="ur" dir="rtl" className="urdu absolute bottom-5 inset-x-0 z-[3] text-center text-[30px] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-                    {c.urdu}
-                  </span>
-                </div>
-                <div className="absolute -left-4 sm:-left-8 top-8 bg-cream text-navy-deep rounded-2xl px-4 py-3 shadow-xl rotate-[-4deg] z-[4]">
-                  <div className="text-[10px] tracking-[0.24em] uppercase text-navy/70">Season</div>
-                  <div className="display text-[20px] leading-tight mt-0.5">{c.season}</div>
+              <div className="lg:col-span-5">
+                <div className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-md bg-navy">
+                  <Image
+                    src={PHOTOS[c.photo].src}
+                    alt={PHOTOS[c.photo].alt}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 460px, 92vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -156,42 +159,41 @@ export default async function CategoryPage({ params }: Props) {
 
         {/* FABRICS */}
         <section aria-labelledby="fabrics-title" className="py-20 md:py-24">
-          <div className="mx-auto max-w-[1240px] px-5 md:px-10">
-            <SectionHead
-              eyebrow="On Our Shelves"
-              id="fabrics-title"
-              title={<>What we <span className="display-italic text-navy">keep in stock</span></>}
-              intro="Every bolt is sourced direct from the mills and cut to the length you need, with no minimums. Stock changes with the season, so ask us on WhatsApp before you visit."
-            />
-            <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {c.fabrics.map((f) => (
-                <li key={f.name}>
-                  <article className="group h-full flex bg-white rounded-[20px] overflow-hidden border border-navy/10 hover:shadow-[0_24px_50px_-28px_rgba(10,23,64,0.45)] transition duration-500">
-                    <div className={`swatch ${f.swatch} w-24 sm:w-28 shrink-0`} aria-hidden />
-                    <div className="flex-1 p-5 md:p-6 flex flex-col">
-                      <h3 className="display text-[24px] text-ink">{f.name}</h3>
-                      <p className="mt-2 text-[14.5px] leading-[1.65] text-ink/70 flex-1">{f.note}</p>
-                      <a
-                        href={whatsappUrl(`${f.name.toLowerCase()}.`)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#128C4A] hover:text-[#0B6B37] transition-colors"
-                        aria-label={`Ask about ${f.name} on WhatsApp`}
-                      >
-                        <WhatsAppGlyph className="h-4 w-4" />
-                        Ask about {f.name.toLowerCase()}
-                      </a>
-                    </div>
-                  </article>
+          <div className="mx-auto max-w-[1240px] px-5 md:px-10 grid lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-4">
+              <SectionHead
+                eyebrow="On Our Shelves"
+                id="fabrics-title"
+                title={<>What we <span className="display-italic text-navy">keep in stock</span></>}
+                intro="Every bolt is sourced direct from the mills and cut to the length you need, with no minimums. Stock changes with the season, so ask us on WhatsApp before you visit."
+              />
+            </div>
+            <ol className="lg:col-span-8 border-t border-navy/15">
+              {c.fabrics.map((f, i) => (
+                <li key={f.name} className="grid grid-cols-[44px_1fr] sm:grid-cols-[56px_1fr_auto] gap-x-4 gap-y-3 items-baseline py-6 border-b border-navy/15">
+                  <span className="text-[13px] font-semibold tracking-[0.16em] text-gold-dark">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="display text-[24px] md:text-[26px] text-ink">{f.name}</h3>
+                    <p className="mt-1.5 text-[15px] leading-[1.65] text-ink/70">{f.note}</p>
+                  </div>
+                  <a
+                    href={whatsappUrl(`${f.name.toLowerCase()}.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="col-start-2 sm:col-start-3 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#128C4A] hover:text-[#0B6B37] transition-colors whitespace-nowrap"
+                    aria-label={`Ask about ${f.name} on WhatsApp`}
+                  >
+                    <WhatsAppGlyph className="h-4 w-4" />
+                    Ask
+                  </a>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
         </section>
 
         {/* GUIDE */}
         <section aria-labelledby="guide-title" className="relative bg-navy-deep text-cream py-20 md:py-24 overflow-hidden">
-          <div className="absolute inset-0 weave" aria-hidden />
           <div className="relative mx-auto max-w-[1240px] px-5 md:px-10">
             <SectionHead
               dark
@@ -200,11 +202,11 @@ export default async function CategoryPage({ params }: Props) {
               title={<>{c.guideTitle.split(" ").slice(0, -1).join(" ")} <span className="display-italic text-gold-light">{c.guideTitle.split(" ").slice(-1)}</span></>}
               intro={`${YEARS} years of measuring cloth at the same counter teaches you a few things. Here is what we tell customers.`}
             />
-            <div className="mt-12 grid gap-5 md:grid-cols-3">
+            <div className="mt-12 grid gap-10 md:gap-8 md:grid-cols-3">
               {c.guide.map((g, i) => (
-                <article key={g.title} className="rounded-[22px] border border-gold/25 bg-white/[0.03] p-7 md:p-8">
-                  <div className="display-italic text-[44px] leading-none text-gold">{["I", "II", "III"][i]}</div>
-                  <h3 className="display mt-5 text-[24px] text-cream">{g.title}</h3>
+                <article key={g.title} className="border-t border-gold/40 pt-6">
+                  <div className="text-[13px] font-semibold tracking-[0.2em] text-gold">{String(i + 1).padStart(2, "0")}</div>
+                  <h3 className="display mt-4 text-[24px] text-cream">{g.title}</h3>
                   <p className="mt-3 text-[15px] leading-[1.75] text-cream/70">{g.body}</p>
                 </article>
               ))}
@@ -249,9 +251,17 @@ export default async function CategoryPage({ params }: Props) {
             <ul className="mt-10 grid gap-5 md:grid-cols-3">
               {related.map((r) => (
                 <li key={r.slug}>
-                  <Link href={`/${r.slug}`} className="group block bg-white rounded-[20px] overflow-hidden border border-navy/10 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(10,23,64,0.45)] transition duration-500">
-                    <div className={`swatch ${r.swatch} aspect-[16/7]`} aria-hidden />
-                    <div className="p-6 flex items-center justify-between gap-4">
+                  <Link href={`/${r.slug}`} className="group block">
+                    <div className="zoom relative aspect-[3/2] overflow-hidden rounded-md bg-navy/10">
+                      <Image
+                        src={PHOTOS[r.photo].src}
+                        alt=""
+                        fill
+                        sizes="(min-width: 768px) 380px, 92vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="pt-5 flex items-center justify-between gap-4">
                       <div>
                         <div className="text-[11px] tracking-[0.24em] uppercase text-gold-dark font-semibold">{r.eyebrow}</div>
                         <div className="display mt-2 text-[24px] text-ink">
@@ -270,8 +280,7 @@ export default async function CategoryPage({ params }: Props) {
         {/* VISIT STRIP */}
         <section aria-labelledby="visit-title" className="py-20 md:py-24">
           <div className="mx-auto max-w-[1240px] px-5 md:px-10">
-            <div className="relative rounded-[28px] overflow-hidden bg-navy-deep text-cream p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
-              <div className="absolute inset-0 weave" aria-hidden />
+            <div className="relative rounded-lg overflow-hidden bg-navy-deep text-cream p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center">
               <div className="relative md:col-span-7">
                 <p className="eyebrow text-gold">Visit the Shop</p>
                 <h2 id="visit-title" className="display mt-4 text-[38px] md:text-[52px]">
@@ -295,14 +304,14 @@ export default async function CategoryPage({ params }: Props) {
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-gold text-navy-night px-5 py-3 rounded-full text-[14px] font-semibold hover:bg-gold-light transition-colors"
+                    className="inline-flex items-center gap-2 bg-gold text-navy-night px-5 py-3 rounded-md text-[14px] font-semibold hover:bg-gold-light transition-colors"
                   >
                     <PinGlyph className="h-4 w-4" />
                     Get directions
                   </a>
                   <a
                     href={`tel:${PHONE_TEL}`}
-                    className="inline-flex items-center gap-2 border border-cream/30 px-5 py-3 rounded-full text-[14px] font-semibold hover:border-gold hover:text-gold transition-colors"
+                    className="inline-flex items-center gap-2 border border-cream/30 px-5 py-3 rounded-md text-[14px] font-semibold hover:border-gold hover:text-gold transition-colors"
                   >
                     <PhoneGlyph className="h-4 w-4" />
                     {PHONE_DISPLAY}
