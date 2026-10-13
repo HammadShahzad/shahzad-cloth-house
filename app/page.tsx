@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { COLLECTION_TO_CATEGORY } from "./categories";
-import { PHOTOS } from "./photos";
+import { PHOTOS, type PhotoKey } from "./photos";
 import { SiteFooter, SiteHeader } from "./components/chrome";
 import {
   Arrow,
@@ -14,7 +13,6 @@ import {
   PhoneGlyph,
   PinGlyph,
   SectionHead,
-  SocialPill,
   StarGlyph,
   TikTokGlyph,
   WhatsAppGlyph,
@@ -347,85 +345,42 @@ export default function Home() {
         {/* SOCIAL */}
         <section id="social" aria-labelledby="social-title" className="bg-sand py-20 md:py-28">
           <div className="mx-auto max-w-[1240px] px-5 md:px-10">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div>
               <SectionHead
                 eyebrow="Watch the Shop"
                 id="social-title"
                 title={<>New arrivals, <span className="display-italic text-navy">live on social</span></>}
                 intro="Fabric in motion, fresh stock and life on the shop floor. Follow us for discount deals."
               />
-              <div className="flex flex-wrap gap-2 shrink-0">
-                <SocialPill href={TIKTOK_URL} className="bg-ink text-cream">
-                  <TikTokGlyph className="h-4 w-4" /> TikTok
-                </SocialPill>
-                <SocialPill href={INSTAGRAM_URL} className="bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white">
-                  <InstagramGlyph className="h-4 w-4" /> Instagram
-                </SocialPill>
-                <SocialPill href={FACEBOOK_URL} className="bg-[#1877F2] text-white">
-                  <FacebookGlyph className="h-4 w-4" /> Facebook
-                </SocialPill>
-              </div>
             </div>
 
-            <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-5">
-              <SocialCard label={<><TikTokGlyph className="h-4 w-4" /> TikTok · @{TIKTOK_HANDLE}</>}>
-                <div className="min-h-[520px]">
-                  <blockquote
-                    className="tiktok-embed mx-auto"
-                    cite={TIKTOK_URL}
-                    data-unique-id={TIKTOK_HANDLE}
-                    data-embed-from="oembed"
-                    data-embed-type="creator"
-                    style={{ maxWidth: "100%", minWidth: 240 }}
-                  >
-                    <section>
-                      <a target="_blank" rel="noopener noreferrer" href={TIKTOK_URL}>
-                        @{TIKTOK_HANDLE}
-                      </a>
-                    </section>
-                  </blockquote>
-                </div>
-              </SocialCard>
-
-              <SocialCard label={<><InstagramGlyph className="h-4 w-4" /> Instagram · @{INSTAGRAM_HANDLE}</>}>
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group zoom min-h-[520px] h-full rounded-md relative overflow-hidden bg-navy flex items-end"
-                >
-                  <Image src={PHOTOS.lawn.src} alt="" fill sizes="(min-width: 1024px) 380px, 92vw" className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-night/90 via-navy-night/30 to-transparent" aria-hidden />
-                  <div className="relative p-6 text-cream">
-                    <InstagramGlyph className="h-7 w-7" />
-                    <div className="display text-[28px] mt-4">@{INSTAGRAM_HANDLE}</div>
-                    <div className="text-[14px] mt-1 text-cream/80">See the latest fabrics on Instagram</div>
-                    <div className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-gold-light border-b border-gold-light pb-1">
-                      Open Instagram <Arrow />
-                    </div>
-                  </div>
-                </a>
-              </SocialCard>
-
-              <SocialCard label={<><FacebookGlyph className="h-4 w-4" /> Facebook · @{FACEBOOK_HANDLE}</>}>
-                <div className="min-h-[520px] bg-white rounded-md flex items-center justify-center overflow-hidden">
-                  <iframe
-                    title="Shahzad Cloth House on Facebook"
-                    src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(
-                      FACEBOOK_URL,
-                    )}&tabs=timeline&width=340&height=520&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
-                    width="340"
-                    height="520"
-                    style={{ border: "none", overflow: "hidden", maxWidth: "100%" }}
-                    scrolling="no"
-                    loading="lazy"
-                    allow="encrypted-media; fullscreen"
-                  />
-                </div>
-              </SocialCard>
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+              <SocialCard
+                href={TIKTOK_URL}
+                photo="winter"
+                icon={<TikTokGlyph className="h-7 w-7" />}
+                handle={`@${TIKTOK_HANDLE}`}
+                line="Fabric in motion and new stock on TikTok"
+                cta="Watch on TikTok"
+              />
+              <SocialCard
+                href={INSTAGRAM_URL}
+                photo="lawn"
+                icon={<InstagramGlyph className="h-7 w-7" />}
+                handle={`@${INSTAGRAM_HANDLE}`}
+                line="See the latest fabrics on Instagram"
+                cta="Open Instagram"
+              />
+              <SocialCard
+                href={FACEBOOK_URL}
+                photo="wedding"
+                icon={<FacebookGlyph className="h-7 w-7" />}
+                handle={`@${FACEBOOK_HANDLE}`}
+                line="Offers and shop news on Facebook"
+                cta="Visit our Facebook page"
+              />
             </div>
           </div>
-          <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
         </section>
 
         {/* FAQ */}
@@ -552,13 +507,38 @@ function HeroStat({ k, v }: { k: string; v: string }) {
   );
 }
 
-function SocialCard({ label, children }: { label: React.ReactNode; children: React.ReactNode }) {
+function SocialCard({
+  href,
+  photo,
+  icon,
+  handle,
+  line,
+  cta,
+}: {
+  href: string;
+  photo: PhotoKey;
+  icon: React.ReactNode;
+  handle: string;
+  line: string;
+  cta: string;
+}) {
   return (
-    <div className="bg-white rounded-lg border border-navy/10 p-4 flex flex-col">
-      <div className="flex items-center gap-2 mb-3 px-1 text-[12px] font-semibold tracking-[0.12em] uppercase text-navy">
-        {label}
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group zoom relative flex items-end min-h-[420px] md:min-h-[480px] rounded-md overflow-hidden bg-navy"
+    >
+      <Image src={PHOTOS[photo].src} alt="" fill sizes="(min-width: 768px) 380px, 92vw" className="object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-night/90 via-navy-night/30 to-transparent" aria-hidden />
+      <div className="relative p-6 text-cream">
+        {icon}
+        <div className="display text-[26px] mt-4 break-words">{handle}</div>
+        <div className="text-[14px] mt-1 text-cream/80">{line}</div>
+        <div className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-gold-light border-b border-gold-light pb-1">
+          {cta} <Arrow />
+        </div>
       </div>
-      <div className="flex-1">{children}</div>
-    </div>
+    </a>
   );
 }
