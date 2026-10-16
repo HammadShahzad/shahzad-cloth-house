@@ -13,6 +13,7 @@ export type Category = {
   lead: string;
   urdu: string;
   photo: PhotoKey;
+  gallery: PhotoKey[];
   season: string;
   fabrics: Fabric[];
   guideTitle: string;
@@ -34,7 +35,8 @@ export const CATEGORIES: Category[] = [
     lead:
       "Everyday lawn and cotton, festive silk and jacquard, and embroidered panels for the occasions that matter. Every bolt is hand-picked at the mill and cut to the length your tailor asks for.",
     urdu: "لیڈیز ان سلا کپڑا",
-    photo: "silk-jacquard",
+    photo: "ladies",
+    gallery: ["ladies-close", "lawn-wall", "velvet", "lawn-spread"],
     season: "All Seasons",
     fabrics: [
       { name: "Unstitched Lawn", note: "Prints, embroidered panels and chikankari for spring and summer." },
@@ -87,7 +89,8 @@ export const CATEGORIES: Category[] = [
     lead:
       "The fabric behind a shalwar kameez that still looks right at the end of a long day. Our signature wash & wear, crisp cotton and linen, shirting, and wool blends for winter.",
     urdu: "جینٹس سوٹنگ",
-    photo: "wash-and-wear",
+    photo: "gents",
+    gallery: ["thaan-2", "suiting-close", "cotton-light", "gents-black"],
     season: "All Seasons",
     fabrics: [
       { name: "Wash & Wear", note: "Our signature: easy-care, wrinkle-resistant, in a spectrum of quiet tones." },
@@ -140,7 +143,8 @@ export const CATEGORIES: Category[] = [
     lead:
       "Breathable summer lawn from the country's finest mills. Prints, embroidered panels and chikankari, chosen bolt by bolt so the colour holds and the hand stays soft after every wash.",
     urdu: "لان سوٹ",
-    photo: "lawn",
+    photo: "lawn-spread",
+    gallery: ["lawn", "lawn-wall", "packed-suits", "ladies"],
     season: "Spring · Summer",
     fabrics: [
       { name: "Printed Lawn", note: "Fresh summer prints for everyday suits." },
@@ -191,6 +195,7 @@ export const CATEGORIES: Category[] = [
       "When the cold sets in, the fabric has to do the work. Karandi and wool blends with the weight and drape we trust for a winter suit, chosen by hand like everything else on our shelves.",
     urdu: "سردی کا سوٹنگ",
     photo: "winter",
+    gallery: ["velvet-front", "velvet-shop", "gents-black", "packed-suits"],
     season: "Autumn · Winter",
     fabrics: [
       { name: "Karandi", note: "A textured, warm weave that drapes well, for winter shalwar kameez." },
@@ -239,7 +244,8 @@ export const CATEGORIES: Category[] = [
     lead:
       "Wedding fabric deserves time at the counter. Hand-embroidered panels, zari work, raw silk and brocade, with coordinated dupattas, chosen with you and your family one bolt at a time.",
     urdu: "شادی کا لباس",
-    photo: "wedding",
+    photo: "wedding-hero",
+    gallery: ["wedding", "velvet-side", "silk-jacquard", "ladies-close"],
     season: "By Appointment",
     fabrics: [
       { name: "Hand-Embroidered Panels", note: "Bridal panels with hand embroidery for the barat and walima." },
@@ -293,6 +299,7 @@ export const CATEGORIES: Category[] = [
       "Fabric for school, office, hospital and staff uniforms, for one person or a whole team. Send us the colour, the garment and how many you need, and we will match it and quote on WhatsApp.",
     urdu: "یونیفارم کا کپڑا",
     photo: "uniform",
+    gallery: ["suiting-wall", "wash-and-wear", "cotton-linen", "order-online"],
     season: "Bulk Orders",
     fabrics: [
       { name: "School Uniforms", note: "Shirting, trouser and shalwar kameez fabric in your school's colours, for one child or a whole class." },

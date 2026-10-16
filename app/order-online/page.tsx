@@ -5,6 +5,7 @@ import { CATEGORIES } from "../categories";
 import { SiteFooter, SiteHeader } from "../components/chrome";
 import { OrderSteps } from "../components/order";
 import { Arrow, PhoneGlyph, SectionHead, WhatsAppGlyph } from "../components/ui";
+import { PhotoGrid } from "../components/gallery";
 import { PHOTOS } from "../photos";
 import { ADDRESS, FOUNDED, PHONE_DISPLAY, PHONE_TEL, SITE_URL, whatsappUrl } from "../site";
 
@@ -136,6 +137,19 @@ export default function OrderOnlinePage() {
 
         <OrderSteps title={<>How ordering <span className="display-italic text-navy">works</span></>} />
 
+        {/* FROM THE COUNTER */}
+        <section aria-labelledby="counter-title" className="pt-20 md:pt-24">
+          <div className="mx-auto max-w-[1240px] px-5 md:px-10">
+            <SectionHead
+              eyebrow="From Our Counter"
+              id="counter-title"
+              title={<>Cut, packed and <span className="display-italic text-navy">sent to you</span></>}
+              intro="Every order is measured and cut at our counter in Sialkot, then packed in our own bag and sent to your door."
+            />
+            <PhotoGrid photos={["thaan-2", "lawn", "packing-urdu", "shopfront"]} />
+          </div>
+        </section>
+
         {/* WHAT YOU CAN ORDER */}
         <section aria-labelledby="shop-title" className="py-20 md:py-24">
           <div className="mx-auto max-w-[1240px] px-5 md:px-10">
@@ -150,7 +164,7 @@ export default function OrderOnlinePage() {
                 <li key={c.slug}>
                   <Link href={`/${c.slug}`} className="group block">
                     <div className="zoom relative aspect-[3/2] overflow-hidden rounded-md bg-navy/10">
-                      <Image src={PHOTOS[c.photo].src} alt="" fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 92vw" className="object-cover" />
+                      <Image src={PHOTOS[c.photo].src} alt="" fill sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 92vw" className="object-cover" style={{ objectPosition: PHOTOS[c.photo].pos }} />
                     </div>
                     <div className="pt-5 flex items-center justify-between gap-4">
                       <div>
