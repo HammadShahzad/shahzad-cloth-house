@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 1,
-      images: [`${SITE_URL}/photos/fabric-shop.jpg`, `${SITE_URL}/father.jpg`],
+      images: [`${SITE_URL}/photos/shop-front.jpg`, `${SITE_URL}/photos/shop-interior.jpg`, `${SITE_URL}/father.jpg`],
     },
     {
       url: `${SITE_URL}/order-online`,

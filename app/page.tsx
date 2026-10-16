@@ -420,6 +420,15 @@ export default function Home() {
         {/* VISIT */}
         <section id="visit" aria-labelledby="visit-title" className="pb-24 md:pb-32">
           <div className="mx-auto max-w-[1240px] px-5 md:px-10">
+            <div className="relative mb-4 aspect-[4/3] md:aspect-[21/9] rounded-lg overflow-hidden bg-navy">
+              <Image
+                src={PHOTOS.shopfront.src}
+                alt={PHOTOS.shopfront.alt}
+                fill
+                sizes="(min-width: 1240px) 1160px, 92vw"
+                className="object-cover object-[center_45%]"
+              />
+            </div>
             <div className="grid lg:grid-cols-12 rounded-lg overflow-hidden bg-navy-deep text-cream">
               <div className="lg:col-span-5 relative p-8 md:p-12">
                 <div className="relative">

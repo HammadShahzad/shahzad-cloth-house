@@ -1,26 +1,15 @@
-// Fabric photography. These are real photographs from Pexels (free to use under
-// the Pexels licence) standing in until photos of the shop's own stock replace
-// them, so alt text describes the cloth, not a specific shelf at Shahzad Cloth
-// House. Sources: pexels.com/photo/<id> for the id noted on each entry.
+// Photos taken at Shahzad Cloth House, Chowk Adda Pasrooriyan, Sialkot.
 export const PHOTOS = {
-  // 12795275
-  "hero-shop": { src: "/photos/fabric-shop.jpg", alt: "A shopkeeper stacking folded unstitched fabric on tall shelves in a cloth shop in Pakistan" },
-  // 20531147
-  lawn: { src: "/photos/lawn-prints.jpg", alt: "Rolls of printed floral lawn and cotton in pink, cream and red" },
-  // 18359546
-  "wash-and-wear": { src: "/photos/shirting-shelves.jpg", alt: "Shelves of wash & wear and shirting fabric bolts in white, blue, grey and black" },
-  // 30243795
-  "cotton-linen": { src: "/photos/cotton-linen-stack.jpg", alt: "Stack of folded cotton and linen in blue, teal, yellow and coral" },
-  // 6487380
-  "silk-jacquard": { src: "/photos/silk-satin.jpg", alt: "Folded silk and satin in pink, purple, gold and red" },
-  // 35533303
-  wedding: { src: "/photos/bridal-lehenga.jpg", alt: "Red bridal lehenga and dupatta with heavy embroidery" },
-  // 6766360
-  winter: { src: "/photos/wool-suiting.jpg", alt: "Stack of folded wool suiting in black, charcoal, brown and herringbone" },
-  // 18359537
-  uniform: { src: "/photos/plain-fabric-rolls.jpg", alt: "Rolls of plain fabric in navy, royal blue, sky blue, khaki and red" },
-  // 4568726
-  "order-online": { src: "/photos/packing-order.jpg", alt: "Hands wrapping an order in brown kraft paper for delivery" },
+  "hero-shop": { src: "/photos/shop-interior.jpg", alt: "Pulling a thaan from floor-to-ceiling shelves of suiting at Shahzad Cloth House" },
+  shopfront: { src: "/photos/shop-front.jpg", alt: "The front of Shahzad Cloth House in Sialkot, with its Urdu signboards and phone number 0300 6143230" },
+  lawn: { src: "/photos/shop-lawn.jpg", alt: "Printed and embroidered unstitched lawn suits laid out on the counter at Shahzad Cloth House" },
+  "wash-and-wear": { src: "/photos/shop-gents.jpg", alt: "Laying out gents suiting on the counter in front of shelves of wash & wear at Shahzad Cloth House" },
+  "cotton-linen": { src: "/photos/shop-cotton.jpg", alt: "Rolls of cotton and linen in sky blue, sand, grey and pink at Shahzad Cloth House" },
+  "silk-jacquard": { src: "/photos/shop-jacquard.jpg", alt: "Purple jacquard fabric with a woven gold pattern, spread out at Shahzad Cloth House" },
+  wedding: { src: "/photos/shop-formal-suit.jpg", alt: "Embroidered velvet suit with matching dupatta on a mannequin at Shahzad Cloth House" },
+  winter: { src: "/photos/shop-winter.jpg", alt: "Stacks of embroidered winter suits in maroon, mustard, navy and purple at Shahzad Cloth House" },
+  uniform: { src: "/photos/shop-plain-suiting.jpg", alt: "Shelves of plain suiting in white, grey, navy, black and khaki at Shahzad Cloth House" },
+  "order-online": { src: "/photos/shop-packing.jpg", alt: "Packing an order in a Shahzad Cloth House bag at the shop counter" },
 } as const;
 
 export type PhotoKey = keyof typeof PHOTOS;
