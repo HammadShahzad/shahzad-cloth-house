@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { COLLECTION_TO_CATEGORY } from "./categories";
-import { PHOTOS, type PhotoKey } from "./photos";
+import { PHOTOS, SHOP_GALLERY, type PhotoKey } from "./photos";
+import { PhotoGrid } from "./components/gallery";
 import { SiteFooter, SiteHeader } from "./components/chrome";
 import { OrderSteps } from "./components/order";
 import {
@@ -69,7 +70,7 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[70%_center]"
+            className="object-cover"
           />
           <div className="absolute inset-0 photo-shade" aria-hidden />
           <div className="relative mx-auto max-w-[1240px] px-5 md:px-10 pt-40 pb-16 sm:pt-48 lg:pt-28 lg:pb-28 min-h-[640px] lg:min-h-[680px] flex items-end lg:items-center">
@@ -271,6 +272,19 @@ export default function Home() {
           </div>
         </section>
 
+        {/* INSIDE THE SHOP */}
+        <section id="inside" aria-labelledby="inside-title" className="py-20 md:py-28">
+          <div className="mx-auto max-w-[1240px] px-5 md:px-10">
+            <SectionHead
+              eyebrow="Inside the Shop"
+              id="inside-title"
+              title={<>A look around <span className="display-italic text-navy">the shop</span></>}
+              intro={`Real photos from our counter at ${ADDRESS.street}, ${ADDRESS.city}. What you see here is what we keep on the shelves.`}
+            />
+            <PhotoGrid photos={SHOP_GALLERY} />
+          </div>
+        </section>
+
         {/* PROMISES */}
         <section aria-labelledby="promise-title" className="relative bg-navy-deep text-cream py-20 md:py-28 overflow-hidden">
           <div className="relative mx-auto max-w-[1240px] px-5 md:px-10">
@@ -364,7 +378,7 @@ export default function Home() {
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
               <SocialCard
                 href={TIKTOK_URL}
-                photo="winter"
+                photo="gents-black"
                 icon={<TikTokGlyph className="h-7 w-7" />}
                 handle={`@${TIKTOK_HANDLE}`}
                 line="Fabric in motion and new stock on TikTok"
@@ -372,7 +386,7 @@ export default function Home() {
               />
               <SocialCard
                 href={INSTAGRAM_URL}
-                photo="lawn"
+                photo="ladies-close"
                 icon={<InstagramGlyph className="h-7 w-7" />}
                 handle={`@${INSTAGRAM_HANDLE}`}
                 line="See the latest fabrics on Instagram"
@@ -380,7 +394,7 @@ export default function Home() {
               />
               <SocialCard
                 href={FACEBOOK_URL}
-                photo="wedding"
+                photo="packed-suits"
                 icon={<FacebookGlyph className="h-7 w-7" />}
                 handle={`@${FACEBOOK_HANDLE}`}
                 line="Offers and shop news on Facebook"
@@ -545,7 +559,7 @@ function SocialCard({
       rel="noopener noreferrer"
       className="group zoom relative flex items-end min-h-[420px] md:min-h-[480px] rounded-md overflow-hidden bg-navy"
     >
-      <Image src={PHOTOS[photo].src} alt="" fill sizes="(min-width: 768px) 380px, 92vw" className="object-cover" />
+      <Image src={PHOTOS[photo].src} alt="" fill sizes="(min-width: 768px) 380px, 92vw" className="object-cover" style={{ objectPosition: PHOTOS[photo].pos }} />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-night/90 via-navy-night/30 to-transparent" aria-hidden />
       <div className="relative p-6 text-cream">
         {icon}

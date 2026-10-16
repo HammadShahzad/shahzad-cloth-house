@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORIES, CATEGORY_BY_SLUG, deliveryFaq } from "../categories";
 import { SiteFooter, SiteHeader } from "../components/chrome";
+import { PhotoGrid } from "../components/gallery";
 import { OrderSteps } from "../components/order";
 import { PHOTOS } from "../photos";
 import { Arrow, PhoneGlyph, PinGlyph, SectionHead, WhatsAppGlyph } from "../components/ui";
@@ -155,6 +156,7 @@ export default async function CategoryPage({ params }: Props) {
                     priority
                     sizes="(min-width: 1024px) 460px, 92vw"
                     className="object-cover"
+                    style={{ objectPosition: PHOTOS[c.photo].pos }}
                   />
                 </div>
               </div>
@@ -202,6 +204,19 @@ export default async function CategoryPage({ params }: Props) {
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        {/* SHOP PHOTOS */}
+        <section aria-labelledby="photos-title" className="pb-20 md:pb-24">
+          <div className="mx-auto max-w-[1240px] px-5 md:px-10">
+            <SectionHead
+              eyebrow="At the Shop"
+              id="photos-title"
+              title={<>From our <span className="display-italic text-navy">shelves</span></>}
+              intro={`Photos from our shop in ${ADDRESS.city}. Ask us on WhatsApp and we will send you photos of what is in stock today.`}
+            />
+            <PhotoGrid photos={c.gallery} />
           </div>
         </section>
 
@@ -274,6 +289,7 @@ export default async function CategoryPage({ params }: Props) {
                         fill
                         sizes="(min-width: 768px) 380px, 92vw"
                         className="object-cover"
+                        style={{ objectPosition: PHOTOS[r.photo].pos }}
                       />
                     </div>
                     <div className="pt-5 flex items-center justify-between gap-4">

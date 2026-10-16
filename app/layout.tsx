@@ -132,7 +132,7 @@ const storeJsonLd = {
   name: BUSINESS_NAME,
   alternateName: BUSINESS_NAME_URDU,
   url: SITE_URL,
-  image: [`${SITE_URL}/og.jpg`, `${SITE_URL}/photos/shop-front.jpg`, `${SITE_URL}/photos/shop-interior.jpg`, `${SITE_URL}/father.jpg`],
+  image: [`${SITE_URL}/og.jpg`, `${SITE_URL}/photos/shop/shopfront.jpg`, `${SITE_URL}/photos/shop/plain-suiting.jpg`, `${SITE_URL}/father.jpg`],
   logo: `${SITE_URL}/apple-touch-icon.png`,
   description:
     "Family-owned cloth house in Chowk Adda Pasrooriyan, Sialkot, Pakistan, selling unstitched fabric for ladies and gents since 1991: lawn, wash & wear, cotton, linen, silk, wedding wear and winter suiting.",
