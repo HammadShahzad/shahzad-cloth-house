@@ -7,7 +7,7 @@ const shop = (file: string) => `/photos/shop/${file}.jpg`;
 const ALL = {
   "hero-shop": { src: shop("plain-suiting"), alt: "Shelves of suiting in every shade at Shahzad Cloth House, Sialkot", caption: "Suiting in every shade" },
   "suiting-wall": { src: shop("suiting-wall"), alt: "Floor-to-ceiling shelves of suiting behind the counter at Shahzad Cloth House", caption: "The suiting wall behind our counter" },
-  shopfront: { src: shop("shopfront"), alt: "The front of Shahzad Cloth House in Sialkot, with its Urdu signboards and phone number 0300 6143230", caption: "Our shop at Chowk Adda Pasrooriyan" },
+  shopfront: { src: shop("shopfront"), alt: "The front of Shahzad Cloth House in Sialkot, with its Urdu signboards", caption: "Our shop at Chowk Adda Pasrooriyan" },
   lawn: { src: shop("lawn-on-counter"), alt: "Printed and embroidered lawn suits on the counter in front of shelves of packed lawn at Shahzad Cloth House", caption: "Lawn suits opened out on the counter" },
   "wash-and-wear": { src: shop("suiting-stack"), alt: "Folded wash & wear suiting in grey, sand, peach and blue at Shahzad Cloth House", caption: "Wash & wear in quiet, everyday tones" },
   "cotton-linen": { src: shop("cotton-rolls"), alt: "Rolls of cotton and linen in sky blue, sand, grey and pink at Shahzad Cloth House", caption: "Cotton and linen on the roll" },
