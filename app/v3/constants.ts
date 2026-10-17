@@ -1,9 +1,9 @@
 export const FOUNDED = 1991;
 export const YEARS = new Date().getFullYear() - FOUNDED;
 
-export const PHONE_DISPLAY = "0300 6143230";
-export const PHONE_TEL = "+923006143230";
-export const WA_INTL = "923006143230";
+export const PHONE_DISPLAY = "0337 4515580";
+export const PHONE_TEL = "+923374515580";
+export const WA_INTL = "923374515580";
 export const WA_URL = `https://wa.me/${WA_INTL}?text=${encodeURIComponent(
   "Assalamu alaikum — I saw your website (shahzadclothhouse.com) and wanted to ask about ",
 )}`;

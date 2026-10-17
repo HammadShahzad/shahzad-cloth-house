@@ -18,9 +18,9 @@ export const ADDRESS = {
 };
 export const GEO = { lat: 32.4945, lng: 74.5229 };
 
-export const PHONE_DISPLAY = "0300 6143230";
-export const PHONE_TEL = "+923006143230";
-const WHATSAPP_INTL = "923006143230";
+export const PHONE_DISPLAY = "0337 4515580";
+export const PHONE_TEL = "+923374515580";
+const WHATSAPP_INTL = "923374515580";
 
 export function whatsappUrl(topic = "") {
   const text = `Assalamu alaikum — I saw your website (shahzadclothhouse.com) and wanted to ask about ${topic}`;
