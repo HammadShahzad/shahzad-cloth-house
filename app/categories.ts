@@ -5,6 +5,7 @@ export type Fabric = { name: string; note: string };
 export type Category = {
   slug: string;
   navLabel: string;
+  /** The full <title>, brand included. Keep it under about 60 characters. */
   metaTitle: string;
   metaDescription: string;
   eyebrow: string;
@@ -15,6 +16,8 @@ export type Category = {
   photo: PhotoKey;
   gallery: PhotoKey[];
   season: string;
+  /** Two short paragraphs under the hero. Plain text; [label](/path) becomes an internal link. */
+  about: string[];
   fabrics: Fabric[];
   guideTitle: string;
   guide: { title: string; body: string }[];
@@ -26,9 +29,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "ladies-fabric",
     navLabel: "Ladies",
-    metaTitle: "Ladies Unstitched Suits in Sialkot, Delivered Across Pakistan",
+    metaTitle: "Ladies Unstitched Suits Online, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "Ladies unstitched suits from Sialkot: lawn, cotton, linen, raw silk, katan, jacquard and embroidered panels, cut to any length. Order on WhatsApp, delivered across Pakistan.",
+      "Ladies unstitched suits from Sialkot: lawn, cotton, raw silk, katan, jacquard and embroidered panels, cut to any length and delivered across Pakistan.",
     eyebrow: "Ladies Collection",
     h1: "Ladies unstitched fabric",
     h1Accent: "in Sialkot",
@@ -38,6 +41,10 @@ export const CATEGORIES: Category[] = [
     photo: "ladies",
     gallery: ["ladies-close", "lawn-wall", "velvet", "lawn-spread"],
     season: "All Seasons",
+    about: [
+      "Shahzad Cloth House has sold ladies unstitched fabric from Chowk Adda Pasrooriyan in Sialkot since 1991. The shelves hold everyday [lawn](/lawn) and cotton for summer, wash & wear for busy days, and raw silk, katan and jacquard for Eid and dawats.",
+      "You choose the fabric and the length, and your tailor does the rest. Buy a single shirt piece, a three-piece suit or enough for the whole family. If you live outside Sialkot, send us a message on WhatsApp and we will send photos, confirm the price and deliver anywhere in Pakistan. Planning a wedding? See our [bridal and groom fabric](/wedding-fabric).",
+    ],
     fabrics: [
       { name: "Unstitched Lawn", note: "Prints, embroidered panels and chikankari for spring and summer." },
       { name: "Cotton & Linen", note: "Long-staple cotton and pure linen with a softened hand for kurtas and suits." },
@@ -80,9 +87,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "gents-fabric",
     navLabel: "Gents",
-    metaTitle: "Gents Wash and Wear & Suiting Fabric, Sialkot and Online",
+    metaTitle: "Wash and Wear & Gents Suiting, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "Gents wash & wear, cotton, linen, shirting and winter suiting from Sialkot. Shalwar kameez fabric cut to any length, ordered on WhatsApp and delivered across Pakistan.",
+      "Gents wash & wear, cotton, linen, shirting and karandi from Sialkot. Shalwar kameez fabric cut to any length, ordered on WhatsApp, delivered across Pakistan.",
     eyebrow: "Gents Collection",
     h1: "Gents suiting & wash and wear",
     h1Accent: "in Sialkot",
@@ -92,6 +99,10 @@ export const CATEGORIES: Category[] = [
     photo: "gents",
     gallery: ["thaan-2", "suiting-close", "cotton-light", "gents-black"],
     season: "All Seasons",
+    about: [
+      "Wash & wear is the fabric most of our gents customers come in for, and we keep it in stock all year in whites, greys, blues and darker tones. Alongside it we keep long-staple cotton and linen for summer, shirting lengths, and karandi and wool blends for [winter suits](/winter-collection).",
+      "Every shalwar kameez length is cut at our counter in Sialkot, so you buy exactly what your tailor asks for. Order on WhatsApp and we deliver across Pakistan, or visit the shop at Chowk Adda Pasrooriyan. For staff or school orders, see [uniform fabric](/uniform-fabric).",
+    ],
     fabrics: [
       { name: "Wash & Wear", note: "Our signature: easy-care, wrinkle-resistant, in a spectrum of quiet tones." },
       { name: "Cotton", note: "Long-staple cotton for summer shalwar kameez and kurtas." },
@@ -134,7 +145,7 @@ export const CATEGORIES: Category[] = [
   {
     slug: "lawn",
     navLabel: "Lawn",
-    metaTitle: "Unstitched Lawn Suits Online in Pakistan, From Sialkot",
+    metaTitle: "Unstitched Lawn Suits Online, Sialkot | Shahzad Cloth House",
     metaDescription:
       "Unstitched lawn suits from Sialkot: printed lawn, embroidered panels and chikankari, cut to any length. Order on WhatsApp with delivery across Pakistan.",
     eyebrow: "Spring · Summer",
@@ -146,6 +157,10 @@ export const CATEGORIES: Category[] = [
     photo: "lawn-spread",
     gallery: ["lawn", "lawn-wall", "packed-suits", "ladies"],
     season: "Spring · Summer",
+    about: [
+      "Lawn is the fabric of a Pakistani summer: light, breathable and printed in colours that last the season. We keep printed lawn, lawn with embroidered panels and chikankari, packed as three-piece unstitched suits or cut from the bolt.",
+      "Message us on WhatsApp to see what is on the shelves this week. We send photos, confirm the price and deliver your lawn suits anywhere in Pakistan, or you can pick them up from the shop in Sialkot. Looking for something heavier for Eid? See our [ladies fabric](/ladies-fabric).",
+    ],
     fabrics: [
       { name: "Printed Lawn", note: "Fresh summer prints for everyday suits." },
       { name: "Embroidered Lawn", note: "Lawn with embroidered panels for something special." },
@@ -185,9 +200,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "winter-collection",
     navLabel: "Winter",
-    metaTitle: "Karandi & Winter Suiting Fabric, Sialkot and Online",
+    metaTitle: "Karandi & Winter Fabric, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "Karandi and wool-blend winter suiting from Sialkot, for men and ladies, cut to any length. Order on WhatsApp and we deliver across Pakistan.",
+      "Karandi, wool-blend suiting and embroidered winter suits from Sialkot, for men and ladies, cut to any length. Order on WhatsApp, delivered across Pakistan.",
     eyebrow: "Autumn · Winter",
     h1: "Winter suiting & karandi",
     h1Accent: "in Sialkot",
@@ -197,9 +212,15 @@ export const CATEGORIES: Category[] = [
     photo: "winter",
     gallery: ["velvet-front", "velvet-shop", "gents-black", "packed-suits"],
     season: "Autumn · Winter",
+    about: [
+      "When the fog settles over Sialkot, people come to us for karandi, wool-blend suiting and embroidered winter suits. Karandi is the winter staple for shalwar kameez: textured, warm and easy to drape. Our embroidered winter suits and velvet come in deep maroon, mustard, navy and black.",
+      "Winter stock arrives in autumn and the best colours go early. Order on WhatsApp and we deliver across Pakistan, or visit the shop at Chowk Adda Pasrooriyan. For everyday gents fabric see [wash & wear and suiting](/gents-fabric).",
+    ],
     fabrics: [
       { name: "Karandi", note: "A textured, warm weave that drapes well, for winter shalwar kameez." },
       { name: "Wool Blends", note: "Warmth without bulk, for suits that look sharp all day." },
+      { name: "Embroidered Winter Suits", note: "Three-piece ladies suits with thread work, in deep winter colours." },
+      { name: "Velvet", note: "Embroidered velvet suits and dupattas for winter weddings and evening functions." },
     ],
     guideTitle: "Choosing winter fabric",
     guide: [
@@ -235,9 +256,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "wedding-fabric",
     navLabel: "Wedding",
-    metaTitle: "Bridal & Groom Wedding Fabric, Sialkot and Online",
+    metaTitle: "Bridal & Groom Wedding Fabric, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "Bridal and groom fabric from Sialkot: hand-embroidered panels, zari work, raw silk, jacquard, brocade and dupattas. Visit by appointment or order on WhatsApp.",
+      "Bridal and groom fabric from Sialkot: embroidered panels, zari work, raw silk, jacquard, velvet and dupattas. Visit by appointment or order on WhatsApp.",
     eyebrow: "By Appointment",
     h1: "Bridal & groom fabric",
     h1Accent: "in Sialkot",
@@ -247,11 +268,16 @@ export const CATEGORIES: Category[] = [
     photo: "wedding-hero",
     gallery: ["wedding", "velvet-side", "silk-jacquard", "ladies-close"],
     season: "By Appointment",
+    about: [
+      "Families have chosen their wedding fabric at our counter since 1991. For the bride there are hand-embroidered panels, zari work, raw silk, jacquard and embroidered velvet, with dupattas matched to each shirt. For the groom and the family there is suiting and festive fabric in matching colours.",
+      "Wedding wear is by appointment, so you get the counter and our full attention. Call or WhatsApp us to book a time, or to see photos before you travel. We also deliver wedding orders across Pakistan. See [ladies fabric](/ladies-fabric) for mehndi and dholki outfits.",
+    ],
     fabrics: [
       { name: "Hand-Embroidered Panels", note: "Bridal panels with hand embroidery for the barat and walima." },
       { name: "Zari Work", note: "Metallic thread work that catches the light at evening functions." },
       { name: "Raw Silk & Katan", note: "Rich silks for mehndi, nikah and the family's festive suits." },
       { name: "Banarsi Jacquard & Brocade", note: "Woven brocades for formal wear and wedding functions." },
+      { name: "Embroidered Velvet", note: "Velvet with white and gold thread work for winter weddings." },
       { name: "Coordinated Dupattas", note: "Dupattas chosen to match your shirt and panels." },
       { name: "Groom Fabric", note: "Fabric for the groom's wedding-day outfit, matched to the bride's colours." },
     ],
@@ -289,9 +315,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "uniform-fabric",
     navLabel: "Uniforms",
-    metaTitle: "Uniform Fabric for Schools, Offices & Hospitals in Sialkot",
+    metaTitle: "School & Office Uniform Fabric, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "School, office, hospital and staff uniform fabric from Sialkot, by the suit or in bulk. Tell us the colour and quantity on WhatsApp; we deliver across Pakistan.",
+      "School, office, hospital and staff uniform fabric from Sialkot, by the suit or in bulk. Send the colour and quantity on WhatsApp; we deliver across Pakistan.",
     eyebrow: "Bulk & Custom Orders",
     h1: "Uniform fabric",
     h1Accent: "in Sialkot",
@@ -301,6 +327,10 @@ export const CATEGORIES: Category[] = [
     photo: "uniform",
     gallery: ["suiting-wall", "wash-and-wear", "cotton-linen", "order-online"],
     season: "Bulk Orders",
+    about: [
+      "We cut uniform fabric for schools, offices, hospitals and security staff, by the suit or in bulk. We keep plain suiting, shirting and wash & wear in the colours uniforms use most, including white, grey, navy, black and khaki.",
+      "Send a photo of the current uniform and tell us how many you need, and we will match the colour and work out the metres on WhatsApp. We deliver bulk orders across Pakistan. Need fabric for staff shalwar kameez? See [gents wash & wear](/gents-fabric).",
+    ],
     fabrics: [
       { name: "School Uniforms", note: "Shirting, trouser and shalwar kameez fabric in your school's colours, for one child or a whole class." },
       { name: "Office & Staff Uniforms", note: "Wash & wear and suiting that keep their press through a working day." },

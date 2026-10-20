@@ -1,24 +1,32 @@
+import Link from "next/link";
+import { PHONE_DISPLAY, PHONE_TEL, whatsappUrl } from "../site";
+
 export function SectionHead({
   eyebrow,
   id,
   title,
   intro,
   dark = false,
+  center = false,
 }: {
   eyebrow: string;
   id: string;
   title: React.ReactNode;
-  intro?: string;
+  intro?: React.ReactNode;
   dark?: boolean;
+  center?: boolean;
 }) {
   return (
-    <div className="max-w-[680px]">
-      <p className={`eyebrow ${dark ? "text-gold" : "text-gold-dark"}`}>{eyebrow}</p>
-      <h2 id={id} className={`display mt-4 text-[42px] md:text-[60px] ${dark ? "text-cream" : "text-ink"}`}>
+    <div className={`max-w-[700px] ${center ? "mx-auto text-center" : ""}`}>
+      <p className={`eyebrow flex items-center gap-3 ${center ? "justify-center" : ""} ${dark ? "text-gold" : "text-gold-text"}`}>
+        <span className="diamond" aria-hidden />
+        {eyebrow}
+      </p>
+      <h2 id={id} className={`display mt-4 text-[40px] leading-[1.05] md:text-[56px] ${dark ? "text-cream" : "text-navy-deep"}`}>
         {title}
       </h2>
       {intro && (
-        <p className={`mt-5 text-[16px] md:text-[17px] leading-[1.75] ${dark ? "text-cream/70" : "text-ink/70"}`}>
+        <p className={`mt-5 text-[16px] md:text-[17px] leading-[1.75] ${dark ? "text-cream/80" : "text-ink/75"}`}>
           {intro}
         </p>
       )}
@@ -26,28 +34,88 @@ export function SectionHead({
   );
 }
 
-export function InfoRow({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode }) {
+const BTN = "inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[15px] font-semibold transition-colors whitespace-nowrap";
+
+/** The main call to action everywhere: a WhatsApp chat with a prefilled message. */
+export function WhatsAppButton({ topic = "", label = "Order on WhatsApp", className = "" }: { topic?: string; label?: string; className?: string }) {
   return (
-    <div className="flex gap-4">
-      <span className="mt-0.5 h-8 w-8 shrink-0 rounded-full border border-gold/40 text-gold grid place-items-center">{icon}</span>
-      <div className="flex-1">
-        <div className="text-[11px] tracking-[0.24em] uppercase text-gold/90 mb-1">{label}</div>
-        <div className="leading-[1.7] text-cream/90">{children}</div>
-      </div>
+    <a
+      href={whatsappUrl(topic)}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${BTN} bg-whatsapp text-whatsapp-ink hover:bg-[#3ee07b] ${className}`}
+    >
+      <WhatsAppGlyph className="h-5 w-5" />
+      {label}
+    </a>
+  );
+}
+
+export function CallButton({ dark = false, className = "" }: { dark?: boolean; className?: string }) {
+  return (
+    <a
+      href={`tel:${PHONE_TEL}`}
+      className={`${BTN} border ${dark ? "border-cream/35 text-cream hover:border-gold hover:text-gold-light" : "border-navy/25 text-navy-deep hover:border-navy hover:bg-navy hover:text-cream"} ${className}`}
+    >
+      <PhoneGlyph className="h-4 w-4" />
+      Call {PHONE_DISPLAY}
+    </a>
+  );
+}
+
+export function LinkButton({ href, children, dark = false }: { href: string; children: React.ReactNode; dark?: boolean }) {
+  return (
+    <Link
+      href={href}
+      className={`group ${BTN} ${dark ? "bg-gold text-navy-night hover:bg-gold-light" : "bg-navy text-cream hover:bg-navy-deep"}`}
+    >
+      {children}
+      <Arrow />
+    </Link>
+  );
+}
+
+/** A FAQ list using native <details>, so answers stay in the HTML for search engines. */
+export function FaqList({ faqs }: { faqs: { q: string; a: string }[] }) {
+  return (
+    <div className="divide-y divide-navy/12 border-y border-navy/12">
+      {faqs.map((f, i) => (
+        <details key={f.q} className="group" open={i === 0}>
+          <summary className="flex items-center justify-between gap-6 py-5">
+            <h3 className="text-[17px] md:text-[18px] font-semibold text-navy-deep">{f.q}</h3>
+            <span className="faq-plus shrink-0 h-9 w-9 rounded-full border border-navy/20 grid place-items-center text-navy text-[20px] leading-none transition-transform duration-300" aria-hidden>
+              +
+            </span>
+          </summary>
+          <p className="pb-6 pr-12 text-[16px] leading-[1.75] text-ink/75">{f.a}</p>
+        </details>
+      ))}
     </div>
   );
 }
 
-export function SocialPill({ href, className, children }: { href: string; className: string; children: React.ReactNode }) {
+/** Turns "[label](/path)" in plain copy into internal links. */
+export function RichText({ text }: { text: string }) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`lift inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-[14px] font-semibold ${className}`}
-    >
-      {children}
-    </a>
+    <>
+      {parts.map((part, i) => {
+        const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        return m ? <Link key={i} href={m[2]}>{m[1]}</Link> : part;
+      })}
+    </>
+  );
+}
+
+export function InfoRow({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex gap-4">
+      <span className="mt-0.5 h-9 w-9 shrink-0 rounded-full border border-gold text-gold-text grid place-items-center">{icon}</span>
+      <div className="flex-1">
+        <div className="text-[11px] font-bold tracking-[0.22em] uppercase text-gold-text mb-1">{label}</div>
+        <div className="leading-[1.7]">{children}</div>
+      </div>
+    </div>
   );
 }
 
@@ -56,7 +124,7 @@ export function Monogram({ className = "" }: { className?: string }) {
     <svg viewBox="0 0 40 40" className={className} aria-hidden>
       <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" strokeWidth="1" />
       <circle cx="20" cy="20" r="15.5" fill="none" stroke="currentColor" strokeWidth="0.5" />
-      <text x="20" y="26" textAnchor="middle" fontFamily="Fraunces, Georgia, serif" fontStyle="italic" fontSize="18" fill="currentColor">
+      <text x="20" y="26.5" textAnchor="middle" style={{ fontFamily: "var(--font-display)" }} fontStyle="italic" fontWeight="500" fontSize="20" fill="currentColor">
         S
       </text>
     </svg>
@@ -148,6 +216,60 @@ export function GoogleLogo({ className = "" }: { className?: string }) {
       <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/>
       <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/>
       <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91S16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"/>
+    </svg>
+  );
+}
+
+export function MenuGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
+export function CloseGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  );
+}
+
+export function ScissorsGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="6" cy="6" r="3" />
+      <circle cx="6" cy="18" r="3" />
+      <path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12" />
+    </svg>
+  );
+}
+
+export function TruckGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M2 6h11v10H2zM13 9h4l3 3v4h-7" />
+      <circle cx="6" cy="18" r="2" />
+      <circle cx="17" cy="18" r="2" />
+    </svg>
+  );
+}
+
+export function ChatGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z" />
+      <path d="M8.5 11h7M8.5 14h4" />
+    </svg>
+  );
+}
+
+export function BadgeGlyph({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="9" r="6" />
+      <path d="M8.5 14L7 22l5-3 5 3-1.5-8" />
     </svg>
   );
 }
