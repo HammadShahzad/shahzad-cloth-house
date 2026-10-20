@@ -1,11 +1,14 @@
-import type { PhotoKey } from "./photos";
-
 export const SITE_URL = "https://shahzadclothhouse.com";
 export const BUSINESS_NAME = "Shahzad Cloth House";
+export const HOME_TITLE = "Shahzad Cloth House Sialkot | Unstitched Fabric Online";
+export const HOME_DESCRIPTION =
+  "Lawn, wash & wear, karandi, wedding and uniform fabric from a Sialkot cloth house run since 1991. Cut to any length and delivered across Pakistan.";
 export const BUSINESS_NAME_URDU = "شہزاد کلاتھ ہاؤس";
 export const TAGLINE_URDU = "ورائٹی کا اعلیٰ مرکز";
 
 export const FOUNDED = 1991;
+/** Date the page content last changed. Used for the sitemap's lastmod, so bump it when you edit copy. */
+export const CONTENT_UPDATED = "2026-10-20";
 export const YEARS = new Date().getFullYear() - FOUNDED;
 export const PROPRIETOR = "Shahzad Ahmad";
 
@@ -29,8 +32,6 @@ export function whatsappUrl(topic = "") {
 export const WHATSAPP_URL = whatsappUrl();
 
 export const MAPS_URL = "https://maps.app.goo.gl/LvhtWzgEjP6j29mm8";
-export const MAPS_EMBED =
-  "https://www.google.com/maps?q=Shahzad+Cloth+House+Chowk+Adda+Pasrooriyan+Sialkot&output=embed";
 
 export const TIKTOK_HANDLE = "shahzadclothhouseskt";
 export const TIKTOK_URL = `https://www.tiktok.com/@${TIKTOK_HANDLE}`;
@@ -44,83 +45,10 @@ export const HOURS = [
   { days: "Friday", time: "Open after Jumu'ah prayers" },
 ];
 
-export type Collection = {
-  slug: string;
-  name: string;
-  urdu: string;
-  for: string;
-  season: string;
-  blurb: string;
-  photo: PhotoKey;
-};
-
-export const COLLECTIONS: Collection[] = [
-  {
-    slug: "lawn",
-    name: "Unstitched Lawn",
-    urdu: "لان",
-    for: "Ladies",
-    season: "Spring · Summer",
-    blurb:
-      "Breathable summer lawn from the country's finest mills: prints, embroidered panels and chikankari, cut to your length.",
-    photo: "lawn",
-  },
-  {
-    slug: "wash-and-wear",
-    name: "Wash & Wear",
-    urdu: "واش اینڈ ویئر",
-    for: "Ladies & Gents",
-    season: "All Seasons",
-    blurb:
-      "Our signature men's and women's wash & wear for shalwar kameez, in quiet, wearable tones that hold up year-round.",
-    photo: "wash-and-wear",
-  },
-  {
-    slug: "cotton-linen",
-    name: "Cotton & Linen",
-    urdu: "کاٹن و لِنن",
-    for: "Ladies & Gents",
-    season: "Warm Weather",
-    blurb:
-      "Long-staple cotton and pure linen with a softened hand, cut in lengths for suits, kurtas and shirting.",
-    photo: "cotton-linen",
-  },
-  {
-    slug: "silk-jacquard",
-    name: "Silk & Jacquard",
-    urdu: "ریشم و جیکارڈ",
-    for: "Ladies",
-    season: "Formal · Festive",
-    blurb:
-      "Raw silk, katan, banarsi jacquard and brocade, kept for Eid, mehndi and every occasion that deserves it.",
-    photo: "silk-jacquard",
-  },
-  {
-    slug: "wedding",
-    name: "Wedding Wear",
-    urdu: "شادی کا لباس",
-    for: "Bride & Groom",
-    season: "By Appointment",
-    blurb:
-      "Bridal and groom fabric: hand-embroidered panels, zari work and coordinated dupattas, chosen with you at the counter.",
-    photo: "wedding",
-  },
-  {
-    slug: "winter-suiting",
-    name: "Winter Suiting",
-    urdu: "سردی کا سوٹنگ",
-    for: "Ladies & Gents",
-    season: "Autumn · Winter",
-    blurb:
-      "Wool blends and karandi for the cold months, with the weight and drape we trust for a winter suit.",
-    photo: "winter",
-  },
-];
-
 export const FAQS = [
   {
     q: "Where is Shahzad Cloth House in Sialkot?",
-    a: `We are at ${ADDRESS.street}, ${ADDRESS.city}, ${ADDRESS.region}. Tap "Directions" anywhere on this page to open the shop in Google Maps.`,
+    a: `We are at ${ADDRESS.street}, ${ADDRESS.city}, ${ADDRESS.region}. Use the "Get directions" button on this page to open the shop in Google Maps.`,
   },
   {
     q: "What are your opening hours?",
@@ -137,6 +65,10 @@ export const FAQS = [
   {
     q: "Do you deliver outside Sialkot?",
     a: `Yes, we deliver across Pakistan. Message us on WhatsApp at ${PHONE_DISPLAY} with the fabric, colour and length you need, and we will confirm stock, price and delivery before we send it.`,
+  },
+  {
+    q: "I live in Gujrat, Lahore or another city. Can I still order?",
+    a: `Yes. Shahzad Cloth House is in ${ADDRESS.city}, at ${ADDRESS.street}, and we send fabric to every city in Pakistan. Message us on WhatsApp at ${PHONE_DISPLAY} and we will send photos, confirm the price and arrange delivery.`,
   },
   {
     q: "Do you take bulk or uniform orders?",
