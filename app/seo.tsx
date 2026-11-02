@@ -41,7 +41,7 @@ type Crumb = { name: string; path: string };
 type Faq = { q: string; a: string };
 
 /**
- * One JSON-LD graph per page: the web page, its breadcrumb and its FAQ.
+ * One JSON-LD graph per page: the web page, its breadcrumb, its FAQ and, for guides, the article.
  * The store and the website themselves are described once, in the root layout.
  */
 export function pageJsonLd({
@@ -52,6 +52,7 @@ export function pageJsonLd({
   photo,
   crumbs,
   faqs,
+  article,
 }: {
   type?: "WebPage" | "CollectionPage";
   path: string;
@@ -60,6 +61,8 @@ export function pageJsonLd({
   photo: PhotoKey;
   crumbs: Crumb[];
   faqs: Faq[];
+  /** Adds an Article node, for the fabric guides. */
+  article?: { published: string; updated: string };
 }) {
   const url = `${SITE_URL}${path}`;
   const all = [{ name: "Home", path: "/" }, ...crumbs];
@@ -96,16 +99,37 @@ export function pageJsonLd({
             },
           ]
         : []),
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        isPartOf: { "@id": `${url}#webpage` },
-        mainEntity: faqs.map((f) => ({
-          "@type": "Question",
-          name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
-        })),
-      },
+      ...(article
+        ? [
+            {
+              "@type": "Article",
+              "@id": `${url}#article`,
+              headline: name,
+              description,
+              datePublished: article.published,
+              dateModified: article.updated,
+              inLanguage: "en-PK",
+              mainEntityOfPage: { "@id": `${url}#webpage` },
+              image: `${SITE_URL}${PHOTOS[photo].src}`,
+              author: { "@id": `${SITE_URL}/#store` },
+              publisher: { "@id": `${SITE_URL}/#store` },
+            },
+          ]
+        : []),
+      ...(faqs.length
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `${url}#faq`,
+              isPartOf: { "@id": `${url}#webpage` },
+              mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 }
