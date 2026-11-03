@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORIES, CATEGORY_BY_SLUG, deliveryFaq, type Category } from "../categories";
+import { guidesFor } from "../guides";
 import { SiteFooter, SiteHeader } from "../components/chrome";
 import { PhotoGrid } from "../components/gallery";
 import { OrderSteps } from "../components/order";
@@ -51,6 +52,7 @@ export default async function CategoryPage({ params }: Props) {
   const faqs = [...c.faqs, deliveryFaq(c)];
   const related = c.related.map((slug) => CATEGORY_BY_SLUG[slug]).filter(Boolean);
   const isUniform = c.slug === "uniform-fabric";
+  const guides = guidesFor(`/${c.slug}`);
 
   return (
     <>
@@ -177,6 +179,17 @@ export default async function CategoryPage({ params }: Props) {
                 </article>
               ))}
             </div>
+            {guides.length > 0 && (
+              <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-cream/15 pt-6 text-[15px] font-semibold">
+                {guides.map((g) => (
+                  <li key={g.slug}>
+                    <Link href={`/guides/${g.slug}`} className="inline-flex items-center gap-2 text-gold-light hover:text-cream transition-colors">
+                      Read: {g.h1.replace(/\?$/, "")} <Arrow />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </section>
 

@@ -31,7 +31,7 @@ export const CATEGORIES: Category[] = [
     navLabel: "Ladies",
     metaTitle: "Ladies Unstitched Suits Online, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "Ladies unstitched suits from Sialkot: lawn, cotton, raw silk, katan, jacquard and embroidered panels, cut to any length and delivered across Pakistan.",
+      "Shahzad Cloth House, Sialkot: ladies lawn, cotton, raw silk, katan, jacquard and embroidered panels, cut to any length and delivered across Pakistan.",
     eyebrow: "Ladies Collection",
     h1: "Ladies unstitched fabric",
     h1Accent: "in Sialkot",
@@ -202,7 +202,7 @@ export const CATEGORIES: Category[] = [
     navLabel: "Winter",
     metaTitle: "Karandi & Winter Fabric, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "Karandi, wool-blend suiting and embroidered winter suits from Sialkot, for men and ladies, cut to any length. Order on WhatsApp, delivered across Pakistan.",
+      "Karandi and wool-blend winter suiting for men and ladies, cut to any length in Sialkot. WhatsApp us for photos and prices; delivery across Pakistan.",
     eyebrow: "Autumn · Winter",
     h1: "Winter suiting & karandi",
     h1Accent: "in Sialkot",
@@ -258,7 +258,7 @@ export const CATEGORIES: Category[] = [
     navLabel: "Wedding",
     metaTitle: "Bridal & Groom Wedding Fabric, Sialkot | Shahzad Cloth House",
     metaDescription:
-      "Bridal and groom fabric from Sialkot: embroidered panels, zari work, raw silk, jacquard, velvet and dupattas. Visit by appointment or order on WhatsApp.",
+      "Wedding fabric for bride, groom and family: embroidered panels, zari, raw silk, jacquard and velvet. Visit our Sialkot shop or WhatsApp us for photos.",
     eyebrow: "By Appointment",
     h1: "Bridal & groom fabric",
     h1Accent: "in Sialkot",
@@ -315,9 +315,9 @@ export const CATEGORIES: Category[] = [
   {
     slug: "uniform-fabric",
     navLabel: "Uniforms",
-    metaTitle: "School & Office Uniform Fabric, Sialkot | Shahzad Cloth House",
+    metaTitle: "Uniform Shop in Sialkot: School & Office Uniform Fabric",
     metaDescription:
-      "School, office, hospital and staff uniform fabric from Sialkot, by the suit or in bulk. Send the colour and quantity on WhatsApp; we deliver across Pakistan.",
+      "Uniform shop in Sialkot for school, office and hospital uniform fabric, by the suit or in bulk. WhatsApp the colour and count; delivery across Pakistan.",
     eyebrow: "Bulk & Custom Orders",
     h1: "Uniform fabric",
     h1Accent: "in Sialkot",
@@ -354,6 +354,10 @@ export const CATEGORIES: Category[] = [
       },
     ],
     faqs: [
+      {
+        q: "Is Shahzad Cloth House a uniform shop in Sialkot?",
+        a: "Yes. We sell uniform fabric from our shop at Chowk Adda Pasrooriyan, Sialkot: plain suiting, shirting and wash & wear in white, grey, navy, black and khaki for school, office, hospital and staff uniforms, cut to length for your tailor.",
+      },
       {
         q: "Do you take bulk uniform fabric orders?",
         a: `Yes. We cut uniform fabric for single orders and for schools, offices and hospitals in bulk. Message us on WhatsApp at ${PHONE_DISPLAY} with the colour, the garment and the quantity, and we will confirm stock and price.`,

@@ -8,7 +8,7 @@ export const TAGLINE_URDU = "ورائٹی کا اعلیٰ مرکز";
 
 export const FOUNDED = 1991;
 /** Date the page content last changed. Used for the sitemap's lastmod, so bump it when you edit copy. */
-export const CONTENT_UPDATED = "2026-10-20";
+export const CONTENT_UPDATED = "2026-11-03";
 export const YEARS = new Date().getFullYear() - FOUNDED;
 export const PROPRIETOR = "Shahzad Ahmad";
 
