@@ -212,7 +212,10 @@ export function SiteFooter() {
           </div>
 
           <div className="mt-14 pt-6 border-t border-cream/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[12px] text-cream/60">
-            <p>© {FOUNDED} – {new Date().getFullYear()} Shahzad Cloth House, {ADDRESS.city}</p>
+            <p>
+              © {FOUNDED} – {new Date().getFullYear()} Shahzad Cloth House, {ADDRESS.city} ·{" "}
+              <Link href="/privacy" className="hover:text-gold-light transition-colors">Privacy</Link>
+            </p>
             <p>
               Crafted by{" "}
               <a href="https://hammadshahzad.com" target="_blank" rel="noopener noreferrer" className="display-italic text-[15px] text-gold-light hover:text-cream transition-colors">
