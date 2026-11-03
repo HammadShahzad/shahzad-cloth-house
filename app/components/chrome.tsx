@@ -189,6 +189,9 @@ export function SiteFooter() {
               <li>
                 <Link href="/order-online" className="hover:text-gold-light transition-colors">Order fabric online</Link>
               </li>
+              <li>
+                <Link href="/guides" className="hover:text-gold-light transition-colors">Fabric guides</Link>
+              </li>
             </FooterCol>
             <FooterCol title="Visit">
               <li>Shahzad Cloth House</li>

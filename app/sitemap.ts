@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { CATEGORIES } from "./categories";
+import { GUIDES } from "./guides";
 import { PHOTOS, SHOP_GALLERY } from "./photos";
 import { CONTENT_UPDATED, SITE_URL } from "./site";
 
@@ -29,6 +30,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
       images: [...new Set([c.photo, ...c.gallery])].map((k) => abs(PHOTOS[k].src)),
+    })),
+    {
+      url: `${SITE_URL}/guides`,
+      lastModified: new Date(GUIDES.map((g) => g.updated).sort().at(-1)!),
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    ...GUIDES.map((g) => ({
+      url: `${SITE_URL}/guides/${g.slug}`,
+      lastModified: new Date(g.updated),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+      images: [abs(PHOTOS[g.photo].src)],
     })),
   ];
 }
