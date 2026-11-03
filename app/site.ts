@@ -31,6 +31,9 @@ export function whatsappUrl(topic = "") {
 }
 export const WHATSAPP_URL = whatsappUrl();
 
+/** Google Tag Manager container. GA4 and Microsoft Clarity live inside it. Empty = no tracking. */
+export const GTM_ID = "GTM-TMHQCD9X";
+
 export const MAPS_URL = "https://maps.app.goo.gl/LvhtWzgEjP6j29mm8";
 
 export const TIKTOK_HANDLE = "shahzadclothhouseskt";

@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Manrope } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { CATEGORIES } from "./categories";
+import { LeadTracker, TagManager, TagManagerNoScript } from "./components/analytics";
 import { JsonLd, ogImagePath } from "./seo";
 import {
   ADDRESS,
@@ -11,6 +12,7 @@ import {
   FACEBOOK_URL,
   FOUNDED,
   GEO,
+  GTM_ID,
   HOME_DESCRIPTION,
   HOME_TITLE,
   INSTAGRAM_URL,
@@ -196,6 +198,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
+        <TagManagerNoScript id={GTM_ID} />
+        <TagManager id={GTM_ID} />
+        <LeadTracker />
         {children}
         <JsonLd data={{ "@context": "https://schema.org", "@graph": [storeJsonLd, siteJsonLd] }} />
       </body>
