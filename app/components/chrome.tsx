@@ -23,10 +23,15 @@ import {
   WhatsAppGlyph,
 } from "./ui";
 
-const NAV = [
-  ...CATEGORIES.map((c) => ({ href: `/${c.slug}`, label: c.navLabel })),
-  { href: "/order-online", label: "Order Online" },
-];
+const link = (c: (typeof CATEGORIES)[number]) => ({ href: `/${c.slug}`, label: c.navLabel });
+const MAIN = CATEGORIES.filter((c) => !c.navMore).map(link);
+const MORE = CATEGORIES.filter((c) => c.navMore).map(link);
+const ORDER = { href: "/order-online", label: "Order Online" };
+/** Every page, for the mobile menu. */
+const NAV = [...MAIN, ...MORE, ORDER];
+
+const navLinkClass =
+  "py-2 border-b-2 border-transparent hover:text-navy hover:border-gold aria-[current=page]:text-navy aria-[current=page]:border-gold transition-colors";
 
 function Wordmark({ dark = false }: { dark?: boolean }) {
   return (
@@ -78,16 +83,45 @@ export function SiteHeader({ current = "/" }: { current?: string }) {
           </Link>
 
           <nav aria-label="Main" className="hidden lg:flex items-center gap-6 xl:gap-7 text-[14px] font-semibold text-ink/80 whitespace-nowrap">
-            {NAV.map((n) => (
-              <Link
-                key={n.href}
-                href={n.href}
-                aria-current={current === n.href ? "page" : undefined}
-                className="py-2 border-b-2 border-transparent hover:text-navy hover:border-gold aria-[current=page]:text-navy aria-[current=page]:border-gold transition-colors"
-              >
+            {MAIN.map((n) => (
+              <Link key={n.href} href={n.href} aria-current={current === n.href ? "page" : undefined} className={navLinkClass}>
                 {n.label}
               </Link>
             ))}
+            {MORE.length > 0 && (
+              // Opens on hover or keyboard focus, so it needs no JavaScript.
+              <div className="relative group">
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  className={`${navLinkClass} inline-flex items-center gap-1.5 group-hover:text-navy group-focus-within:text-navy ${MORE.some((n) => n.href === current) ? "text-navy border-gold" : ""}`}
+                >
+                  More
+                  <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" aria-hidden>
+                    <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <div className="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
+                  <ul className="min-w-[200px] rounded-md border border-navy/10 bg-ivory py-2 shadow-[0_24px_40px_-24px_rgba(7,15,43,0.45)]">
+                    {MORE.map((n) => (
+                      <li key={n.href}>
+                        <Link
+                          href={n.href}
+                          aria-current={current === n.href ? "page" : undefined}
+                          className="flex items-center justify-between gap-6 px-5 py-2.5 text-ink/80 hover:text-navy hover:bg-sand aria-[current=page]:text-gold-text"
+                        >
+                          {n.label}
+                          <span className="diamond" aria-hidden />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+            <Link href={ORDER.href} aria-current={current === ORDER.href ? "page" : undefined} className={navLinkClass}>
+              {ORDER.label}
+            </Link>
           </nav>
 
           <div className="flex items-center gap-2">

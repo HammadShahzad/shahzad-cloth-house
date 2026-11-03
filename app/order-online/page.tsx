@@ -120,9 +120,12 @@ export default function OrderOnlinePage() {
               intro="Everything we keep at the shop can be ordered for delivery, cut to the length you ask for."
             />
             <ul className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-              {CATEGORIES.map((c) => (
-                <li key={c.slug}>
-                  <Link href={`/${c.slug}`} className="group zoom relative block aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/3] overflow-hidden rounded-md bg-navy">
+              {CATEGORIES.map((c, i) => (
+                <li key={c.slug} className={i === CATEGORIES.length - 1 && CATEGORIES.length % 2 === 1 ? "col-span-2 lg:col-span-1" : undefined}>
+                  <Link
+                    href={`/${c.slug}`}
+                    className={`group zoom relative block ${i === CATEGORIES.length - 1 && CATEGORIES.length % 2 === 1 ? "aspect-[16/10]" : "aspect-[4/5]"} sm:aspect-[3/2] lg:aspect-[4/3] overflow-hidden rounded-md bg-navy`}
+                  >
                     <Image
                       src={PHOTOS[c.photo].src}
                       alt=""
