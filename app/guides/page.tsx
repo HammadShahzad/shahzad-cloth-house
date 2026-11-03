@@ -10,7 +10,7 @@ import { YEARS } from "../site";
 
 const TITLE = "Fabric Guides from Sialkot | Shahzad Cloth House";
 const DESCRIPTION =
-  "Plain advice from a Sialkot cloth house: how much cloth a suit needs, karandi vs khaddar, wedding fabric for every function and caring for wash and wear.";
+  "Plain advice from a Sialkot cloth house: how much cloth a suit needs, winter and wedding fabric, uniforms in bulk and how to check fabric quality.";
 
 export const metadata: Metadata = pageMetadata({
   title: TITLE,

@@ -381,6 +381,260 @@ export const GUIDES: Guide[] = [
       },
     ],
   },
+  {
+    slug: "school-uniform-fabric",
+    metaTitle: "School Uniform Fabric: How to Order in Bulk",
+    metaDescription:
+      "How to order school uniform fabric in bulk: matching the colour, choosing fabric for shirts and trousers, and working out the metres before the new session.",
+    h1: "Ordering school uniform fabric in bulk",
+    lead: "Matching the colour, choosing the right fabric for each garment, working out the metres and getting it all ready before the new session.",
+    photo: "uniform",
+    og: "uniform-fabric",
+    published: "2026-11-03",
+    updated: "2026-11-03",
+    shop: { label: "Uniform fabric", href: "/uniform-fabric" },
+    sections: [
+      {
+        h2: "Start with a sample",
+        paras: [
+          "The quickest way to match a uniform is to start from the one you already have. Send us a clear photo in daylight, or bring a swatch or an old shirt to the shop. Photos taken indoors under tube lights can make grey look blue and navy look black, so daylight matters.",
+        ],
+      },
+      {
+        h2: "Choose the fabric for each garment",
+        table: {
+          head: ["Garment", "Usual fabric", "Usual colours"],
+          rows: [
+            ["Shirts", "Shirting or light wash & wear", "White, sky blue"],
+            ["Trousers and shalwar", "Wash & wear or suiting", "Grey, navy, black, khaki"],
+            ["Shalwar kameez uniforms", "Wash & wear", "White, grey, sky blue"],
+            ["Winter blazers and sweater layers", "Heavier suiting", "Navy, maroon, black"],
+          ],
+        },
+        after: [
+          "Wash & wear is the usual choice for uniforms because it keeps its press through a school day and survives frequent washing. Our [wash and wear guide](/guides/wash-and-wear-fabric-guide) explains what to look for.",
+        ],
+      },
+      {
+        h2: "Work out the metres",
+        list: [
+          "Count the uniforms by rough size: small, medium and large children, plus any staff.",
+          "Ask the tailor for the length of one shirt and one trouser or shalwar in each size.",
+          "Multiply and add a little extra for new admissions during the year.",
+          "Send us the counts on WhatsApp and we will work out the total with you, so you buy enough without waste. For adult lengths, see [how much cloth a shalwar kameez needs](/guides/how-much-cloth-for-shalwar-kameez).",
+        ],
+      },
+      {
+        h2: "Buy it all from the same batch",
+        paras: [
+          "The same colour can vary slightly from one dye batch to the next, and on a row of children in uniform the difference shows. Order the whole quantity at once so it comes from the same batch, and keep a few spare metres for repairs and late admissions.",
+        ],
+      },
+      {
+        h2: "Order before the rush",
+        paras: [
+          "Schools, parents and tailors all get busy before a new session and after the summer break. Place bulk orders a few weeks early so the fabric is cut and the stitching is finished on time.",
+        ],
+      },
+      {
+        h2: "How bulk orders work with us",
+        paras: [
+          "Send us the colour, the garment and how many you need on WhatsApp. We check the shelves, send photos, confirm the price and delivery, and cut the full order to length. We deliver bulk orders across Pakistan, or you can collect from our shop at Chowk Adda Pasrooriyan, Sialkot. There is no minimum, so we also cut fabric for a single uniform. See our [uniform fabric](/uniform-fabric) page for office, hospital and staff uniforms too.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Which fabric is best for school uniforms?",
+        a: "Wash & wear is the most common choice for trousers, shalwar kameez and shirts because it keeps its press and washes well. Some schools prefer shirting for white shirts.",
+      },
+      {
+        q: "Can you match our school's uniform colour?",
+        a: "Send a daylight photo or bring a sample to the shop and we will match the colour and weight as closely as we can.",
+      },
+      {
+        q: "Is there a minimum order for uniform fabric?",
+        a: "No. We cut fabric for one uniform or for a whole school.",
+      },
+      {
+        q: "Do you deliver uniform fabric to other cities?",
+        a: `Yes. Message us on WhatsApp at ${PHONE_DISPLAY} with the colour, garment and quantity, and we confirm the price and deliver across Pakistan.`,
+      },
+    ],
+  },
+  {
+    slug: "velvet-for-winter-weddings",
+    metaTitle: "Velvet for Winter Weddings: Colours, Weight and Care",
+    metaDescription:
+      "Choosing velvet for a winter wedding: the colours that work, how heavy to go, what to pair it with, and how to store and press velvet so the pile stays rich.",
+    h1: "Velvet for winter weddings",
+    lead: "The colours that work, how heavy to go, what to pair it with and how to look after it so the pile stays rich.",
+    photo: "velvet-side",
+    og: "wedding-fabric",
+    published: "2026-11-03",
+    updated: "2026-11-03",
+    shop: { label: "Bridal & groom fabric", href: "/wedding-fabric" },
+    alsoOn: ["/winter-collection"],
+    sections: [
+      {
+        h2: "Why velvet in winter",
+        paras: [
+          "Velvet is warm, it has weight and it catches the light at evening functions in a way few fabrics can. That makes it a favourite for winter barats, walimas and dinners, when an outfit has to look rich and keep out the cold.",
+        ],
+      },
+      {
+        h2: "Colours that work",
+        list: [
+          "Maroon and deep red, the classic wedding velvet.",
+          "Black, especially with white or gold thread work.",
+          "Navy, deep green and purple for something less expected.",
+          "Mustard and other warm tones for a family member's outfit or a mehndi in the cold.",
+        ],
+        after: [
+          "Velvet looks darker in the evening and richer in daylight, so if you can, look at the colour under both before you decide.",
+        ],
+      },
+      {
+        h2: "How heavy to go",
+        paras: [
+          "Heavier velvet holds structure and suits a shirt or a waistcoat for the main function. It is warm, so for an indoor event it can feel too much worn from head to toe.",
+          "A common balance is a velvet shirt with a lighter trouser and dupatta in raw silk, katan or jacquard. The velvet carries the look, and the outfit stays comfortable through a long evening.",
+        ],
+      },
+      {
+        h2: "Embroidery on velvet",
+        paras: [
+          "Thread work shows beautifully on velvet's soft pile. White thread gives a clean, modern look, and gold thread or zari reads as more formal. Look at the back of the work: tight, even stitches with no loose ends last much longer. Our [wedding fabric checklist](/guides/wedding-fabric-checklist) covers matching it across every function.",
+        ],
+      },
+      {
+        h2: "For the groom",
+        paras: [
+          "A velvet waistcoat over a plain kameez is the simplest way for the groom or his family to bring velvet into a winter wedding. Match its colour to the bride's outfit and keep the kameez quiet. For the rest of the winter wardrobe, see [karandi, khaddar or wool blend](/guides/karandi-vs-khaddar).",
+        ],
+      },
+      {
+        h2: "How to look after velvet",
+        list: [
+          "Hang it, don't fold it. Hard folds crush the pile and can leave a mark.",
+          "Steam it from the reverse side instead of pressing an iron on the face.",
+          "Dry-clean embroidered velvet rather than washing it at home.",
+          "Brush the pile gently in one direction if it gets flattened.",
+        ],
+      },
+      {
+        h2: "Velvet at our shop",
+        paras: [
+          "We keep embroidered velvet suits and velvet with white and gold thread work in the winter season. Stock changes quickly as wedding season goes on, so message us on WhatsApp and we will send photos of what is in today. Wedding wear is by appointment. See our [bridal and groom fabric](/wedding-fabric) and the [winter collection](/winter-collection).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is velvet good for a winter wedding?",
+        a: "Yes. It is warm, holds its shape and has a rich sheen under evening lights, which is why it is popular for winter barats and walimas.",
+      },
+      {
+        q: "What should I pair a velvet shirt with?",
+        a: "A lighter trouser and dupatta in raw silk, katan or jacquard, so the outfit isn't too heavy or too warm to wear all evening.",
+      },
+      {
+        q: "How do I remove creases from velvet?",
+        a: "Steam it from the reverse side. Don't press an iron directly on the face, because it flattens the pile.",
+      },
+      {
+        q: "Can you send velvet to another city?",
+        a: `Yes. Message us on WhatsApp at ${PHONE_DISPLAY} for photos and prices, and we deliver across Pakistan.`,
+      },
+    ],
+  },
+  {
+    slug: "how-to-check-fabric-quality",
+    metaTitle: "How to Check Fabric Quality Before You Buy",
+    metaDescription:
+      "Simple checks for lawn, cotton, wash and wear and embroidered suits before you buy, at the counter or on WhatsApp, from a Sialkot cloth house.",
+    h1: "How to check fabric quality before you buy",
+    lead: "Simple checks for lawn, cotton, wash and wear and embroidery, whether you are at the counter or buying on WhatsApp.",
+    photo: "lawn-spread",
+    og: "order-online",
+    published: "2026-11-03",
+    updated: "2026-11-03",
+    shop: { label: "Order fabric online", href: "/order-online" },
+    alsoOn: ["/lawn"],
+    sections: [
+      {
+        h2: "Checks that work on any fabric",
+        list: [
+          "Hold it up to the light. An even weave with no thin patches or slubs where they shouldn't be is a good sign. Light colours should not be see-through when worn.",
+          "Feel both sides. Good fabric feels even across the width, not stiff in one place and limp in another.",
+          "Look at the edges. A neat, straight selvedge usually means careful weaving and finishing.",
+          "Check the colour in daylight. Shop lights and phone screens both change colours.",
+        ],
+      },
+      {
+        h2: "Lawn and cotton",
+        list: [
+          "Look at the back of a print. On good lawn the print comes through well and the colours stay sharp at the edges.",
+          "Rub a damp white cloth on a dark corner. If colour comes off, it may bleed in the first wash.",
+          "Crush a corner in your hand. All cotton creases, but a good one softens rather than staying papery.",
+          "Expect a little shrinkage. Many tailors wash cotton and lawn before cutting.",
+        ],
+        after: [
+          "See our [lawn](/lawn) for the summer season.",
+        ],
+      },
+      {
+        h2: "Wash and wear",
+        list: [
+          "Crush it and let go. A good wash and wear springs back without sharp creases.",
+          "Rub two layers together. Fabric that starts to fluff or pill straight away will look tired quickly.",
+          "Hold whites up to the light to check they aren't see-through.",
+        ],
+        after: [
+          "Our [wash and wear guide](/guides/wash-and-wear-fabric-guide) covers choosing and care in more detail.",
+        ],
+      },
+      {
+        h2: "Embroidered suits and panels",
+        list: [
+          "Turn it over. Neat, tight stitches on the back with no long loose threads will last.",
+          "Check the embroidery lies flat and doesn't pucker the fabric around it.",
+          "On zari and metallic work, look for even thread with no dull or broken patches.",
+          "Make sure the dupatta and the plain fabric match the panel in daylight.",
+        ],
+      },
+      {
+        h2: "Buying on WhatsApp",
+        paras: [
+          "You can't feel fabric through a phone, so ask for the things that stand in for your hands. Good shops won't mind.",
+        ],
+        list: [
+          "Photos in daylight, not only under shop lights.",
+          "A close-up of the weave and of the back of any embroidery.",
+          "A short video moving the fabric, so you can see the drape and sheen.",
+          "A photo next to something white, so you can judge the true colour.",
+          "The price and delivery confirmed before anything is cut.",
+        ],
+        after: [
+          "That is how we take orders from customers outside Sialkot: you tell us what you need, we send photos from the shelf and agree the price and delivery before we cut. See how to [order fabric online](/order-online).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How can I tell if lawn is good quality?",
+        a: "Hold it to the light for an even weave, check the print is sharp on the back, and rub a damp white cloth on a dark corner to check the colour doesn't come off.",
+      },
+      {
+        q: "How do I check fabric when buying online?",
+        a: "Ask for daylight photos, a close-up of the weave and the back of any embroidery, and a short video of the fabric moving. Agree the price before anything is cut.",
+      },
+      {
+        q: "Will you send photos before I order?",
+        a: `Yes. Message us on WhatsApp at ${PHONE_DISPLAY} and we will send photos from the shelf before you decide.`,
+      },
+    ],
+  },
 ];
 
 export const GUIDE_BY_SLUG = Object.fromEntries(GUIDES.map((g) => [g.slug, g]));
