@@ -34,10 +34,6 @@ const ALL = {
   "velvet-shop": { src: shop("velvet-suit-shop"), alt: "Embroidered velvet suit on display in the shop at Shahzad Cloth House", caption: "Velvet on display in the shop" },
   "order-online": { src: shop("packing"), alt: "Packing an order in a Shahzad Cloth House bag at the shop counter", caption: "Packing an order for delivery" },
   "packing-urdu": { src: shop("packing-urdu-bag"), alt: "Putting fabric into a Shahzad Cloth House bag with the shop name in Urdu", caption: "Packed in our own bag" },
-  "boxed-suits": { src: shop("boxed-suits"), alt: "Boxed premium gents suits in cream, white, grey, black and gold on the counter at Shahzad Cloth House", caption: "Boxed gents suits on the counter" },
-  "boxed-suits-close": { src: shop("boxed-suits-close"), alt: "Boxed gents cotton suits in white, gold, black and grey at Shahzad Cloth House", caption: "Premium boxed cotton suits" },
-  "gents-shelves-white": { src: shop("gents-shelves-white"), alt: "Shelves of gents suiting behind the counter, with packed suits in white and cream on the right, at Shahzad Cloth House", caption: "Packed gents suits in white and cream", pos: "82% center" },
-  "festive-counter": { src: shop("festive-counter"), alt: "Festive embroidered fabric in plum, teal and purple opened out on the counter at Shahzad Cloth House", caption: "Festive fabric opened out on the counter", pos: "70% center" },
 } satisfies Record<string, Photo>;
 
 export type PhotoKey = keyof typeof ALL;

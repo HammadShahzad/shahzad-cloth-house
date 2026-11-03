@@ -388,8 +388,8 @@ export const CATEGORIES: Category[] = [
     lead:
       "Boski has been the fabric for a special shalwar kameez for generations: smooth in the hand, with a soft natural sheen and the classic cream-to-golden colour. We cut it at the counter to the length your tailor asks for.",
     urdu: "بوسکی",
-    photo: "gents-shelves-white",
-    gallery: ["boxed-suits", "thaan", "gents-counter", "packing-urdu"],
+    photo: "thaan",
+    gallery: ["suiting-wall", "gents-counter", "suiting-close", "packing-urdu"],
     season: "Eid · Weddings",
     about: [
       "Boski is the fabric many families still choose for Eid, Jumma and weddings. It has a smooth hand and a quiet sheen, and it is best known in cream, off-white and golden tones. Men wear it as a shalwar kameez or a kurta, often with a waistcoat for a dawat or the mehndi.",
@@ -445,8 +445,8 @@ export const CATEGORIES: Category[] = [
     lead:
       "Latha is the crisp white cotton behind a starched shalwar kameez that looks fresh all day. A favourite for Jumma, Eid and the summer months, cut at our counter to the length your tailor needs.",
     urdu: "لٹھا",
-    photo: "boxed-suits",
-    gallery: ["boxed-suits-close", "gents-shelves-white", "cotton-light", "order-online"],
+    photo: "cotton-light",
+    gallery: ["cotton-linen", "wash-and-wear", "thaan-2", "order-online"],
     season: "Jumma · Eid",
     about: [
       "Latha is a smooth, tightly woven cotton, and white latha is the classic choice for a starched shalwar kameez. It breathes well in the heat and takes starch evenly, so the suit stays crisp through a long day. Many men keep a white latha suit for Jumma and Eid, and buy matching lengths for the whole family.",
@@ -503,7 +503,7 @@ export const CATEGORIES: Category[] = [
       "Raw silk has the texture and quiet sheen that make an Eid or mehndi outfit feel special. Raw silk and katan for ladies shirts, trousers and dupattas, and for gents kurtas, cut to the length you need.",
     urdu: "را سلک",
     photo: "silk-jacquard",
-    gallery: ["festive-counter", "wedding", "velvet-side", "ladies-close"],
+    gallery: ["wedding", "velvet-side", "ladies-close", "packed-suits"],
     season: "Festive",
     about: [
       "Raw silk has a slightly textured surface and a soft sheen, with enough body to hold the shape of a shirt or a trouser. It is a favourite for Eid, dawats, the mehndi and the nikah, and it pairs well with an embroidered dupatta. We keep katan alongside it for a smoother, shinier finish.",
