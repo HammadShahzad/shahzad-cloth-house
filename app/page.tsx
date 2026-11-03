@@ -57,11 +57,16 @@ export const metadata = pageMetadata({
   ogAlt: "Shelves of suiting at Shahzad Cloth House, Sialkot",
 });
 
+const COUNT_WORDS: Record<number, string> = { 6: "Six", 7: "Seven", 8: "Eight", 9: "Nine", 10: "Ten", 11: "Eleven", 12: "Twelve" };
+
+/** On a two-column phone grid, an odd last card spans both columns so it isn't left on its own. */
+const lastOdd = (i: number, n: number) => n % 2 === 1 && i === n - 1;
+
 const SEASONS = [
   { k: "Summer", v: "Lawn, cotton, linen and wash & wear", href: "/lawn" },
   { k: "Winter", v: "Karandi, wool blends, velvet and embroidered suits", href: "/winter-collection" },
   { k: "Eid & weddings", v: "Raw silk, jacquard, zari and embroidered panels", href: "/wedding-fabric" },
-  { k: "Every day", v: "Gents wash & wear, shirting and suiting", href: "/gents-fabric" },
+  { k: "Every day", v: "Gents wash & wear, latha, boski and suiting", href: "/gents-fabric" },
   { k: "Bulk", v: "School, office and hospital uniform fabric", href: "/uniform-fabric" },
 ];
 
@@ -150,7 +155,7 @@ export default function Home() {
               <SectionHead
                 eyebrow="Shop by Fabric"
                 id="collections-title"
-                title={<>Six collections, <span className="display-italic text-gold-text">one counter</span></>}
+                title={<>{COUNT_WORDS[CATEGORIES.length] ?? CATEGORIES.length} collections, <span className="display-italic text-gold-text">one counter</span></>}
                 intro="Every bolt is sourced from the mills and cut to the length you need. Pick a collection to see what we keep in stock."
               />
               <Link href="/order-online" className="group shrink-0 inline-flex items-center gap-2 text-[15px] font-bold text-navy hover:text-gold-text transition-colors">
@@ -159,9 +164,12 @@ export default function Home() {
             </div>
 
             <ul className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-              {CATEGORIES.map((c) => (
-                <li key={c.slug}>
-                  <Link href={`/${c.slug}`} className="group zoom relative block aspect-[4/5] overflow-hidden rounded-md bg-navy">
+              {CATEGORIES.map((c, i) => (
+                <li key={c.slug} className={lastOdd(i, CATEGORIES.length) ? "col-span-2 lg:col-span-1" : undefined}>
+                  <Link
+                    href={`/${c.slug}`}
+                    className={`group zoom relative block ${lastOdd(i, CATEGORIES.length) ? "aspect-[16/10] lg:aspect-[4/5]" : "aspect-[4/5]"} overflow-hidden rounded-md bg-navy`}
+                  >
                     <Image
                       src={PHOTOS[c.photo].src}
                       alt={PHOTOS[c.photo].alt}

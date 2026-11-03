@@ -123,7 +123,7 @@ const storeJsonLd = {
   image: [`${SITE_URL}/photos/shop/shopfront.jpg`, `${SITE_URL}/photos/shop/plain-suiting.jpg`, `${SITE_URL}/photos/shop/suiting-wall.jpg`, `${SITE_URL}/father.jpg`],
   logo: { "@type": "ImageObject", url: `${SITE_URL}/apple-touch-icon.png`, width: 180, height: 180 },
   description:
-    "Family-run cloth house at Chowk Adda Pasrooriyan, Sialkot, selling unstitched fabric for ladies and gents since 1991: lawn, wash & wear, cotton, linen, silk, wedding, winter and uniform fabric. Orders are taken on WhatsApp and delivered across Pakistan.",
+    "Family-run cloth house at Chowk Adda Pasrooriyan, Sialkot, selling unstitched fabric for ladies and gents since 1991: lawn, wash & wear, cotton, linen, latha, boski, raw silk, wedding, winter and uniform fabric. Orders are taken on WhatsApp and delivered across Pakistan.",
   slogan: "Fabric Heritage Since 1991",
   foundingDate: String(FOUNDED),
   priceRange: "₨₨",

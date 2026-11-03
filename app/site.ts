@@ -59,7 +59,7 @@ export const FAQS = [
   },
   {
     q: "What kind of fabric do you sell?",
-    a: "Unstitched fabric for ladies and gents: lawn, wash & wear, cotton and linen, silk and jacquard, bridal and groom fabric, winter suiting such as karandi and wool blends, and uniform fabric.",
+    a: "Unstitched fabric for ladies and gents: lawn, wash & wear, cotton and linen, latha and boski, raw silk, katan and jacquard, bridal and groom fabric, winter suiting such as karandi and wool blends, and uniform fabric.",
   },
   {
     q: "Is there a minimum length I have to buy?",
