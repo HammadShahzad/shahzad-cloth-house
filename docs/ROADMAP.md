@@ -20,8 +20,8 @@ Only **Now** gets built. **Next** and **Later** are written down so nothing is f
 ## Later (not designed, not built)
 | Item | Platform | Card | Trigger to move it up |
 |---|---|---|---|
-| #34 Backlinks handover pack | Web | Backlinks handover pack | a helper is ready to post |
-| #35 Social media accounts + Saymany | Social | Social media accounts + Saymany | Hammad wants regular posting |
+| Backlinks handover pack | Web | #34 Backlinks handover pack | a helper is ready to post |
+| Social media accounts + Saymany | Social | #35 Social media accounts + Saymany | Hammad wants regular posting |
 | Ad pixels (Meta / Google Ads) | Web | #27 in analytics card | ads are planned |
 
 ## Platform plan
