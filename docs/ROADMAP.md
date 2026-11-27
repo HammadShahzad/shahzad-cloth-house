@@ -13,7 +13,7 @@ Only **Now** gets built. **Next** and **Later** are written down so nothing is f
 ## Next (roughly in order)
 | Item | Platform | Card | Why not now |
 |---|---|---|---|
-| "Shahzad Fabrics" as alternateName in the schema | Web | SEO: "Shahzad Fabrics" alternate name | needs Hammad's answer |
+| "Shahzad Fabrics" as alternateName in the schema | Web | SEO: Shahzad Fabrics as alternate name | needs Hammad's answer |
 | Close-up photos of boski, latha and raw silk | Web | Photos: boski, latha, raw silk close-ups | needs Rohan to take them |
 | Retire or fix `/v3` (old address) | Web | Remove or fix /v3 | not urgent: noindex |
 

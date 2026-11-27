@@ -41,4 +41,4 @@
 - Findings: no secrets, no env vars, no database, no API routes; every page static (`next build`: 23 static pages); no `.github/workflows`; `npm run lint` broken on Next 16; build cache file was tracked; no branch protection; old stale feature branches still on GitHub.
 
 ## Log
-- 2026-11-27 Claude for Hammad: applied the SaaS SOP. Created `develop` from `main`. SOP setup PR adds CLAUDE.md, docs, history backfill, local CI + deploy check, smoke test. Next: board set up and filled on Hammad's Mac; then the gap cards.
+- 2026-11-27 Claude for Hammad: applied the SaaS SOP. Created `develop` from `main`. SOP setup PR adds CLAUDE.md, docs, history backfill, local CI + deploy check, smoke test. Next: board set up and filled on Hammad's Mac; then the gap cards. The board is filled by `docs/history/board-backfill-2026-11-27.sh` (run on Hammad's Mac, needs gh with the project scope).
