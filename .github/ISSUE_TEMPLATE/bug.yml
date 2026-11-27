@@ -1,0 +1,40 @@
+name: Bug
+description: Something is broken
+title: "fix: "
+labels: ["type:bug", "status:needs-info"]
+body:
+  - type: dropdown
+    id: env
+    attributes:
+      label: Environment
+      options: ["production", "staging", "qa", "dev"]
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1. 
+        2. 
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual (screenshot / video / error)
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: ["P0 prod down / data loss / money wrong", "P1 core flow broken", "P2 workaround exists", "P3 cosmetic"]
+    validations:
+      required: true

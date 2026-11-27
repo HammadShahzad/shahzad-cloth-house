@@ -1,0 +1,54 @@
+name: Feature
+description: Something new the app should do
+title: "feat: "
+labels: ["type:feature", "status:needs-info"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: The user problem in one or two sentences (not the solution).
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: What must be true for this to be done. The reviewer tests these.
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] ~ (nice-to-have: start with ~, cut first if time runs out)
+    validations:
+      required: true
+  - type: textarea
+    id: owns
+    attributes:
+      label: Feature box and what it owns
+      description: The box this belongs to, and the folders, files and tables this issue may change. Nobody else works on these at the same time.
+      placeholder: "Box: Invoices. Owns app/(app)/invoices/*, lib/invoices.ts, table invoices"
+  - type: textarea
+    id: apidb
+    attributes:
+      label: API and database changes
+      description: New or changed endpoints, MCP tools, tables, columns (add-only). Check docs/API.md and docs/DATABASE.md first.
+  - type: textarea
+    id: out
+    attributes:
+      label: Out of scope
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Roadmap
+      options: ["Now", "Next", "Later"]
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: ["Web app", "Marketing site", "API / MCP", "Admin", "Mobile", "Infra"]
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, designs, links

@@ -1,0 +1,17 @@
+name: Chore / tech task
+description: Infra, dependency, refactor, docs, SOP setup
+title: "chore: "
+labels: ["type:chore"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What and why
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      value: |
+        - [ ] 
