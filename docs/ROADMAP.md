@@ -5,24 +5,24 @@ Only **Now** gets built. **Next** and **Later** are written down so nothing is f
 ## Now (current release: v1.1)
 | Item | Platform | Card | Status |
 |---|---|---|---|
-| Boski, latha and raw silk pages (PR #10) | Web | Category pages: boski, latha, raw silk | waiting on Hammad's review |
-| Shalwar kameez metres guide: new title and description | Web | SEO: shalwar kameez guide snippet rewrite | waiting on Hammad's verdict |
-| SOP setup gaps (lint, branch protection, Actions off, hook) | Repo | SOP setup: what's missing | ready |
-| Monthly SEO plan, December | Web | Monthly SEO content plan | due early December |
+| Boski, latha and raw silk pages (PR #10) | Web | #19 Category pages: boski, latha, raw silk | waiting on Hammad's review |
+| Shalwar kameez metres guide: new title and description | Web | #20 SEO: shalwar kameez guide snippet rewrite | waiting on Hammad's verdict |
+| SOP setup gaps (lint, branch protection, Actions off, hook) | Repo | #36 SOP setup: what's missing | ready |
+| Monthly SEO plan, December | Web | #33 Monthly SEO content plan | due early December |
 
 ## Next (roughly in order)
 | Item | Platform | Card | Why not now |
 |---|---|---|---|
-| "Shahzad Fabrics" as alternateName in the schema | Web | SEO: Shahzad Fabrics as alternate name | needs Hammad's answer |
-| Close-up photos of boski, latha and raw silk | Web | Photos: boski, latha, raw silk close-ups | needs Rohan to take them |
-| Retire or fix `/v3` (old address) | Web | Remove or fix /v3 | not urgent: noindex |
+| "Shahzad Fabrics" as alternateName in the schema | Web | #21 SEO: Shahzad Fabrics as alternate name | needs Hammad's answer |
+| Close-up photos of boski, latha and raw silk | Web | #23 Photos: boski, latha, raw silk close-ups | needs Rohan to take them |
+| Retire or fix `/v3` (old address) | Web | #24 Remove or fix /v3 | not urgent: noindex |
 
 ## Later (not designed, not built)
 | Item | Platform | Card | Trigger to move it up |
 |---|---|---|---|
-| Backlinks handover pack | Web | Backlinks handover pack | a helper is ready to post |
-| Social media accounts + Saymany | Social | Social media accounts + Saymany | Hammad wants regular posting |
-| Ad pixels (Meta / Google Ads) | Web | in analytics card | ads are planned |
+| #34 Backlinks handover pack | Web | Backlinks handover pack | a helper is ready to post |
+| #35 Social media accounts + Saymany | Social | Social media accounts + Saymany | Hammad wants regular posting |
+| Ad pixels (Meta / Google Ads) | Web | #27 in analytics card | ads are planned |
 
 ## Platform plan
 | Platform | Status |
