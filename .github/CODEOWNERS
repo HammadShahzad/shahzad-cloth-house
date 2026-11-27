@@ -1,0 +1,7 @@
+# Owner reviews risky areas. Replace with real paths for this app.
+*                         @HammadShahzad
+/lib/billing*             @HammadShahzad
+/app/api/webhooks/        @HammadShahzad
+/prisma/migrations/       @HammadShahzad
+/lib/admin*               @HammadShahzad
+/.github/                 @HammadShahzad
