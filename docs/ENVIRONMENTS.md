@@ -1,29 +1,20 @@
-# Environments: <App name>
+# Environments: Shahzad Cloth House
 
-**Setup chosen:** <A lean: production only / B: production + staging / C: production + staging + QA> · decided by <Hammad> on <date> (DECISIONS D-00N)
-**Health data:** <no / yes: follow SOP `03-architecture/health-data.md`> · asked at setup, decided by <Hammad> on <date>
-**CI / deploy:** local only, no GitHub Actions: `scripts/ci.sh`, `scripts/deploy.sh <env>`, pre-push hook (`scripts/install-hooks.sh`).
+**Setup chosen:** A lean: production only, plus Vercel's automatic PR previews · SOP default applied 2026-11-27 (DECISIONS D-007); Hammad can ask for a staging site
+**Health data:** no (fabric shop site, no personal data stored) · 2026-11-27
+**CI / deploy:** local only, no GitHub Actions: `scripts/ci.sh`, `scripts/deploy.sh production`, pre-push hook (`scripts/install-hooks.sh`).
+**CDN:** none in front of Vercel (Vercel's own edge only). DNS / domain on Vercel; http and www redirect to the https apex.
 
-| | local (dev + QA) | staging (only if chosen) | production |
+| | local (dev + QA) | PR preview | production |
 |---|---|---|---|
-| Branch | feature/*, develop | staging | main |
-| URL | localhost:3000 | staging.<domain> | <domain> |
-| Host | the laptop | <...> | <...> |
-| Database | local Docker Postgres, seeded | <staging db> | <prod db> (daily backup + before deploy) |
-| Stripe | test | test | **live** |
-| Email | Mailpit / test inbox | test mode | real |
-| Protected / noindex | n/a | yes / yes | no / no |
-| Deploy | `npm run dev` | `bash scripts/deploy.sh staging` | `bash scripts/deploy.sh production` |
-| Rollback | n/a | redeploy | <previous Vercel deployment / previous image tag> |
+| Branch | feature/*, develop | any PR branch | main |
+| URL | localhost:3000 | Vercel preview link on the PR | https://shahzadclothhouse.com |
+| Host | the laptop | Vercel | Vercel |
+| Database | none | none | none |
+| Payments / email | none | none | none |
+| Protected / noindex | n/a | Vercel login / yes | no / no (`/v3` and `/privacy` noindex) |
+| Deploy | `npm run dev` | automatic on push | merge the release PR into `main` (Vercel builds it), then `bash scripts/deploy.sh production` waits for it to go green |
+| Rollback | n/a | n/a | promote the previous production deployment in Vercel |
 
 ## Environment variables
-Names only. Values live in <`.env.local` on the laptop (gitignored) / Vercel env / Panel app_env / 1Password>.
-
-| Name | What | local | staging | prod |
-|---|---|---|---|---|
-| DATABASE_URL | Postgres connection | ✓ | ✓ | ✓ |
-| STRIPE_SECRET_KEY | Stripe (test outside prod) | ✓ | ✓ | ✓ |
-| STRIPE_WEBHOOK_SECRET | per-env endpoint secret (`stripe listen` locally) | ✓ | ✓ | ✓ |
-| SUPER_ADMIN_EMAILS | platform admins | ✓ | ✓ | ✓ |
-| EMAIL_TEST_MODE | redirect all mail | true | true | false |
-| <...> | | | | |
+None. The site reads no env vars; the GTM id and business facts are public and live in `app/site.ts`.

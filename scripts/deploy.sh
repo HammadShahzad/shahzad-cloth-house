@@ -29,17 +29,27 @@ SHA=$(git rev-parse --short HEAD)
 if [ "$ENV" = production ]; then
   LAST=$(git describe --tags --abbrev=0 2>/dev/null || echo "none")
   echo; echo "Deploying $SHA to PRODUCTION. Last tag: $LAST. Changes since:"; git log --oneline "${LAST}..HEAD" 2>/dev/null | head -30 || true
-  read -r -p "Back up the production database first, then type 'deploy' to continue: " ok
+  # No database on this site (static pages only), so there is nothing to back up. Rollback = promote the previous Vercel deployment.
+  read -r -p "Type 'deploy' to continue: " ok
   [ "$ok" = deploy ] || { echo "Cancelled."; exit 1; }
 fi
 
 echo "▶ deploying $SHA to $ENV"
-# ---- DEPLOY STEP: pick one and delete the rest ----
-# Vercel:        vercel deploy --prod                (production)   |  vercel deploy --target=staging
-# Docker on VPS: docker build -t app:$SHA . && docker save app:$SHA | ssh host 'docker load && cd /srv/app && TAG=$SHA docker compose up -d'
-# Panel:         ask Claude to run Panel app_deploy for this app/env
-# Coolify:       curl -fsS -X POST "$COOLIFY_DEPLOY_WEBHOOK_URL"
-echo "!! Fill in the deploy step in scripts/deploy.sh"; exit 1
+# ---- DEPLOY STEP: Vercel Git integration ----
+# Vercel builds and deploys `main` by itself when a release PR merges, so there is nothing to upload from here.
+# This step waits for Vercel's Production deployment of this exact commit and fails if it doesn't go green.
+command -v gh >/dev/null || { echo "gh is needed to read the Vercel deployment status."; exit 1; }
+STATE=""; FULL=$(git rev-parse HEAD)
+for i in $(seq 1 40); do
+  DEP=$(gh api "repos/{owner}/{repo}/deployments?sha=$FULL&environment=Production" -q '.[0].id' 2>/dev/null || true)
+  if [ -n "$DEP" ]; then
+    STATE=$(gh api "repos/{owner}/{repo}/deployments/$DEP/statuses" -q '.[0].state' 2>/dev/null || true)
+    [ "$STATE" = success ] && break
+    { [ "$STATE" = failure ] || [ "$STATE" = error ]; } && { echo "✗ Vercel production deployment $STATE for $SHA"; exit 1; }
+  fi
+  echo "… waiting for Vercel (${STATE:-not started})"; sleep 15
+done
+[ "$STATE" = success ] || { echo "✗ No successful Vercel production deployment for $SHA after 10 minutes."; exit 1; }
 # ---------------------------------------------------
 
 echo "✓ deployed $SHA to $ENV. Now verify (see SOP 07-release) and, for production, tag the release."
